@@ -279,6 +279,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PackageId", true));
             this.packageIdTextBox.Location = new System.Drawing.Point(182, 49);
             this.packageIdTextBox.Name = "packageIdTextBox";
+            this.packageIdTextBox.ReadOnly = true;
             this.packageIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.packageIdTextBox.TabIndex = 2;
             // 
@@ -437,6 +438,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Controls.Add(this.pkgStartDateDateTimePicker);
             this.Controls.Add(this.packagesBindingNavigator);
             this.Name = "frmModifyPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmModifyPackage";
             this.Load += new System.EventHandler(this.frmModifyPackage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingNavigator)).EndInit();

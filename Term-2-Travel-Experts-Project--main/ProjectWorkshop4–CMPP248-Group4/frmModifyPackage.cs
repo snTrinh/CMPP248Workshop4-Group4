@@ -149,52 +149,59 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Created by Julie Tran on January 31 2021
         private void btnModify_Click_1(object sender, EventArgs e)
         {
-            //select package that will be modified 
-            Packages newPkg = new Packages();
 
-            newPkg.PackageId = package.PackageId;
-            this.PackageData(newPkg);
+                if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+                Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+                Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+                Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price"))
+                {
+                    //select package that will be modified 
+                    Packages newPkg = new Packages();
 
-            try
-            {
-                //if not updating
-                if (!PackagesDB.UpdatePackage(package, newPkg))
-                {
-                    MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
-                    this.DialogResult = DialogResult.Retry;
-                }
-                //if updating 
-                else
-                {
-                    package = newPackage;
-                    if (checkListAddProductSupplier.CheckedItems.Count == 1)
-                    //checking box and adding association with package
+                    newPkg.PackageId = package.PackageId;
+                    this.PackageData(newPkg);
+
+                    try
                     {
-                        //instantiating
-                        Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                        pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
-                        pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
-                        //connecting and adding to DB
-                        Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-                        this.DialogResult = DialogResult.OK;
+                        //if not updating
+                        if (!PackagesDB.UpdatePackage(package, newPkg))
+                        {
+                            MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
+                            this.DialogResult = DialogResult.Retry;
+                        }
+                        //if updating 
+                        else
+                        {
+                            package = newPackage;
+                            if (checkListAddProductSupplier.CheckedItems.Count == 1)
+                            //checking box and adding association with package
+                            {
+                                //instantiating
+                                Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                                pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
+                                pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                                //connecting and adding to DB
+                                Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                                this.DialogResult = DialogResult.OK;
+                            }
+                            //unchecking box and removing association with package
+                            else
+                            {
+                                //deleting item that was unchecked
+                                //instantiating
+                                Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                                pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
+                                pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                                //connecting and adding to DB
+                                Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
+                            }
+                        }
                     }
-                    //unchecking box and removing association with package
-                    else
+                    catch (Exception ex)
                     {
-                        //deleting item that was unchecked
-                        //instantiating
-                        Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                        pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
-                        pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
-                        //connecting and adding to DB
-                        Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
+                        MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
-            }
         }
 
         private void btnCancel_Click_1(object sender, EventArgs e)
@@ -227,31 +234,36 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Created by Julie Tran on January 31, 2021
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            //create package to be added to DB
-            newPackage = new Packages();
-            newPackage.PkgName = pkgNameTextBox.Text;
-            try
-            {
-                //checks to see if products/suppliers have been added
-                this.PackageData(newPackage);
-                //Add new package 
-                newPackage.PackageId = PackagesDB.AddPackage(newPackage);
+            //if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+            //    Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+            //    Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price"))
+            //{
+                //create package to be added to DB
+                newPackage = new Packages();
+                newPackage.PkgName = pkgNameTextBox.Text;
+                try
+                {
+                    //checks to see if products/suppliers have been added
+                    this.PackageData(newPackage);
+                    //Add new package 
+                    newPackage.PackageId = PackagesDB.AddPackage(newPackage);
 
-                //instantiating
-                Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
-                pkgProdSup.PackageId = newPackage.PackageId;
+                    //instantiating
+                    Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                    pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
+                    pkgProdSup.PackageId = newPackage.PackageId;
 
 
-                //connecting and adding to DB
-                Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-                this.DialogResult = DialogResult.OK;
+                    //connecting and adding to DB
+                    Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                    this.DialogResult = DialogResult.OK;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding new package " + ex.Message, ex.GetType().ToString());
-            }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error while adding new package " + ex.Message, ex.GetType().ToString());
+                }
+            //}
         }
     }
 }
