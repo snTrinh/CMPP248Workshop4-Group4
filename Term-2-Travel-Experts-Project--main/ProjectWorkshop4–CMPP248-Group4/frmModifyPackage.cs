@@ -71,7 +71,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     productAndSupplier.SupplierId = supplierId;
                     productAndSupplier.ProductSupplierId = productSupplierId;
                     selectedList.Add(productAndSupplier);
-
                 }
             }
             return selectedList;
@@ -87,10 +86,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             package.PkgEndDate = (DateTime)pkgEndDateDateTimePicker.Value;
             
         }
-
-        
-
-
 
         private void frmModifyPackage_Load(object sender, EventArgs e)
         {
@@ -153,7 +148,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
                 Validator.IsPresent(pkgDescTextBox, "Package Description") &&
                 Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
-                Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price"))
+                Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
+                Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date"))
                 {
                     //select package that will be modified 
                     Packages newPkg = new Packages();
@@ -216,7 +212,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 List<Products_Suppliers> selectedProduct = checkRegEx(checkListExistingProdSupplier);
                 tbPackageSupplierId.Text = selectedProduct[0].ProductSupplierId.ToString();
-
             }
         }
 
@@ -234,10 +229,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Created by Julie Tran on January 31, 2021
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            //if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
-            //    Validator.IsPresent(pkgDescTextBox, "Package Description") &&
-            //    Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price"))
-            //{
+            if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+                Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+                Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price"))
+            {
                 //create package to be added to DB
                 newPackage = new Packages();
                 newPackage.PkgName = pkgNameTextBox.Text;
@@ -253,17 +248,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
                     pkgProdSup.PackageId = newPackage.PackageId;
 
-
                     //connecting and adding to DB
                     Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                     this.DialogResult = DialogResult.OK;
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error while adding new package " + ex.Message, ex.GetType().ToString());
                 }
-            //}
+           }
         }
     }
 }

@@ -119,7 +119,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (end.Value < start.Value)
             {
                 isValid = false;
-                MessageBox.Show(name + " should be less than the base price", "Input Error");
+                MessageBox.Show(name + " should be after start date.", "Input Error");
                 end.Focus();
             }
             return isValid;
