@@ -1,0 +1,12 @@
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\obj\Debug\Products_SuppliersData.csproj.CoreCompileInputs.cache
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\obj\Debug\Products_SuppliersData.dll
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\obj\Debug\Products_SuppliersData.pdb
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\bin\Debug\Products_SuppliersData.dll
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\bin\Debug\Products_SuppliersData.pdb
+C:\Users\846328\OneDrive - Southern Alberta Institute of Technology\Documents\GitHub\Term-2-Travel-Experts-Project-\Products_SuppliersData\obj\Debug\Products_SuppliersData.csprojAssemblyReference.cache
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\bin\Debug\Products_SuppliersData.dll
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\bin\Debug\Products_SuppliersData.pdb
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\obj\Debug\Products_SuppliersData.csprojAssemblyReference.cache
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\obj\Debug\Products_SuppliersData.csproj.CoreCompileInputs.cache
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\obj\Debug\Products_SuppliersData.dll
+C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\Products_SuppliersData\obj\Debug\Products_SuppliersData.pdb
