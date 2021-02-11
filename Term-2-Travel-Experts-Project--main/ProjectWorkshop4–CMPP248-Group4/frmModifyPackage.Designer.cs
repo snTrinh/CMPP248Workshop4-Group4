@@ -290,6 +290,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
             this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(200, 20);
             this.pkgAgencyCommissionTextBox.TabIndex = 4;
+            this.pkgAgencyCommissionTextBox.Text = "0.0";
             // 
             // pkgBasePriceTextBox
             // 

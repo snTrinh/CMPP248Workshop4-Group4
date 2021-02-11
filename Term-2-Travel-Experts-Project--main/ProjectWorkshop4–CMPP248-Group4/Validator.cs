@@ -102,7 +102,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             bool isValid = true;
             decimal com = Convert.ToDecimal(commission.Text);
             decimal pr = Convert.ToDecimal(price.Text);
-            if (com > pr)
+            if (com >= pr)
             {
                 isValid = false;
                 MessageBox.Show(name + " should be less than the base price", "Input Error");
@@ -116,7 +116,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             bool isValid = true;
 
-            if (end.Value < start.Value)
+            if (end.Value <= start.Value)
             {
                 isValid = false;
                 MessageBox.Show(name + " should be after start date.", "Input Error");

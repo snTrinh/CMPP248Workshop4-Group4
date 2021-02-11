@@ -343,5 +343,32 @@ namespace ProjectWorkshop4_CMPP248_Group4
             //agentsBindingSource.DataSource = AgentsAgencyDB.GetAgentsByID(1);
         }
 
+        // exit on overview
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // exit on packages
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit oon products
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit on suppliers
+        private void exitToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit on agencies
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //
     }
 }

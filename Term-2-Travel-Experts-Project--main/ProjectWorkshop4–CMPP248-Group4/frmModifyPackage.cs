@@ -149,7 +149,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 Validator.IsPresent(pkgDescTextBox, "Package Description") &&
                 Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
                 Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
-                Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date"))
+                Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
+                Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
                 {
                     //select package that will be modified 
                     Packages newPkg = new Packages();
@@ -231,7 +232,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
                 Validator.IsPresent(pkgDescTextBox, "Package Description") &&
-                Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price"))
+                Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+                Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
             {
                 //create package to be added to DB
                 newPackage = new Packages();
