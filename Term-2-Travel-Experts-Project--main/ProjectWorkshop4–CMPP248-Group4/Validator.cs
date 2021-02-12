@@ -11,7 +11,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         /// </summary>
         /// <param name="tb">text box to test</param>
         /// <param name="name">name for error message</param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public static bool IsPresent(TextBox tb, string name)
         {
             bool isValid = true; // "innocent until proven guilty"
@@ -28,7 +28,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         /// </summary>
         /// <param name="tb">text box to test</param>
         /// <param name="name">name for error message</param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public static bool IsNonNegativeDecimal(TextBox tb, string name)
         {
             bool isValid = true;
@@ -50,39 +50,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             return isValid;
         }
 
-        /// <summary>
-        /// test if a text box contains nonnegative integer
-        /// </summary>
-        /// <param name="tb">text box to test</param>
-        /// <param name="name">name for error message</param>
-        /// <returns></returns>
-        public static bool IsNonNegativeInt32(TextBox tb, string name)
-        {
-            bool isValid = true;
-            int value;
-            if (!Int32.TryParse(tb.Text, out value))// not an integer
-            {
-                isValid = false;
-                MessageBox.Show(name + " should be a whole number", "Input Error");
-                tb.SelectAll(); // select all text box content to ease replacing
-                tb.Focus();
-            }
-            else if (value < 0)// integer, but negative
-            {
-                isValid = false;
-                MessageBox.Show(name + " should be positive or zero", "Input Error");
-                tb.SelectAll(); // select all text box content to ease replacing
-                tb.Focus();
-            }
-            return isValid;
-        }
 
         /// <summary>
         /// test if a text box contains numeric values or special characters
         /// </summary>
         /// <param name="tb">text box to test</param>
         /// <param name="name">name for error message</param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public static bool IsNonNumeric(TextBox tb, string name)
         {
             bool isValid = true;
@@ -97,6 +71,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             return isValid;
         }
 
+        /// <summary>
+        /// tests to see if commision is less than base
+        /// </summary>
+        /// <param name="commission">commission</param>
+        /// <param name="price">price</param>
+        /// <param name="name"></param>
+        /// <returns>bool</returns>
         public static bool IsLessThanBase(TextBox commission, TextBox price, string name)
         {
             bool isValid = true;
@@ -112,6 +93,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             return isValid;
         }
 
+        /// <summary>
+        /// tests to see if end date is after start date
+        /// </summary>
+        /// <param name="end"></param>
+        /// <param name="start"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool IsAfterStartDate(DateTimePicker end, DateTimePicker start, string name)
         {
             bool isValid = true;
@@ -125,18 +113,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             return isValid;
         }
 
-        //public static bool IsUniqueSupplierId(TextBox tb, string name)
-        //{
-        //    //bool isValid = true;
-        //    //// check if value exists in Suppliers.SupplierId
-        //    //if ( < )
-        //    //{
-        //    //    isValid = false;
-        //    //    MessageBox.Show(name + " already exists in the database. Please try again.", "Input Error");
-        //    //    tb.SelectAll();
-        //    //    tb.Focus();
-        //    //}
-        //    //return isValid;
-        //}
+       
     }
 }

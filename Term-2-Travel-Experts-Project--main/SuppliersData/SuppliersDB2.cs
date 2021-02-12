@@ -166,7 +166,7 @@ namespace SuppliersData
                 {
                     cmd.Parameters.AddWithValue("@SupplierId", supplierId);
                     connection.Open();
-                    int id = cmd.ExecuteNonQuery();
+                    int? id = cmd.ExecuteNonQuery();
                     if (id != null)
                         return true;
                 }

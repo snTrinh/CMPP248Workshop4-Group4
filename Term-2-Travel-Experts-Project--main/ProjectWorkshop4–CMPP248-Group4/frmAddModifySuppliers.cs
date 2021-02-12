@@ -30,19 +30,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     prodNameCheckedListBox.Items.Insert(i, products[i].ProdName);
                 }
-                // need to validate this value
-                Random r = new Random();
-                int rand;
-                //bool x = SuppliersDB.SupplierExists(69); // returns false because ID exists
-                //bool y = SuppliersDB.SupplierExists(70); // returns true cause it doesnt exist
-                do
-                {
-                    rand = Convert.ToInt32(r.Next(0, 15000));
-                }
-                while (!SuppliersDB.SupplierExists(rand)); // while this is false, generate random number until one is created that doesn't exist in the DB
-                    
-                //if the above returns tre, assigne value to supplierID
-                supplierIdTextBox.Text = rand.ToString();
+
+                int randomID = RandomSupplierId();
+                supplierIdTextBox.Text = randomID.ToString();
                 btnModify.Visible = false;
                 this.Text = "Add Suplier";
             }
@@ -72,6 +62,25 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
+        // Random Supplier ID with validator
+        // Code by Susan Trinh: February 11, 2021
+        private int RandomSupplierId()
+        {
+            Random r = new Random();
+            int rand;
+            //bool x = SuppliersDB.SupplierExists(69); // returns false because ID exists
+            //bool y = SuppliersDB.SupplierExists(70); // returns true cause it doesn't exist
+            do
+            {
+                rand = Convert.ToInt32(r.Next(0, 15000));
+            }
+            while (!SuppliersDB.SupplierExists(rand)); // while this is false, generate random number until one is created that doesn't exist in the DB
+            //if the above returns true return the value
+            return rand;
+        }
+
+
+
         // if modifying a supplier, display these values
         private void DisplaySelectedSupplier()
         {
@@ -85,11 +94,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DialogResult = DialogResult.Cancel;
         }
 
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(supplierIdTextBox, "Supplier Id") &&
-                Validator.IsNonNegativeInt32(supplierIdTextBox, "Supplier Id") &&
                 Validator.IsPresent(supNameTextBox, "Supplier Name"))
             {
                 try
