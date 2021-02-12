@@ -30,10 +30,19 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     prodNameCheckedListBox.Items.Insert(i, products[i].ProdName);
                 }
+                // need to validate this value
                 Random r = new Random();
-                supplierIdTextBox.Text = r.Next(0, 15000).ToString();
-
-
+                int rand;
+                //bool x = SuppliersDB.SupplierExists(69); // returns false because ID exists
+                //bool y = SuppliersDB.SupplierExists(70); // returns true cause it doesnt exist
+                do
+                {
+                    rand = Convert.ToInt32(r.Next(0, 15000));
+                }
+                while (!SuppliersDB.SupplierExists(rand)); // while this is false, generate random number until one is created that doesn't exist in the DB
+                    
+                //if the above returns tre, assigne value to supplierID
+                supplierIdTextBox.Text = rand.ToString();
                 btnModify.Visible = false;
                 this.Text = "Add Suplier";
             }
@@ -76,10 +85,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DialogResult = DialogResult.Cancel;
         }
 
-        private void prodNameCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
