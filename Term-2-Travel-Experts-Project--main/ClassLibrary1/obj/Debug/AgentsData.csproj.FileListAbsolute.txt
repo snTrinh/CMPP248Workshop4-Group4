@@ -1,6 +1,0 @@
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\bin\Debug\ClassLibrary1.dll
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\obj\Debug\AgentsData.csprojAssemblyReference.cache
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\obj\Debug\AgentsData.csproj.CoreCompileInputs.cache
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\obj\Debug\ClassLibrary1.dll
-C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
