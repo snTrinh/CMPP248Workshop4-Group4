@@ -10,3 +10,9 @@ C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ProductsData
 C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ProductsData\obj\Debug\ProductsData.csproj.CoreCompileInputs.cache
 C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ProductsData\obj\Debug\ProductsData.dll
 C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\ProductsData\obj\Debug\ProductsData.pdb
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\bin\Debug\ProductsData.dll
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\bin\Debug\ProductsData.pdb
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csprojAssemblyReference.cache
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csproj.CoreCompileInputs.cache
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.dll
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.pdb

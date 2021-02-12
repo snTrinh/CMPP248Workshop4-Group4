@@ -1331,7 +1331,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.TextBox agncyProvTextBox;
         private System.Windows.Forms.BindingSource agentsBindingSource;
         private System.Windows.Forms.DataGridView agentsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.TextBox agncyCityTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
