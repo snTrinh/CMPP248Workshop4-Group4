@@ -30,6 +30,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     prodNameCheckedListBox.Items.Insert(i, products[i].ProdName);
                 }
+                Random r = new Random();
+                supplierIdTextBox.Text = r.Next(0, 15000).ToString();
+
 
                 btnModify.Visible = false;
                 this.Text = "Add Suplier";
@@ -110,6 +113,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     int prod3 = Convert.ToInt32(z);
                     Suppliers newSupplier = new Suppliers();
                     newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
+
+                   
+
                     newSupplier.SupName = supNameTextBox.Text;
 
 
