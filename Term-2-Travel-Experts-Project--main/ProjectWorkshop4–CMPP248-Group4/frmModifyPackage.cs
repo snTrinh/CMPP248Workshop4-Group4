@@ -70,7 +70,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     productAndSupplier.SupplierId = supplierId;
                     productAndSupplier.ProductSupplierId = productSupplierId;
                     selectedList.Add(productAndSupplier);
-
                 }
             }
             return selectedList;
@@ -86,7 +85,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             package.PkgEndDate = (DateTime)pkgEndDateDateTimePicker.Value;
             
         }
-
 
         private void frmModifyPackage_Load(object sender, EventArgs e)
         {
@@ -147,11 +145,19 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Created by Julie Tran on January 31 2021
         private void btnModify_Click_1(object sender, EventArgs e)
         {
-            //select package that will be modified 
-            Packages newPkg = new Packages();
 
-            newPkg.PackageId = package.PackageId;
-            this.PackageData(newPkg);
+                if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+                Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+                Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+                Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
+                Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
+                Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
+                {
+                    //select package that will be modified 
+                    Packages newPkg = new Packages();
+
+                    newPkg.PackageId = package.PackageId;
+                    this.PackageData(newPkg);
 
             try
             {

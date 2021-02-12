@@ -298,6 +298,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
             this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(265, 22);
             this.pkgAgencyCommissionTextBox.TabIndex = 4;
+            this.pkgAgencyCommissionTextBox.Text = "0.0";
             // 
             // pkgBasePriceTextBox
             // 
@@ -453,6 +454,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Controls.Add(this.packagesBindingNavigator);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmModifyPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmModifyPackage";
             this.Load += new System.EventHandler(this.frmModifyPackage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingNavigator)).EndInit();

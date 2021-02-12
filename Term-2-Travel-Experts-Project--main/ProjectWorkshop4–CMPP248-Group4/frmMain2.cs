@@ -55,20 +55,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DisplayCurrentSupplier(0);
             lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
 
-
-
-            suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
-
-
-            // display Packages_Prodcuts_Suppliers grid view for testing purposes only
-            packages_Products_SuppliersDataGridView.DataSource = Packages_Products_SuppliersDB.GetPackagesProductsSuppliers();
+            //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
 
             agenciesBindingSource1.DataSource = AgentsAgencyDB.GetAgencies();
             
             lblAgencies.Text = AgentsAgencyDB.GetAgencies().Count.ToString();
 
             // int id = Convert.ToInt32(agencyIdComboBox.Text);
-            //agentsDataGridView.DataSource = AgentsAgencyDB.GetAgents();
+            agentsDataGridView.DataSource = AgentsAgencyDB.GetAgents();
             lblAgents.Text = AgentsAgencyDB.GetAgents().Count.ToString();
         }
 
@@ -227,7 +221,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 newSupplier = addSuppliersForm.newSupplier;
                 suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
+                //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
                 lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
             }
 
@@ -247,7 +241,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 modifySupplier = modifySupplierForm.modifySupplier;
                 suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
+                //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
             }
             Console.WriteLine(modifySupplier);
         }
@@ -270,7 +264,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     {
                         SuppliersDB.DeleteSupplier(modifySupplier);
                         suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                        suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
+                        //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
                         lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
                     }
                 }
@@ -349,5 +343,32 @@ namespace ProjectWorkshop4_CMPP248_Group4
             //agentsBindingSource.DataSource = AgentsAgencyDB.GetAgentsByID(1);
         }
 
+        // exit on overview
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // exit on packages
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit oon products
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit on suppliers
+        private void exitToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // exit on agencies
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //
     }
 }

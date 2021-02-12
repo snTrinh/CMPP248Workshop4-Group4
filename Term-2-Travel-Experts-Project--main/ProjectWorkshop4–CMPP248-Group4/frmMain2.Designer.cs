@@ -43,6 +43,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,14 +77,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.agncyProvTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip6 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.suppliersNumOfProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +86,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAllToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,14 +98,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAllToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.packages_Products_SuppliersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagesDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,7 +114,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,7 +132,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             agencyIdLabel = new System.Windows.Forms.Label();
@@ -163,14 +157,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             ((System.ComponentModel.ISupportInitialize)(this.agenciesBindingSource1)).BeginInit();
             this.menuStrip6.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersNumOfProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).BeginInit();
             this.menuStrip3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.Overview.SuspendLayout();
@@ -300,6 +292,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // agentsDataGridView
             // 
+            this.agentsDataGridView.AllowUserToResizeRows = false;
             this.agentsDataGridView.AutoGenerateColumns = false;
             this.agentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.agentsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -311,9 +304,11 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn23});
             this.agentsDataGridView.DataSource = this.agentsBindingSource;
             this.agentsDataGridView.Location = new System.Drawing.Point(312, 194);
+            this.agentsDataGridView.MultiSelect = false;
             this.agentsDataGridView.Name = "agentsDataGridView";
             this.agentsDataGridView.ReadOnly = true;
             this.agentsDataGridView.RowHeadersVisible = false;
+            this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agentsDataGridView.Size = new System.Drawing.Size(454, 152);
             this.agentsDataGridView.TabIndex = 4;
             // 
@@ -475,31 +470,23 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(115, 22);
-            this.toolStripMenuItem2.Text = "Save All";
-            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(115, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(93, 22);
             this.toolStripMenuItem3.Text = "Exit";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
             this.tabPage3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage3.BackgroundImage")));
             this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage3.Controls.Add(this.suppliersNumOfProductsDataGridView);
-            this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.suppliersDataGridView);
             this.tabPage3.Controls.Add(this.menuStrip3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -510,69 +497,49 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage3.Text = "Suppliers";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // suppliersNumOfProductsDataGridView
-            // 
-            this.suppliersNumOfProductsDataGridView.AutoGenerateColumns = false;
-            this.suppliersNumOfProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.suppliersNumOfProductsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21});
-            this.suppliersNumOfProductsDataGridView.DataSource = this.suppliersNumOfProductsBindingSource;
-            this.suppliersNumOfProductsDataGridView.Location = new System.Drawing.Point(0, 317);
-            this.suppliersNumOfProductsDataGridView.MultiSelect = false;
-            this.suppliersNumOfProductsDataGridView.Name = "suppliersNumOfProductsDataGridView";
-            this.suppliersNumOfProductsDataGridView.RowHeadersVisible = false;
-            this.suppliersNumOfProductsDataGridView.Size = new System.Drawing.Size(445, 159);
-            this.suppliersNumOfProductsDataGridView.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
-            this.dataGridViewTextBoxColumn1.FillWeight = 57.69231F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Supplier Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn20.FillWeight = 159.6972F;
-            this.dataGridViewTextBoxColumn20.HeaderText = "Supplier Name";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Width = 220;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "NumOfProd";
-            this.dataGridViewTextBoxColumn21.FillWeight = 82.61047F;
-            this.dataGridViewTextBoxColumn21.HeaderText = "No. of Products";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.Width = 115;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(669, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Sort alphabetically?";
-            // 
             // suppliersDataGridView
             // 
+            this.suppliersDataGridView.AllowUserToResizeRows = false;
             this.suppliersDataGridView.AutoGenerateColumns = false;
             this.suppliersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.suppliersDataGridView.BackgroundColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.suppliersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.suppliersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.suppliersDataGridView.DataSource = this.suppliersBindingSource;
-            this.suppliersDataGridView.Location = new System.Drawing.Point(0, 29);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.suppliersDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.suppliersDataGridView.Location = new System.Drawing.Point(226, 44);
             this.suppliersDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.suppliersDataGridView.MultiSelect = false;
             this.suppliersDataGridView.Name = "suppliersDataGridView";
+            this.suppliersDataGridView.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.suppliersDataGridView.RowHeadersVisible = false;
-            this.suppliersDataGridView.Size = new System.Drawing.Size(395, 257);
+            this.suppliersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.suppliersDataGridView.Size = new System.Drawing.Size(382, 430);
             this.suppliersDataGridView.TabIndex = 6;
             this.suppliersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.suppliersDataGridView_CellClick);
             // 
@@ -582,6 +549,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn13.FillWeight = 47.71573F;
             this.dataGridViewTextBoxColumn13.HeaderText = "Supplier Id";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -589,6 +557,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn14.FillWeight = 152.2843F;
             this.dataGridViewTextBoxColumn14.HeaderText = "Supplier Name";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // menuStrip3
             // 
@@ -608,7 +577,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem2,
             this.deleteToolStripMenuItem2,
-            this.saveAllToolStripMenuItem3,
             this.exitToolStripMenuItem3});
             this.fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
             this.fileToolStripMenuItem2.Size = new System.Drawing.Size(37, 20);
@@ -617,28 +585,23 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // addToolStripMenuItem2
             // 
             this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(115, 22);
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem2.Text = "Add";
             this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(115, 22);
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem2.Text = "Delete";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
-            // 
-            // saveAllToolStripMenuItem3
-            // 
-            this.saveAllToolStripMenuItem3.Name = "saveAllToolStripMenuItem3";
-            this.saveAllToolStripMenuItem3.Size = new System.Drawing.Size(115, 22);
-            this.saveAllToolStripMenuItem3.Text = "Save All";
             // 
             // exitToolStripMenuItem3
             // 
             this.exitToolStripMenuItem3.Name = "exitToolStripMenuItem3";
-            this.exitToolStripMenuItem3.Size = new System.Drawing.Size(115, 22);
+            this.exitToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem3.Text = "Exit";
+            this.exitToolStripMenuItem3.Click += new System.EventHandler(this.exitToolStripMenuItem3_Click);
             // 
             // editToolStripMenuItem2
             // 
@@ -692,11 +655,21 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
             this.productsDataGridView.DataSource = this.productsBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.productsDataGridView.Location = new System.Drawing.Point(188, 74);
             this.productsDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.productsDataGridView.MultiSelect = false;
             this.productsDataGridView.Name = "productsDataGridView";
+            this.productsDataGridView.ReadOnly = true;
             this.productsDataGridView.RowHeadersVisible = false;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(370, 288);
             this.productsDataGridView.TabIndex = 5;
             this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
@@ -706,12 +679,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn11.DataPropertyName = "ProductId";
             this.dataGridViewTextBoxColumn11.HeaderText = "ProductId";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "ProdName";
             this.dataGridViewTextBoxColumn12.HeaderText = "Product Type";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // menuStrip2
             // 
@@ -731,7 +706,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.deleteToolStripMenuItem,
-            this.saveAllToolStripMenuItem2,
             this.exitToolStripMenuItem2});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -740,28 +714,23 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // saveAllToolStripMenuItem2
-            // 
-            this.saveAllToolStripMenuItem2.Name = "saveAllToolStripMenuItem2";
-            this.saveAllToolStripMenuItem2.Size = new System.Drawing.Size(115, 22);
-            this.saveAllToolStripMenuItem2.Text = "Save All";
             // 
             // exitToolStripMenuItem2
             // 
             this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
-            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(115, 22);
+            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem2.Text = "Exit";
+            this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -783,7 +752,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage2.AutoScroll = true;
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.packages_Products_SuppliersDataGridView);
             this.tabPage2.Controls.Add(this.packagesDataGridView);
             this.tabPage2.Controls.Add(this.menuStrip1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -794,40 +762,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage2.Text = "Packages";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // packages_Products_SuppliersDataGridView
-            // 
-            this.packages_Products_SuppliersDataGridView.AutoGenerateColumns = false;
-            this.packages_Products_SuppliersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.packages_Products_SuppliersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.packages_Products_SuppliersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
-            this.packages_Products_SuppliersDataGridView.DataSource = this.packages_Products_SuppliersBindingSource;
-            this.packages_Products_SuppliersDataGridView.Location = new System.Drawing.Point(294, 272);
-            this.packages_Products_SuppliersDataGridView.Name = "packages_Products_SuppliersDataGridView";
-            this.packages_Products_SuppliersDataGridView.RowHeadersWidth = 51;
-            this.packages_Products_SuppliersDataGridView.Size = new System.Drawing.Size(348, 155);
-            this.packages_Products_SuppliersDataGridView.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "PackageId";
-            this.dataGridViewTextBoxColumn15.HeaderText = "PackageId";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "ProductSupplerId";
-            this.dataGridViewTextBoxColumn16.HeaderText = "ProductSupplerId";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
             // packagesDataGridView
             // 
+            this.packagesDataGridView.AllowUserToResizeRows = false;
             this.packagesDataGridView.AutoGenerateColumns = false;
             this.packagesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.packagesDataGridView.BackgroundColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.packagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.packagesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.packagesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -838,11 +786,29 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.packagesDataGridView.DataSource = this.packagesBindingSource;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.packagesDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.packagesDataGridView.Location = new System.Drawing.Point(3, 30);
             this.packagesDataGridView.MultiSelect = false;
             this.packagesDataGridView.Name = "packagesDataGridView";
+            this.packagesDataGridView.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.packagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.packagesDataGridView.RowHeadersVisible = false;
             this.packagesDataGridView.RowHeadersWidth = 51;
+            this.packagesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.packagesDataGridView.Size = new System.Drawing.Size(810, 200);
             this.packagesDataGridView.TabIndex = 1;
             this.packagesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagesDataGridView_CellClick);
@@ -854,6 +820,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Column1.HeaderText = "PackageId";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -862,28 +829,31 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.FillWeight = 79.88559F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Start Date";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn4.FillWeight = 81.40952F;
             this.dataGridViewTextBoxColumn4.HeaderText = "End Date";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -892,28 +862,31 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn5.HeaderText = "Description";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn6.FillWeight = 67.55735F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Base Price";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn7.FillWeight = 70.45617F;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -933,7 +906,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem1,
             this.deleteToolStripMenuItem1,
-            this.saveAllToolStripMenuItem1,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
@@ -942,28 +914,23 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // addToolStripMenuItem1
             // 
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem1.Text = "Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
-            // 
-            // saveAllToolStripMenuItem1
-            // 
-            this.saveAllToolStripMenuItem1.Name = "saveAllToolStripMenuItem1";
-            this.saveAllToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
-            this.saveAllToolStripMenuItem1.Text = "Save All";
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // editToolStripMenuItem1
             // 
@@ -1153,23 +1120,17 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // fileToolStripMenuItem3
             // 
             this.fileToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveAllToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem3.Name = "fileToolStripMenuItem3";
             this.fileToolStripMenuItem3.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem3.Text = "File";
             // 
-            // saveAllToolStripMenuItem
-            // 
-            this.saveAllToolStripMenuItem.Name = "saveAllToolStripMenuItem";
-            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.saveAllToolStripMenuItem.Text = "Save All";
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -1216,7 +1177,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip6.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersNumOfProductsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).EndInit();
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
@@ -1227,7 +1187,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1253,14 +1212,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.MenuStrip menuStrip6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView suppliersNumOfProductsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView suppliersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
@@ -1268,7 +1221,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem1;
@@ -1278,14 +1230,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem5;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView packages_Products_SuppliersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridView packagesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1298,7 +1246,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
@@ -1310,7 +1257,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip4;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label lblProd;

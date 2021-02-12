@@ -140,6 +140,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.supplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "SupplierId", true));
             this.supplierIdTextBox.Location = new System.Drawing.Point(114, 29);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
+            this.supplierIdTextBox.ReadOnly = true;
             this.supplierIdTextBox.Size = new System.Drawing.Size(187, 20);
             this.supplierIdTextBox.TabIndex = 15;
             // 
@@ -155,7 +156,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.prodNameCheckedListBox.Name = "prodNameCheckedListBox";
             this.prodNameCheckedListBox.Size = new System.Drawing.Size(187, 94);
             this.prodNameCheckedListBox.TabIndex = 16;
-            this.prodNameCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.prodNameCheckedListBox_SelectedIndexChanged);
             // 
             // frmAddModifySuppliers
             // 

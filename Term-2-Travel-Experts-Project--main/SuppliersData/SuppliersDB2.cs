@@ -133,6 +133,7 @@ namespace SuppliersData
 
         /// <summary>
         /// Deleted supplier record
+        /// This method was created by Susan Trinh on February 4, 2021
         /// </summary>
         /// <param name="supplier"></param>
         /// <returns></returns>
@@ -154,5 +155,24 @@ namespace SuppliersData
                 return result;
             }
         }
+
+        public static bool SupplierExists(int supplierId)
+        {
+            bool result = false;
+            using (SqlConnection connection = GetConnection())
+            {
+                string deleteStatement = "Select SupplierId FROM Suppliers WHERE SupplierId = @SupplierId";
+                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    connection.Open();
+                    int? id = cmd.ExecuteNonQuery();
+                    if (id != null)
+                        return true;
+                }
+                return result;
+            }
+        }
+
     }//class
 }//namespace
