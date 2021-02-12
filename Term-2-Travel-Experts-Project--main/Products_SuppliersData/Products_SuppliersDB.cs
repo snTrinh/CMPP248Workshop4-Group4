@@ -327,5 +327,49 @@ namespace Products_SuppliersData
             return prodSupNameList;
         }
 
+        // when a supplier is modifying a product
+        public static bool ProductSupplier(int productId, int supplierId)
+        {
+            bool result = true;
+            using (SqlConnection connection = GetConnection())
+            {
+                string deleteStatement = "DELETE FROM Products_Suppliers WHERE ProductId = @ProductId AND SupplierId = @SupplierId";
+                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProductId", productId);
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    connection.Open();
+                    int count = cmd.ExecuteNonQuery();
+                    if (count == 0)
+                        return false;
+
+                }
+                return result;
+            }
+
+        }
+
+        // if a supplier is deleted, the following code should also execute if an existing supplierID exists in the DB
+
+        public static bool ProductSupplier(int supplierId)
+        {
+            bool result = true;
+            using (SqlConnection connection = GetConnection())
+            {
+                string deleteStatement = "DELETE FROM Products_Suppliers WHERE SupplierId = @SupplierId";
+                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    connection.Open();
+                    int count = cmd.ExecuteNonQuery();
+                    if (count == 0)
+                        return false;
+
+                }
+                return result;
+            }
+
+        }
+
     }
 }
