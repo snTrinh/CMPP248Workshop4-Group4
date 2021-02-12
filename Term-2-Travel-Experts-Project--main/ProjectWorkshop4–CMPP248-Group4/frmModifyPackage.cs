@@ -110,13 +110,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 pnlAdd.Visible = false;
                 pnlModify.Visible = true;
                 //if package is selected, then load selected packages
-                if (package != null) 
+                if (package != null)
                 {
                     DisplaySelectedPackage();
-                }
-                
-                packageIdTextBox.Text = package.PackageId.ToString();
-                //retrieve products and suppliers by packageID 
+
+
+                    packageIdTextBox.Text = package.PackageId.ToString();
+                }//retrieve products and suppliers by packageID 
                 int packageID = Convert.ToInt32(packageIdTextBox.Text);
                 
                 prodSup = Products_SuppliersDB.GetProductSupplierName(packageID);
