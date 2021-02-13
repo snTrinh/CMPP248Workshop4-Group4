@@ -309,8 +309,9 @@ namespace Products_SuppliersData
             return prodSupNameList;
         }
 
-        // when a supplier is modifying a product
-        public static bool ProductSupplier(int productId, int supplierId)
+        // this code should implement when modifying product suppliers
+        
+        public static bool DeleteProductSupplier(int productId, int supplierId)
         {
             bool result = true;
             using (SqlConnection connection = GetConnection())
@@ -337,7 +338,7 @@ namespace Products_SuppliersData
         /// The data here for the supplier is also deleted
         /// </summary>
         /// <param name="supplierId">supplier id</param>
-        public static void DeleteProductSupplier(int supplierId)
+        public static void DeleteProductSupplierBySupplierId(int supplierId)
         {
             //bool result = true;
             using (SqlConnection connection = GetConnection())
@@ -358,11 +359,38 @@ namespace Products_SuppliersData
         }
 
         /// <summary>
+        /// For when a proiduct is deleted and has a corresponding ProductSupplierID
+        /// The data here for the product is also deleted
+        /// </summary>
+        /// <param name="productId">supplier id</param>
+        public static void DeleteProductSupplierByProductId(int productId)
+        {
+            //bool result = true;
+            using (SqlConnection connection = GetConnection())
+            {
+                string deleteStatement = "DELETE FROM Products_Suppliers WHERE ProductId = @ProductId";
+                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProductId", productId);
+                    connection.Open();
+                    int count = cmd.ExecuteNonQuery();
+                    //if (count == 0)
+                    //return false;
+
+                }
+                //return result;
+            }
+
+        }
+
+
+
+        /// <summary>
         /// checks to see if product supplier data exists using supplier ID
         /// </summary>
         /// <param name="supplierId">supplier ID</param>
         /// <returns></returns>
-        public static bool IfProductSuppliersExists(int supplierId)
+        public static bool IfProductSuppliersExistsBySupplierId(int supplierId)
         {
             bool result = false;
             using (SqlConnection connection = GetConnection())

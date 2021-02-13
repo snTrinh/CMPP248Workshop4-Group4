@@ -188,10 +188,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 try
                 {
-                    if (!ProductsDB.DeleteProduct(modifyProduct))
+                    if (Products_SuppliersDB.IfProductSuppliersExistsByProdID(modifyProduct.ProductId))
                     {
-                        MessageBox.Show("Another user has updated or deleted " +
-                              "that product.", "Concurrency error");
+                        Products_SuppliersDB.DeleteProductSupplierByProductId(modifyProduct.ProductId);
+                        ProductsDB.DeleteProduct(modifyProduct);
+                        productsDataGridView.DataSource = ProductsDB.GetProducts();
+                        lblProd.Text = productsDataGridView.Rows.Count.ToString();
                     }
                     else
                     {
@@ -256,36 +258,26 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 try
                 {
-                    //if (!SuppliersDB.DeleteSupplier(modifySupplier))
-                    //{
-                    //    MessageBox.Show("Another user has updated or deleted " +
-                    //          "that product.", "Concurrency error");
-                    //}
-                    //else
-                    //{
-                        if(Products_SuppliersDB.IfProductSuppliersExists(modifySupplier.SupplierId))
-                        {
-                                Products_SuppliersDB.DeleteProductSupplier(modifySupplier.SupplierId);
-                                SuppliersDB.DeleteSupplier(modifySupplier);
-                                suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                                lblSup.Text = suppliersDataGridView.Rows.Count.ToString();  
-                        }
-                        else
-                        {
-                            SuppliersDB.DeleteSupplier(modifySupplier);
-                            suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                            lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
-                        }
-                        
+                    if(Products_SuppliersDB.IfProductSuppliersExistsBySupplierId(modifySupplier.SupplierId))
+                    {
+                        Products_SuppliersDB.DeleteProductSupplierBySupplierId(modifySupplier.SupplierId);
+                        SuppliersDB.DeleteSupplier(modifySupplier);
+                        suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
+                        lblSup.Text = suppliersDataGridView.Rows.Count.ToString();  
+                    }
+                    else
+                    {
+                        SuppliersDB.DeleteSupplier(modifySupplier);
+                        suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
+                        lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
+                    }
 
-                    //}
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
-
         }
 
         // PRODUCTS Grid View cell click

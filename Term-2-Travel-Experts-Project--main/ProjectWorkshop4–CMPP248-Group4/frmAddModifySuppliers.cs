@@ -94,8 +94,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(supplierIdTextBox, "Supplier Id") &&
-                Validator.IsPresent(supNameTextBox, "Supplier Name") && Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
+            if (Validator.IsPresent(supNameTextBox, "Supplier Name") && 
+                Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
             {
 
                 Suppliers newSupplier = new Suppliers();
@@ -126,7 +126,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(supNameTextBox, "Supplier Name"))
+            if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
+                Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
             {
 
                 Suppliers newSup = new Suppliers();
