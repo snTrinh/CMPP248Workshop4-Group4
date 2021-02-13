@@ -68,8 +68,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             Random r = new Random();
             int rand;
-            //bool x = SuppliersDB.SupplierExists(69); // returns false because ID exists
-            //bool y = SuppliersDB.SupplierExists(70); // returns true cause it doesn't exist
             do
             {
                 rand = Convert.ToInt32(r.Next(0, 15000));
@@ -99,6 +97,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(supplierIdTextBox, "Supplier Id") &&
                 Validator.IsPresent(supNameTextBox, "Supplier Name"))
             {
+
                 Suppliers newSupplier = new Suppliers();
                 newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
                 newSupplier.SupName = supNameTextBox.Text;
@@ -124,11 +123,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-        private void PutSupplierData(Suppliers supplier)
-        {
-            supplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
-            supplier.SupName = supNameTextBox.Text;
-        }
 
         private void btnModify_Click(object sender, EventArgs e)
         {

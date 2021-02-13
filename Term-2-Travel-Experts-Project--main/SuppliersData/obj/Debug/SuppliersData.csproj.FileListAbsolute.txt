@@ -12,7 +12,7 @@ C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\SuppliersDat
 C:\Users\Susan Trinh\source\repos\ProjectWorkshop4–CMPP248-Group4\SuppliersData\obj\Debug\SuppliersData.csprojAssemblyReference.cache
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\bin\Debug\SuppliersData.dll
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\bin\Debug\SuppliersData.pdb
-C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\obj\Debug\SuppliersData.csprojAssemblyReference.cache
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\obj\Debug\SuppliersData.csproj.CoreCompileInputs.cache
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\obj\Debug\SuppliersData.dll
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\obj\Debug\SuppliersData.pdb
+C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\SuppliersData\obj\Debug\SuppliersData.csprojAssemblyReference.cache

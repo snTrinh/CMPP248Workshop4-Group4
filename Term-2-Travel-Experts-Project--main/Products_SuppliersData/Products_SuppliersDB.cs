@@ -247,25 +247,7 @@ namespace Products_SuppliersData
             return prodSupNameList;
         }
 
-        //public static bool AddSupplier(SuppliersProdId supplier)
-        //{
-        //    bool result = false;
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "INSERT INTO Suppliers VALUES (@SupplierId, @SupName) INSERT INTO Products_Suppliers VALUES (@ProductId, @SupplierId)";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@SupplierId", supplier.SupplierId);
-        //            cmd.Parameters.AddWithValue("@SupName", supplier.SupName);
-        //            cmd.Parameters.AddWithValue("@ProductId", supplier.ProductId);
-        //            connection.Open();
-        //            int count = cmd.ExecuteNonQuery(); //execute update 
-        //            if (count > 0)
-        //                result = true;
-        //        }
-        //    }
-        //    return result;
-        //}
+        
 
         /// <summary>
         /// Adds another supplier product record to database
@@ -351,9 +333,9 @@ namespace Products_SuppliersData
 
         // if a supplier is deleted, the following code should also execute if an existing supplierID exists in the DB
 
-        public static bool ProductSupplier(int supplierId)
+        public static void DeleteProductSupplier(int supplierId)
         {
-            bool result = true;
+            //bool result = true;
             using (SqlConnection connection = GetConnection())
             {
                 string deleteStatement = "DELETE FROM Products_Suppliers WHERE SupplierId = @SupplierId";
@@ -362,14 +344,34 @@ namespace Products_SuppliersData
                     cmd.Parameters.AddWithValue("@SupplierId", supplierId);
                     connection.Open();
                     int count = cmd.ExecuteNonQuery();
-                    if (count == 0)
-                        return false;
+                    //if (count == 0)
+                        //return false;
 
                 }
-                return result;
+                //return result;
             }
 
         }
+
+        public static bool IfProductSuppliersExists(int supplierId)
+        {
+            bool result = false;
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "Select SupplierId FROM Products_Suppliers WHERE SupplierId = @SupplierId";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    connection.Open();
+                    int? id = cmd.ExecuteNonQuery();
+                    if (id != null)
+                        return true;
+                }
+                return result;
+            }
+        }
+
+
 
     }
 }

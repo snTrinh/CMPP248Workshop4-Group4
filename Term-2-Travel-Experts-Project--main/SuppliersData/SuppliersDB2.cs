@@ -161,8 +161,8 @@ namespace SuppliersData
             bool result = false;
             using (SqlConnection connection = GetConnection())
             {
-                string deleteStatement = "Select SupplierId FROM Suppliers WHERE SupplierId = @SupplierId";
-                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                string query = "Select SupplierId FROM Suppliers WHERE SupplierId = @SupplierId";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SupplierId", supplierId);
                     connection.Open();
@@ -173,6 +173,31 @@ namespace SuppliersData
                 return result;
             }
         }
+
+        public static Suppliers SupplierNameExists(string supplierName)
+        {
+            Suppliers supplier = new Suppliers();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "Select SupplierId, SupName FROM Suppliers WHERE SupName = @SupName";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupName", supplierName);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            supplier.SupplierId = (int)dr["SupplierId"];
+                            supplier.SupName = (string)dr["SupName"];
+                        }
+                    }
+
+                }
+            }
+            return supplier;
+        }
+
 
     }//class
 }//namespace

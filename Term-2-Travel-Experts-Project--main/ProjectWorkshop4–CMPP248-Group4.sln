@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages_Products_Suppliers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentsAgenciesData", "ClassLibrary2\AgentsAgenciesData.csproj", "{824B9DFE-39C6-42C0-941A-9D8D9175A464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectWorkshop4–CMPP248-Group4Tests", "ProjectWorkshop4–CMPP248-Group4Tests\ProjectWorkshop4–CMPP248-Group4Tests.csproj", "{3B6CA84E-DF23-471D-A154-D08CD7065D85}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B6CA84E-DF23-471D-A154-D08CD7065D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B6CA84E-DF23-471D-A154-D08CD7065D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B6CA84E-DF23-471D-A154-D08CD7065D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B6CA84E-DF23-471D-A154-D08CD7065D85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

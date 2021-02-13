@@ -195,6 +195,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     }
                     else
                     {
+
                         ProductsDB.DeleteProduct(modifyProduct);
                         productsDataGridView.DataSource = ProductsDB.GetProducts();
                         lblProd.Text = productsDataGridView.Rows.Count.ToString();
@@ -255,18 +256,29 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 try
                 {
-                    if (!SuppliersDB.DeleteSupplier(modifySupplier))
-                    {
-                        MessageBox.Show("Another user has updated or deleted " +
-                              "that product.", "Concurrency error");
-                    }
-                    else
-                    {
-                        SuppliersDB.DeleteSupplier(modifySupplier);
-                        suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                        //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
-                        lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
-                    }
+                    //if (!SuppliersDB.DeleteSupplier(modifySupplier))
+                    //{
+                    //    MessageBox.Show("Another user has updated or deleted " +
+                    //          "that product.", "Concurrency error");
+                    //}
+                    //else
+                    //{
+                        if(Products_SuppliersDB.IfProductSuppliersExists(modifySupplier.SupplierId))
+                        {
+                                Products_SuppliersDB.DeleteProductSupplier(modifySupplier.SupplierId);
+                                SuppliersDB.DeleteSupplier(modifySupplier);
+                                suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
+                                lblSup.Text = suppliersDataGridView.Rows.Count.ToString();  
+                        }
+                        else
+                        {
+                            SuppliersDB.DeleteSupplier(modifySupplier);
+                            suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
+                            lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
+                        }
+                        
+
+                    //}
                 }
                 catch (Exception ex)
                 {
