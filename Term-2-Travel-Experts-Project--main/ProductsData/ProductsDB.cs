@@ -169,6 +169,30 @@ namespace ProductsData
             }
 
         }
+
+        public static Products GetProdId(string name)
+        {
+            Products product = new Products();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "Select ProductId, ProdName FROM Products WHERE ProdName = @ProdName";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProdName", name);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            product.ProductId = (int)dr["ProductId"];
+                            product.ProdName = (string)dr["ProdName"];
+                        }
+                    }
+
+                }
+            }
+            return product;
+        }
     }
 }
 

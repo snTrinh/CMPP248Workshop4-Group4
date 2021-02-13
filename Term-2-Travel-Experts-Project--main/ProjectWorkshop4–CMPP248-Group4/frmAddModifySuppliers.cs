@@ -99,50 +99,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(supplierIdTextBox, "Supplier Id") &&
                 Validator.IsPresent(supNameTextBox, "Supplier Name"))
             {
-                try
+                Suppliers newSupplier = new Suppliers();
+                newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
+                newSupplier.SupName = supNameTextBox.Text;
+
+                if(prodNameCheckedListBox.CheckedItems.Count > 0)
                 {
-                    string s = "";
-                    for (int i = 0; i <= prodNameCheckedListBox.Items.Count - 1; i++)
+                    SuppliersDB.AddSupplier(newSupplier);
+                    for (int i = 0; i < prodNameCheckedListBox.CheckedItems.Count; i++)
                     {
-                        if (prodNameCheckedListBox.GetItemChecked(i))
-                        {
-                            s = s + (i + 1).ToString() + " ";
-                        }
-                        else
-                            break;
+                        string x = prodNameCheckedListBox.CheckedItems[i].ToString();
+                        Products y = new Products();
+                        y = ProductsDB.GetProdId(x);
+                        int t = y.ProductId;
+                        Products_SuppliersDB.AddSupplierProductID(t, newSupplier.SupplierId);
                     }
-                    Console.WriteLine(s);
-                    //s = "";
-                    string[] variables = s.Split(' ');
-                    string x = variables[0];
-                    string y = variables[1];
-                    string z = variables[2];
-                    Console.WriteLine(x);
-                    Console.WriteLine(y);
-                    Console.WriteLine(z);
-                    int prod1 = Convert.ToInt32(x);
-                    int prod2 = Convert.ToInt32(y);
-                    int prod3 = Convert.ToInt32(z);
-                    Suppliers newSupplier = new Suppliers();
-                    newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
-
-                   
-
-                    newSupplier.SupName = supNameTextBox.Text;
-
-
-                    if (SuppliersDB.AddSupplier(newSupplier) &&
-                        Products_SuppliersDB.AddSupplierProductID(prod1, newSupplier.SupplierId) &&
-                        Products_SuppliersDB.AddSupplierProductID(prod2, newSupplier.SupplierId) &&
-                        Products_SuppliersDB.AddSupplierProductID(prod3, newSupplier.SupplierId))
-                    {
-                        this.DialogResult = DialogResult.OK;
-                    }
-
+                    this.DialogResult = DialogResult.OK;
                 }
-                catch (Exception ex)
+                else 
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    SuppliersDB.AddSupplier(newSupplier);
+                    this.DialogResult = DialogResult.OK;
                 }
             }
         }
