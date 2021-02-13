@@ -174,28 +174,24 @@ namespace SuppliersData
             }
         }
 
-        public static Suppliers SupplierNameExists(string supplierName)
+
+        // neeed to check for duplicate values
+        public static bool SupplierNameExists(string supplierName)
         {
-            Suppliers supplier = new Suppliers();
+            bool result = true;
             using (SqlConnection connection = GetConnection())
             {
-                string query = "Select SupplierId, SupName FROM Suppliers WHERE SupName = @SupName";
+                string query = "SELECT SupName FROM Suppliers WHERE SupName = '@SupName'";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SupName", supplierName);
                     connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            supplier.SupplierId = (int)dr["SupplierId"];
-                            supplier.SupName = (string)dr["SupName"];
-                        }
-                    }
-
+                    int? id = cmd.ExecuteNonQuery();
+                    if (id == 0)
+                        return false;
                 }
+                return result;
             }
-            return supplier;
         }
 
 

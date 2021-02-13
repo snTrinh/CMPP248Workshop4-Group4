@@ -92,29 +92,40 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DialogResult = DialogResult.Cancel;
         }
 
+        // once a user adds a supplier
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // validate that the Supplier Name is not blank and is non-numeric
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") && 
                 Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
             {
-
+                // create new supplier object from input data
                 Suppliers newSupplier = new Suppliers();
                 newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
                 newSupplier.SupName = supNameTextBox.Text;
 
+                // if the product list count is more than 0
                 if(prodNameCheckedListBox.CheckedItems.Count > 0)
                 {
+                    // add the supplier to the DB
                     SuppliersDB.AddSupplier(newSupplier);
+                    // for each item that is checked
                     for (int i = 0; i < prodNameCheckedListBox.CheckedItems.Count; i++)
                     {
+                        // create a variable to store the item value
                         string x = prodNameCheckedListBox.CheckedItems[i].ToString();
+                        // create a new product variable
                         Products y = new Products();
+                        // this new product variable will search the DB for the product with the corresponding value
                         y = ProductsDB.GetProdId(x);
+                        // create new variable that stores the product ID of the newfound product
                         int t = y.ProductId;
+                        // add the the Products_SupplierDB using this new product ID and inputted supplier ID
                         Products_SuppliersDB.AddSupplierProductID(t, newSupplier.SupplierId);
                     }
                     this.DialogResult = DialogResult.OK;
                 }
+                // else add the supplier to the DB
                 else 
                 {
                     SuppliersDB.AddSupplier(newSupplier);
@@ -135,14 +146,40 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 newSup.SupName = supNameTextBox.Text;
                 try
                 {
-                    if (!SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
+                    //if (!SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
+                    //{
+                    //    MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
+                    //    this.DialogResult = DialogResult.Retry;
+                    //}
+                    //if (SuppliersDB.SupplierNameExists(newSup.SupName))
+                    //{
+                    //    MessageBox.Show("This supplier already exists in this database.", "Duplication Error");
+                    //    this.DialogResult = DialogResult.Retry;
+                    //}
+
+
+                    // if the product list count is more than 0
+                    if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
-                        MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
-                        this.DialogResult = DialogResult.Retry;
+                        // for each item that is checked
+                        for (int i = 0; i < prodNameCheckedListBox.CheckedItems.Count; i++)
+                        {
+                            // create a variable to store the item value
+                            string x = prodNameCheckedListBox.CheckedItems[i].ToString();
+                            // create a new product variable
+                            Products y = new Products();
+                            // this new product variable will search the DB for the product with the corresponding value
+                            y = ProductsDB.GetProdId(x);
+                            // create new variable that stores the product ID of the newfound product
+                            int t = y.ProductId;
+                            // add the the Products_SupplierDB using this new product ID and inputted supplier ID
+                            Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
+                        }
+                        modifySupplier = newSup;
+                        this.DialogResult = DialogResult.OK;
                     }
                     else
                     {
-
                         modifySupplier = newSup;
                         this.DialogResult = DialogResult.OK;
                     }
