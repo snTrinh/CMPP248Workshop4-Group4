@@ -173,7 +173,19 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             // create new variable that stores the product ID of the newfound product
                             int t = y.ProductId;
                             // add the the Products_SupplierDB using this new product ID and inputted supplier ID
-                            Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
+
+                            // must check if association exists first
+                            // if exists, no not add - break
+                            // if does not exists
+                            //Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
+
+                            // if product supplier exists
+                            //if(!Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId)) // returns false
+                               // Console.Write("false"); // do nothing
+
+                            // if pro supplies does not exist
+                            if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count==0) // returns true
+                                Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
                         }
                         modifySupplier = newSup;
                         this.DialogResult = DialogResult.OK;

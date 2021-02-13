@@ -333,6 +333,43 @@ namespace Products_SuppliersData
         }
 
 
+        public static List<Products_Suppliers> ProductSupplierExist(int productId, int supplierId)
+        {
+            List<Products_Suppliers> suppliers = new List<Products_Suppliers>();
+            Products_Suppliers sup;
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT SupplierId, ProductId " +
+                               "FROM Products_Suppliers " +
+                               "WHERE ProductId = @ProductId AND SupplierId = @SupplierId";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    cmd.Parameters.AddWithValue("@ProductId", productId);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            sup = new Products_Suppliers();
+                            sup.SupplierId = (int)dr["SupplierId"];
+                            sup.ProductId = (int)dr["ProductId"];
+                            suppliers.Add(sup);
+                        }
+                    }
+                }
+            }
+            return suppliers;
+        }
+
+        
+
+
+
+
+
+
         /// <summary>
         /// For when a supplier is deleted and has a corresponding ProductSupplierID
         /// The data here for the supplier is also deleted
@@ -365,7 +402,6 @@ namespace Products_SuppliersData
         /// <param name="productId">supplier id</param>
         public static void DeleteProductSupplierByProductId(int productId)
         {
-            //bool result = true;
             using (SqlConnection connection = GetConnection())
             {
                 string deleteStatement = "DELETE FROM Products_Suppliers WHERE ProductId = @ProductId";
@@ -374,14 +410,13 @@ namespace Products_SuppliersData
                     cmd.Parameters.AddWithValue("@ProductId", productId);
                     connection.Open();
                     int count = cmd.ExecuteNonQuery();
-                    //if (count == 0)
-                    //return false;
-
                 }
-                //return result;
+
             }
 
         }
+
+
 
 
 
