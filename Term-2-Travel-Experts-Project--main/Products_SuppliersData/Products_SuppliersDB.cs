@@ -331,8 +331,12 @@ namespace Products_SuppliersData
 
         }
 
-        // if a supplier is deleted, the following code should also execute if an existing supplierID exists in the DB
 
+        /// <summary>
+        /// For when a supplier is deleted and has a corresponding ProductSupplierID
+        /// The data here for the supplier is also deleted
+        /// </summary>
+        /// <param name="supplierId">supplier id</param>
         public static void DeleteProductSupplier(int supplierId)
         {
             //bool result = true;
@@ -353,6 +357,11 @@ namespace Products_SuppliersData
 
         }
 
+        /// <summary>
+        /// checks to see if product supplier data exists using supplier ID
+        /// </summary>
+        /// <param name="supplierId">supplier ID</param>
+        /// <returns></returns>
         public static bool IfProductSuppliersExists(int supplierId)
         {
             bool result = false;
@@ -362,6 +371,29 @@ namespace Products_SuppliersData
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                    connection.Open();
+                    int? id = cmd.ExecuteNonQuery();
+                    if (id != null)
+                        return true;
+                }
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// checks to see if product supplier data exists using productID
+        /// </summary>
+        /// <param name="productId">product ID</param>
+        /// <returns></returns>
+        public static bool IfProductSuppliersExistsByProdID(int productId)
+        {
+            bool result = false;
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "Select ProductId FROM Products_Suppliers WHERE ProductId = @ProductId";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProductId", productId);
                     connection.Open();
                     int? id = cmd.ExecuteNonQuery();
                     if (id != null)
