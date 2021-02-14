@@ -191,51 +191,26 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                 // if it exists, do nothing
                                 if (t == c)
                                 {
-                                    System.Diagnostics.Debug.WriteLine("t: " + t + " c:" + c + " are equal");
                                     if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
                                         Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
                                 }
+                            // check to see if the relationship exists
+                            // if it exists, delete it
+                            else if (t != c)// in the case they are not equal
+                            {
 
-
-                                // check to see if the relationship exists
-                                // if it exists, delete it
-                                else // in the case they are not equal
-                                {
-                                    System.Diagnostics.Debug.WriteLine("t: " + t + " c: " + c + " are NOT equal");
-                                    //if (Products_SuppliersDB.ProductSupplierExist(c, newSup.SupplierId).Count != 0) // if returns value, relationship does not exist
-                                       // Products_SuppliersDB.DeleteProductSupplier(c, newSup.SupplierId);
-                                }
-                                   
-                                
+                                //System.Diagnostics.Debug.WriteLine("t: " + t + " c: " + c + " are NOT equal");
+                                //if (Products_SuppliersDB.ProductSupplierExist(c, newSup.SupplierId).Count == Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count) // if doesnt equal 0, means relationship exists
+                                //    Products_SuppliersDB.DeleteProductSupplier(c, newSup.SupplierId);
                             }
+
 
                         }
 
+                    }
+
                         System.Diagnostics.Debug.WriteLine("allItems = " + allItems);
-                        
 
-                        // working code
-                        // for each item that is checked
-                        //for (int i = 0; i < prodNameCheckedListBox.CheckedItems.Count; i++)
-                        //{
-
-
-                        //    // create a variable to store the item value
-                        //    string x = prodNameCheckedListBox.CheckedItems[i].ToString();
-                        //    // create a new product variable
-                        //    Products y = new Products();
-                        //    // this new product variable will search the DB for the product with the corresponding value
-                        //    y = ProductsDB.GetProdId(x);
-                        //    // create new variable that stores the product ID of the newfound product
-                        //    int t = y.ProductId;
-                        //    // add the the Products_SupplierDB using this new product ID and inputted supplier ID
-
-                        //    // if product supplies record does not exist, add to DB
-                        //    if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // returns true
-                        //        Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
-
-                        //}
-                        //modifySupplier = newSup;
                         if(SuppliersDB.UpdateSelectedSupplier(modifySupplier,newSup))
                             this.DialogResult = DialogResult.OK;
                     }
