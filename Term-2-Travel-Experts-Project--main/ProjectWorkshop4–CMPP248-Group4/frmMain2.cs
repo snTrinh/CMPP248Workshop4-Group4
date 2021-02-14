@@ -36,7 +36,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             packagesDataGridView.DataSource = PackagesDB.GetPackages();
             packagesBindingSource.DataSource = packagesDataGridView.DataSource = PackagesDB.GetPackages();
             // by default the first index is selected
-
+            
             packagesDataGridView.Rows[0].Selected = true;
             DisplayCurrentPackage(0);
             lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
@@ -182,28 +182,35 @@ namespace ProjectWorkshop4_CMPP248_Group4
         // Preliminary code by Susan Trinh: January 27, 2021
         private void deleteToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            // confirm deletion
             DialogResult result = MessageBox.Show("Delete " + modifyProduct.ProdName +"?",
                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
-                {
+                { 
+                    // if a product exists within the Product_Suppliers table
                     if (Products_SuppliersDB.IfProductSuppliersExistsByProdID(modifyProduct.ProductId))
                     {
+                        // delete the data associated with the product ID
                         Products_SuppliersDB.DeleteProductSupplierByProductId(modifyProduct.ProductId);
+                        // delete the product
                         ProductsDB.DeleteProduct(modifyProduct);
+                        // repopulate the grid with the new DB data
                         productsDataGridView.DataSource = ProductsDB.GetProducts();
                         lblProd.Text = productsDataGridView.Rows.Count.ToString();
                     }
+                    // product has no Products_Suppliers association
                     else
                     {
-
+                        // delete the product
                         ProductsDB.DeleteProduct(modifyProduct);
+                        // repopulate the grid with the new DB data
                         productsDataGridView.DataSource = ProductsDB.GetProducts();
                         lblProd.Text = productsDataGridView.Rows.Count.ToString();
 
                     }
-                }
+                } 
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
@@ -244,9 +251,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 modifySupplier = modifySupplierForm.modifySupplier;
                 suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
+
             }
-            Console.WriteLine(modifySupplier);
+
         }
         // SUPPLIER TAB: Delete - delete supplier
         // Preliminary code by Susan Trinh: January 27, 2021

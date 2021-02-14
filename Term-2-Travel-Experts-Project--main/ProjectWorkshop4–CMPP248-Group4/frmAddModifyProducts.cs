@@ -47,7 +47,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 newProduct = new Products();
                 newProduct.ProdName = prodNameTextBox.Text;
-                //this.PutProductData(newProduct);
                 if (ProductsDB.ProductNameExists(newProduct.ProdName).Count == 0)
                 {
                     try
@@ -67,10 +66,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-        //private void PutProductData(Products product)
-        //{
-        //    product.ProdName = prodNameTextBox.Text;
-        //}
+
 
         private void btnModify_Click(object sender, EventArgs e)
         {

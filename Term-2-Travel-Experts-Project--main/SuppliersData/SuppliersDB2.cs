@@ -156,6 +156,12 @@ namespace SuppliersData
             }
         }
 
+        /// <summary>
+        /// Checks if the supplier ID exists
+        /// This method was created by Susan Trinh on February 13, 2021
+        /// </summary>
+        /// <param name="supplierId">supplier ID</param>
+        /// <returns></returns>
         public static bool SupplierExists(int supplierId)
         {
             bool result = false;
@@ -175,7 +181,12 @@ namespace SuppliersData
         }
 
 
-        // neeed to check for duplicate values
+        /// <summary>
+        /// Checks to see if the supplier name exists
+        /// This method was created by Susan Trinh on February 13, 2021
+        /// </summary>
+        /// <param name="supplierName">Supplier Name</param>
+        /// <returns></returns>
         public static List<Suppliers> SupplierNameExists(string supplierName)
         {
 

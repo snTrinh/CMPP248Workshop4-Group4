@@ -15,133 +15,6 @@ namespace Products_SuppliersData
             string connectionString = @"Data Source=localhost\SQLEXPRESS; Initial Catalog = TravelExperts; Integrated Security = True";
             return new SqlConnection(connectionString);
         }
-        //retrieving all data from ProductsSuppliers table, with two inputs (Foriegn key: productSupplierId and productId
-        //public static List<Products_Suppliers> GetProducts_SuppliersByID(int productSupplierId, int productId)
-        //{
-        //    List<Products_Suppliers> productSuppliersList = new List<Products_Suppliers>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-
-        //        string query = "SELECT ProductSupplierId, ProductId, SupplierId " +
-        //                       "FROM Products_Suppliers " +
-        //                       "WHERE ProductSupplierId = @ProductSupplierId " +
-        //                       "ProductId = @ProductId";
-
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@ProductSupplierId", productSupplierId);
-        //            cmd.Parameters.AddWithValue("@ProductId", productId);
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    Products_Suppliers prodSupplier = new Products_Suppliers();
-        //                    prodSupplier.ProductSupplierId = (int)dr["ProductSupplierId"];
-        //                    prodSupplier.ProductId = (int)dr["ProductId"];
-        //                    prodSupplier.SupplierId = (int)dr["SupplierId"];
-
-        //                    //add product detail to List 
-        //                    productSuppliersList.Add(prodSupplier);
-        //                }
-        //            }
-
-
-        //        }
-        //    }
-        //    return productSuppliersList;
-
-        //}
-
-        //public static List<Products_Suppliers> GetProducts_Suppliers()
-        //{
-        //    List<Products_Suppliers> productSuppliersList = new List<Products_Suppliers>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT ProductSupplierId, ProductId, SupplierId " +
-        //                       "FROM Products_Suppliers ";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    Products_Suppliers prodSupplier = new Products_Suppliers();
-        //                    prodSupplier.ProductSupplierId = (int)dr["ProductSupplierId"];
-        //                    prodSupplier.ProductId = (int)dr["ProductId"];
-        //                    prodSupplier.SupplierId = (int)dr["SupplierId"];
-        //                    productSuppliersList.Add(prodSupplier);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return productSuppliersList;
-        //}
-
-        // This is a display only list on Products tab
-        // Displays Product ID, Product Name and Numebr of Supplierss
-        // Coded by Susan Trinh: January 28, 2021
-        //public static List<ProductsNumSuppliers> GetProductsNumSuppliers()
-        //{
-        //    List<ProductsNumSuppliers> productNumSuppliersList = new List<ProductsNumSuppliers>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT Products_Suppliers.ProductID, ProdName, Count(Products_Suppliers.ProductID) as NumOfSup " +
-        //            "FROM Products_Suppliers JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-        //            "GROUP BY Products_Suppliers.ProductID, ProdName";
-
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    ProductsNumSuppliers prodNumSupplier = new ProductsNumSuppliers();
-        //                    prodNumSupplier.ProductId = (int)dr["ProductId"];
-        //                    prodNumSupplier.ProdName = (string)dr["ProdName"];
-        //                    prodNumSupplier.NumOfSup = (int)dr["NumOfSup"];
-        //                    productNumSuppliersList.Add(prodNumSupplier);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return productNumSuppliersList;
-        //}
-
-        // This is a display only list
-        // Displays Supplier ID, Supplier Name, and Number of Products Provided
-        // Coded by Susan Trinh: February 2, 2021
-        //public static List<SuppliersNumOfProducts> GetSuppliersNumOfProducts()
-        //{
-        //    List<SuppliersNumOfProducts> productNumSuppliersList = new List<SuppliersNumOfProducts>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query =  "SELECT Products_Suppliers.SupplierId, SupName, " +
-        //                        "COUNT(Products_Suppliers.SupplierId) AS [Number of Products Provided] " +
-        //                        "FROM Products_Suppliers JOIN Suppliers ON Products_Suppliers.SupplierId = Suppliers.SupplierId " +
-        //                        "GROUP BY Products_Suppliers.SupplierId, SupName " +
-        //                        "ORDER BY SupName Asc";
-
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    SuppliersNumOfProducts supNumProds = new SuppliersNumOfProducts();
-        //                    supNumProds.SupplierId = (int)dr["SupplierId"];
-        //                    supNumProds.SupName = (string)dr["SupName"];
-        //                    supNumProds.NumOfProd = (int)dr["Number of Products Provided"];
-        //                    productNumSuppliersList.Add(supNumProds);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return productNumSuppliersList;
-        //}
 
         public static List<SuppliersTypeOfProducts> GetSuppliersTypeOfProductsByID(int supplierID)
         {
@@ -332,7 +205,13 @@ namespace Products_SuppliersData
 
         }
 
-
+        /// <summary>
+        /// returns a list of Products_Suppliers with given parameters
+        /// This method was created by Susan Trinh on February 13, 2021
+        /// </summary>
+        /// <param name="productId">ProductId</param>
+        /// <param name="supplierId">SupplierId</param>
+        /// <returns>List of Products_Suppliers</returns>
         public static List<Products_Suppliers> ProductSupplierExist(int productId, int supplierId)
         {
             List<Products_Suppliers> suppliers = new List<Products_Suppliers>();
@@ -363,16 +242,10 @@ namespace Products_SuppliersData
             return suppliers;
         }
 
-        
-
-
-
-
-
-
         /// <summary>
         /// For when a supplier is deleted and has a corresponding ProductSupplierID
         /// The data here for the supplier is also deleted
+        /// This method was created by Susan Trinh on February 13, 2021
         /// </summary>
         /// <param name="supplierId">supplier id</param>
         public static void DeleteProductSupplierBySupplierId(int supplierId)
