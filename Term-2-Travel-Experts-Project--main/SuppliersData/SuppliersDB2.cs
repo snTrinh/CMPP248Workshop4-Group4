@@ -176,24 +176,33 @@ namespace SuppliersData
 
 
         // neeed to check for duplicate values
-        public static bool SupplierNameExists(string supplierName)
+        public static List<Suppliers> SupplierNameExists(string supplierName)
         {
-            bool result = true;
+
+            List<Suppliers> suppliers = new List<Suppliers>();
+            Suppliers sup;
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT SupName FROM Suppliers WHERE SupName = '@SupName'";
+                string query = "SELECT SupName, SupplierId FROM Suppliers WHERE SupName = @SupName";
+
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SupName", supplierName);
                     connection.Open();
-                    int? id = cmd.ExecuteNonQuery();
-                    if (id == 0)
-                        return false;
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            sup = new Suppliers();
+                            sup.SupplierId = (int)dr["SupplierId"];
+                            sup.SupName = (string)dr["SupName"];
+                            suppliers.Add(sup);
+                        }
+                    }
                 }
-                return result;
             }
+            return suppliers;
         }
-
 
     }//class
 }//namespace

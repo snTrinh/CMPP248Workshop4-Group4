@@ -1,5 +1,7 @@
-﻿using SuppliersData;
+﻿using Products_SuppliersData;
+using SuppliersData;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -115,18 +117,18 @@ namespace ProjectWorkshop4_CMPP248_Group4
         }
 
 
-        //public static bool SupplierNameExists(TextBox supplierName, string name)
-        //{
-        //    bool isValid = true;
+        public static bool SupplierNameExists(Suppliers supplier, string name)
+        {
+            bool isValid = true;
 
-        //    if (SuppliersDB.SupplierNameExists(supplierName.Text))
-        //    {
-        //        isValid = false;
-        //        MessageBox.Show(name + " already exists in the database.", "Duplication Error");
-                
-        //    }
-        //    return isValid;
-        //}
+            if (supplier== null)
+            {
+                isValid = false;
+                MessageBox.Show(name + " already exists in the database.", "Duplication Error");
+
+            }
+            return isValid;
+        }
 
 
 
