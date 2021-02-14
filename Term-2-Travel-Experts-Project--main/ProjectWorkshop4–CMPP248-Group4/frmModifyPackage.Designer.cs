@@ -353,7 +353,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListExistingProdSupplier.Name = "checkListExistingProdSupplier";
             this.checkListExistingProdSupplier.Size = new System.Drawing.Size(265, 72);
             this.checkListExistingProdSupplier.TabIndex = 15;
-            this.checkListExistingProdSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListExistingProdSupplier_SelectedIndexChanged);
+            this.checkListExistingProdSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListExistingProdSupplier_ItemCheck);
             // 
             // btnModify
             // 
@@ -374,7 +374,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListAddProductSupplier.Name = "checkListAddProductSupplier";
             this.checkListAddProductSupplier.Size = new System.Drawing.Size(265, 89);
             this.checkListAddProductSupplier.TabIndex = 17;
-            this.checkListAddProductSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListAddProductSupplier_SelectedIndexChanged);
+            this.checkListAddProductSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListAddProductSupplier_ItemCheck);
             // 
             // btnCancel
             // 
@@ -400,7 +400,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pnlAdd
             // 
             this.pnlAdd.Controls.Add(this.checkListAddNewProductSupplier);
-            this.pnlAdd.Location = new System.Drawing.Point(203, 153);
+            this.pnlAdd.Location = new System.Drawing.Point(13, 183);
             this.pnlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAdd.Name = "pnlAdd";
             this.pnlAdd.Size = new System.Drawing.Size(347, 212);
@@ -409,12 +409,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // checkListAddNewProductSupplier
             // 
             this.checkListAddNewProductSupplier.FormattingEnabled = true;
-            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(40, 20);
+            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(40, 17);
             this.checkListAddNewProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddNewProductSupplier.Name = "checkListAddNewProductSupplier";
             this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(265, 174);
             this.checkListAddNewProductSupplier.TabIndex = 18;
-            this.checkListAddNewProductSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListAddNewProductSupplier_SelectedIndexChanged);
+            this.checkListAddNewProductSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListAddNewProductSupplier_ItemCheck);
+   
             // 
             // btnAdd
             // 

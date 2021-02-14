@@ -105,37 +105,32 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
             else
             {
-                pnlAdd.Visible = false;
-                pnlModify.Visible = true;
                 //if package is selected, then load selected packages
                 if (package != null)
                 {
+                    pnlAdd.Visible = false;
+                    pnlModify.Visible = true;
                     DisplaySelectedPackage();
-
-
                     packageIdTextBox.Text = package.PackageId.ToString();
-                }//retrieve products and suppliers by packageID 
-                int packageID = Convert.ToInt32(packageIdTextBox.Text);
+                    int packageID = Convert.ToInt32(packageIdTextBox.Text);
+                    prodSup = Products_SuppliersDB.GetProductSupplierName(packageID);
+                    //displays all products and suppliers that are not already part of a package
+                    allProdSup = Products_SuppliersDB.NotAssociatedProductSupplier(packageID);
+                    btnAdd.Visible = false; //hides add button
+                    this.Text = "Modify Package"; //shows modify 
+                                                  //displays the associated products and suppliers that is associated AN EXISTING package
+                    for (int i = 0; i < prodSup.Count; i++)
+                    {
+                        checkListExistingProdSupplier.Items.Insert(i, "Product Supplier ID " + prodSup[i].ProductSupplierId + ": " + prodSup[i].ProductId + ": " + prodSup[i].ProdName + "  " + prodSup[i].SupplierId + ": " + prodSup[i].SupName);
+                        checkListExistingProdSupplier.SetItemChecked(i, true);
+                    }
 
-                prodSup = Products_SuppliersDB.GetProductSupplierName(packageID);
-
-
-                //displays the associated products and suppliers that is associated AN EXISTING package
-                for (int i = 0; i < prodSup.Count; i++)
-                {
-                    checkListExistingProdSupplier.Items.Insert(i, "Product Supplier ID " + prodSup[i].ProductSupplierId + ": " + prodSup[i].ProductId + ": " + prodSup[i].ProdName + "  " + prodSup[i].SupplierId + ": " + prodSup[i].SupName);
-                    checkListExistingProdSupplier.SetItemChecked(i, true);
-                }
-                //displays all products and suppliers that are not already part of a package
-                allProdSup = Products_SuppliersDB.NotAssociatedProductSupplier(packageID);
-                for (int i = 0; i < allProdSup.Count; i++)
-                {
-                    checkListAddProductSupplier.Items.Insert(i, "Product Supplier ID " + allProdSup[i].ProductSupplierId + ": " + allProdSup[i].ProductId + ": " + allProdSup[i].ProdName + "  " + allProdSup[i].SupplierId + ": " + allProdSup[i].SupName);
-                    checkListAddProductSupplier.SetItemChecked(i, false);
-                }
-                btnAdd.Visible = false; //hides add button
-                this.Text = "Modify Package"; //shows modify packages
-
+                    for (int i = 0; i < allProdSup.Count; i++)
+                    {
+                        checkListAddProductSupplier.Items.Insert(i, "Product Supplier ID " + allProdSup[i].ProductSupplierId + ": " + allProdSup[i].ProductId + ": " + allProdSup[i].ProdName + "  " + allProdSup[i].SupplierId + ": " + allProdSup[i].SupName);
+                        checkListAddProductSupplier.SetItemChecked(i, false);
+                    }
+                }//retrieve products and suppliers by packageID
             }
 
         }
@@ -154,15 +149,17 @@ namespace ProjectWorkshop4_CMPP248_Group4
             Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
             {
                 //select package that will be modified 
-                Packages newPkg = new Packages();
-
-                newPkg.PackageId = package.PackageId;
-                this.PackageData(newPkg);
+                //Packages newPkg = new Packages();
+                //newPkg.PackageId = package.PackageId;
+                //this.PackageData(newPkg);
+                newPackage = new Packages();
+                newPackage.PackageId = package.PackageId;
+                this.PackageData(newPackage);
 
                 try
                 {
                     //if not updating
-                    if (!PackagesDB.UpdatePackage(package, newPkg))
+                    if (!PackagesDB.UpdatePackage(package, newPackage))
                     {
                         MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
                         this.DialogResult = DialogResult.Retry;
@@ -170,37 +167,38 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     //if updating 
                     else
                     {
-                        int[] distinctRemovePackageSupplierIdList = removePackageSupplierIdList.Distinct().ToArray();
-                        int uncheckCount = distinctRemovePackageSupplierIdList.Count();
+
                         package = newPackage;
                         if (checkListAddProductSupplier.CheckedItems.Count > 0)
                         {
-                            int[] distinctAddPackageSupplierIdList = addPackageSupplierIdList.Distinct().ToArray();
-                            int checkListCount = distinctAddPackageSupplierIdList.Count();
-                            for (var i = 0; i < checkListCount; i++)
+                            int checkCount = checkListAddProductSupplier.CheckedItems.Count;
+                            for (var i = 0; i < checkCount; i++)
                             {
                                 Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                                pkgProdSup.ProductSupplerId = distinctAddPackageSupplierIdList[i];
+                                pkgProdSup.ProductSupplerId = addPackageSupplierIdList[i];
                                 pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
                                 //connecting and adding to DB
                                 Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                             }
-                            this.DialogResult = DialogResult.OK;
                         }
 
                         //unchecking box and removing association with package
-                        if (uncheckCount > 0)
+                        int checkedCount = checkListExistingProdSupplier.CheckedItems.Count;
+                        int totalCount = checkListExistingProdSupplier.Items.Count;
+                        int uncheckedCount = totalCount - checkedCount;
+                        if (uncheckedCount > 0)
                         {
-                            for (var i = 0; i < uncheckCount; i++)
+                            for (var i = 0; i < uncheckedCount; i++)
                             {
                                 //deleting item that was unchecked
                                 Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                                pkgProdSup.ProductSupplerId = distinctRemovePackageSupplierIdList[i];
+                                pkgProdSup.ProductSupplerId = removePackageSupplierIdList[i];
                                 pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
                                 //connecting and adding to DB
                                 Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
                             }
                         }
+                        DialogResult = DialogResult.OK;
                     }
                 }
                 catch (Exception ex)
@@ -209,27 +207,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 }
             }
         }
-        private void checkListExistingProdSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-            if (checkListExistingProdSupplier.SelectedIndex > -1) //removing product supplier association
-            {
-                List<Products_Suppliers> selectedProduct = checkRegEx(checkListExistingProdSupplier);
-                int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
-                removePackageSupplierIdList.Add(ProductSupplierId);
-            }
-        }
-
-        private void checkListAddProductSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (checkListAddNewProductSupplier.SelectedIndex <= -1) //adding product supplier association
-            {
-                List<Products_Suppliers> selectedProduct = checkRegEx(checkListAddProductSupplier);
-                int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
-                addPackageSupplierIdList.Add(ProductSupplierId);
-            }
-        }
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
@@ -251,28 +229,19 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 newPackage.PackageId = PackagesDB.AddPackage(newPackage);
                 if (checkListAddNewProductSupplier.CheckedItems.Count > 0)
                 {
-                    int[] distinctAddPackageSupplierIdList = addPackageSupplierIdList.Distinct().ToArray();
-                    int checkListCount = distinctAddPackageSupplierIdList.Count();
-                    for (var i = 0; i < checkListCount; i++)
+                    //int[] distinctAddPackageSupplierIdList = addPackageSupplierIdList.Distinct().ToArray();
+                    //int checkListCount = distinctAddPackageSupplierIdList.Count();
+                    int checkedCount = checkListAddNewProductSupplier.CheckedItems.Count;
+                    for (var i = 0; i < checkedCount; i++)
                     {
                         Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                        pkgProdSup.ProductSupplerId = distinctAddPackageSupplierIdList[i];
+                        pkgProdSup.ProductSupplerId = addPackageSupplierIdList[i];
                         pkgProdSup.PackageId = Convert.ToInt32(newPackage.PackageId);
                         //connecting and adding to DB
                         Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                     }
-                    this.DialogResult = DialogResult.OK;
                 }
-
-                ////instantiating
-                //Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-                //pkgProdSup.ProductSupplerId = Convert.ToInt32(tbPackageSupplierId.Text);
-                //pkgProdSup.PackageId = newPackage.PackageId;
-
-
-                ////connecting and adding to DB
-                //Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-                //this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
 
             }
             catch (Exception ex)
@@ -281,14 +250,34 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-        private void checkListAddNewProductSupplier_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void checkListExistingProdSupplier_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (checkListAddNewProductSupplier.SelectedIndex > -1) //adding product supplier association
+
+            if (e.NewValue == CheckState.Unchecked)
             {
-                List<Products_Suppliers> selectedProduct = checkRegEx(checkListAddNewProductSupplier);
+
+                System.Diagnostics.Debug.WriteLine("Test");
+                List<Products_Suppliers> selectedProduct = checkRegEx(checkListExistingProdSupplier);
                 int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
-                addPackageSupplierIdList.Add(ProductSupplierId);
+                removePackageSupplierIdList.Add(ProductSupplierId);
             }
+        }
+
+        private void checkListAddProductSupplier_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            List<Products_Suppliers> selectedProduct = checkRegEx(checkListAddProductSupplier);
+            int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
+            addPackageSupplierIdList.Add(ProductSupplierId);
+
+        }
+
+        private void checkListAddNewProductSupplier_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            List<Products_Suppliers> selectedProduct = checkRegEx(checkListAddNewProductSupplier);
+            int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
+            addPackageSupplierIdList.Add(ProductSupplierId);
         }
     }
 }

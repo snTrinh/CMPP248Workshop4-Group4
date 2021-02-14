@@ -80,9 +80,61 @@ namespace Packages_Products_SuppliersData
             }
         }
 
+        //Created by Julie
+        //gets ProductSupplierId, when given the packageID
+        //Created on February 14 2021
+        public static List<int> GetProductSupplierID(int packageID)
+        {
+            List<int> productSupplierID = new List<int>();
+            using (SqlConnection connection = GetConnection())
+            {
+                string queryStatement = "SELECT ProductSupplierId FROM Packages_Products_Suppliers WHERE PackageId = @PackageId";
+                using (SqlCommand cmd = new SqlCommand(queryStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@PackageId", packageID);
+
+                    connection.Open();
+                    SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (dr.Read())
+                    {
+                        Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
+                        packProdSupp.ProductSupplerId = (int)dr["ProductSupplierId"];
+                        productSupplierID.Add(packProdSupp.ProductSupplerId);
+                    }
+
+                }
+            } return productSupplierID;
+        
+        
+        
+        }
+        ////Created by Julie
+        ////Created on February 14 
+        ////description: to delete 
+        //public static bool DeletePackProdSupp(int packageID)
+        //{
+        //    bool result = true;
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string deleteStatement = "DELETE FROM Packages_Products_Suppliers WHERE PackageId = @PackageId";
+        //        using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@PackageId", packageID);
+
+        //            connection.Open();
+        //            int count = cmd.ExecuteNonQuery();
+        //            if (count == 0)
+        //                return false;
+
+        //        }
+        //        return result;
+        //    }
+
+        //}
         //Created by Julie 
-        //February 4 2021
-        public static bool DeletePackProdSuppAssociation(Packages_Products_Suppliers pkgProdSup)
+        //Created on February 4 2021
+        //Modified on February 14 2021, to allow reuse of sql delete statement
+        public static bool DeletePackProdSuppAssociation(Packages_Products_Suppliers pkgProdSupp)
         {
             bool result = true;
             using (SqlConnection connection = GetConnection())
@@ -90,8 +142,9 @@ namespace Packages_Products_SuppliersData
                 string deleteStatement = "DELETE FROM Packages_Products_Suppliers WHERE PackageId = @PackageId AND ProductSupplierId = @ProductSupplierId";
                 using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
                 {
-                    cmd.Parameters.AddWithValue("@PackageId", pkgProdSup.PackageId);
-                    cmd.Parameters.AddWithValue("@ProductSupplierId", pkgProdSup.ProductSupplerId);
+                    cmd.Parameters.AddWithValue("@PackageId", pkgProdSupp.PackageId);
+                    cmd.Parameters.AddWithValue("@PackageId", pkgProdSupp.ProductSupplerId);
+
                     connection.Open();
                     int count = cmd.ExecuteNonQuery();
                     if (count == 0)
@@ -104,7 +157,7 @@ namespace Packages_Products_SuppliersData
         }
 
         
-        
+   
 
         
     }

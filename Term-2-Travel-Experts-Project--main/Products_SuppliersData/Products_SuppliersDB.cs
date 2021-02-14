@@ -224,7 +224,8 @@ namespace Products_SuppliersData
                                 "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
                                 "LEFT JOIN Packages_Products_Suppliers ON Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId " +
                                 "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                                "WHERE PackageId IS NULL";
+                                "WHERE PackageId IS NULL " +
+                                "ORDER BY ProductSupplierId";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@PackageId", packageID);
