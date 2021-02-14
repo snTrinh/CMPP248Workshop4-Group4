@@ -155,6 +155,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 newSup.SupplierId = modifySupplier.SupplierId;
                 newSup.SupName = supNameTextBox.Text;
 
+                // if no duplicate name entry
                 if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
                 {
                     // if the product list count is more than 0

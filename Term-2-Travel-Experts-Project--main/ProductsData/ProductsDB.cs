@@ -193,6 +193,37 @@ namespace ProductsData
             }
             return product;
         }
+
+
+        // neeed to check for duplicate values
+        public static List<Products> ProductNameExists(string productName)
+        {
+
+            List<Products> products = new List<Products>();
+            Products prod;
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT ProductId, ProdName FROM Products WHERE ProdName = @ProdName";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProdName", productName);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            prod = new Products();
+                            prod.ProductId = (int)dr["ProductId"];
+                            prod.ProdName = (string)dr["ProdName"];
+                            products.Add(prod);
+                        }
+                    }
+                }
+            }
+            return products;
+        }
+
     }
 }
 

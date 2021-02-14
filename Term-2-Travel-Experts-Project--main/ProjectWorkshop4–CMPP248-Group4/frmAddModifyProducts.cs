@@ -46,23 +46,31 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 Validator.IsNonNumeric(prodNameTextBox, "Product Type"))
             {
                 newProduct = new Products();
-                this.PutProductData(newProduct);
-                try
+                newProduct.ProdName = prodNameTextBox.Text;
+                //this.PutProductData(newProduct);
+                if (ProductsDB.ProductNameExists(newProduct.ProdName).Count == 0)
                 {
-                    newProduct.ProductId = ProductsDB.AddProduct(newProduct);
-                    this.DialogResult = DialogResult.OK;
+                    try
+                    {
+                        newProduct.ProductId = ProductsDB.AddProduct(newProduct);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show(newProduct.ProdName + " already exists in the database.", "Duplication Error");
                 }
             }
         }
 
-        private void PutProductData(Products product)
-        {
-            product.ProdName = prodNameTextBox.Text;
-        }
+        //private void PutProductData(Products product)
+        //{
+        //    product.ProdName = prodNameTextBox.Text;
+        //}
 
         private void btnModify_Click(object sender, EventArgs e)
         {
