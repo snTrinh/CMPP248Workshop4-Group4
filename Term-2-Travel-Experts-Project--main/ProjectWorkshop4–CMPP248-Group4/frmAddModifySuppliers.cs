@@ -104,12 +104,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
                 newSupplier.SupName = supNameTextBox.Text;
 
-                //Suppliers checkedSupplier = SuppliersDB.SupplierNameExists(newSupplier.SupName).Count;
-
-                //if (Validator.SupplierNameExists(checkedSupplier, "Supplier Name"))
-                //{
-
-                // if user inplut
+                // if user inputs a name, and the DB comes up with 0 vales of which are the same, implement the following code
                 if (SuppliersDB.SupplierNameExists(newSupplier.SupName).Count == 0) 
                                                                                     
                 {
@@ -140,14 +135,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-
+                // else the name is duplicated, notify user
                 else
                 {
                     MessageBox.Show(newSupplier.SupName + " already exists in the database.", "Duplication Error");
                 }
-                // if the product list count is more than 0
-                
-                //}
+
             }
         }
 
@@ -161,7 +154,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 Suppliers newSup = new Suppliers();
                 newSup.SupplierId = modifySupplier.SupplierId;
                 newSup.SupName = supNameTextBox.Text;
-                try
+
+                if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
                 {
                     // if the product list count is more than 0
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
@@ -180,7 +174,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             // add the the Products_SupplierDB using this new product ID and inputted supplier ID
 
                             // if product supplies record does not exist, add to DB
-                            if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count==0) // returns true
+                            if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // returns true
                                 Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId);
                         }
                         modifySupplier = newSup;
@@ -192,9 +186,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-                catch (Exception ex)
+                // else the name is duplicated, notify user
+                else
                 {
-                    MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
+                    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
                 }
             }
         }
