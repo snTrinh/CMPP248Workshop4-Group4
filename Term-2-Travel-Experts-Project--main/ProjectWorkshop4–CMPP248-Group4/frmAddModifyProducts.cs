@@ -80,7 +80,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 Products newProd = new Products();
                 newProd.ProductId = modifyProduct.ProductId;
                 newProd.ProdName = prodNameTextBox.Text;
-                try
+                if(ProductsDB.ProductNameExists(newProd.ProdName).Count == 0)
                 {
                     if (!ProductsDB.UpdateSelectedProduct(modifyProduct, newProd))
                     {
@@ -93,9 +93,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         this.DialogResult = DialogResult.OK;
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
+                    MessageBox.Show(newProd.ProdName + " already exists in the database.", "Duplication Error");
                 }
             }
         }
