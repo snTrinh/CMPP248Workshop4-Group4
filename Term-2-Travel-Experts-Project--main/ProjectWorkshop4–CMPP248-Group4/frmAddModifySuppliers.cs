@@ -153,8 +153,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 newSup.SupName = supNameTextBox.Text;
 
                 // if no duplicate name entry
-                if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
-                {
+                //if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
+                //{
                     // gives us a count of all the items in the DB
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
@@ -192,8 +192,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                 if (t == c)
                                 {
                                     System.Diagnostics.Debug.WriteLine("t: " + t + " c:" + c + " are equal");
-                                    //if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
-                                       // Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
+                                    if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
+                                        Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
                                 }
 
 
@@ -244,12 +244,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
-                }
-                // else the name is duplicated, notify user
-                else
-                {
-                    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
-                }
+                ////}
+                ////// else the name is duplicated, notify user
+                ////else
+                ////{
+                ////    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
+                ////}
             }
         }
     }
