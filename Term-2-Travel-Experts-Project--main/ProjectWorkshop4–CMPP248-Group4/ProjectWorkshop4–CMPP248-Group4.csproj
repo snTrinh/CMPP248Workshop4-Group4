@@ -106,9 +106,6 @@
     <None Include="Properties\DataSources\AgentsAgencyData.Agencies.datasource" />
     <None Include="Properties\DataSources\AgentsAgencyData.Agents.datasource" />
     <None Include="Properties\DataSources\AgentsAgencyData.AgentsAgencyDB.datasource" />
-    <None Include="Properties\DataSources\ClassLibrary1.Agencies.datasource" />
-    <None Include="Properties\DataSources\ClassLibrary1.Agents.datasource" />
-    <None Include="Properties\DataSources\ClassLibrary1.AgentsAgencyDB.datasource" />
     <None Include="Properties\DataSources\PackagesData.Packages.datasource" />
     <None Include="Properties\DataSources\Packages_Products_SuppliersData.Packages_Products_Suppliers.datasource" />
     <None Include="Properties\DataSources\ProductsData.Products.datasource" />

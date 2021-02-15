@@ -158,8 +158,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     // gives us a count of all the items in the DB
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
-                        //*************Testiing
-                        string allItems = "";
                         for (int i = 0; i < prodNameCheckedListBox.Items.Count; i++)
                         {
                             string a = prodNameCheckedListBox.Items[i].ToString();
@@ -167,12 +165,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             b = ProductsDB.GetProdId(a);
                             int c = b.ProductId;
 
-
-                            // for testing purposes and console write
-                            allItems = allItems + (i + 1) + " ";
-
-
-                        // gives us a value of selected items
+                            // gives us a value of selected items
                             for (int j = 0; j < prodNameCheckedListBox.CheckedItems.Count ; j++)
                             {
                                 // create a variable to store the item value
@@ -184,29 +177,25 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                 // create new variable that stores the product ID of the newfound product
                                 int t = y.ProductId;
 
-                            // if these values are equal, these are the values that are selected
-                            // in this case we need to check the DB for existising relationship, 
-                            // if it doesnt exists, add it
-                            //if(t==c)
-                            //System.Diagnostics.Debug.WriteLine("t: " + t + " c: " + c + " are equal");
+                                // if these values are equal, these are the values that are selected
+                                // in this case we need to check the DB for existising relationship, 
+                                // if it doesnt exists, add it
+
                                 if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
                                     Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
                                 
-                            // check to see if the relationship exists
-                            // if it exists, delete it
+                                // check to see if the relationship exists
+                                // if it exists, delete it
                                 else if (t != c)// in the case they are not equal
                                 {
                                     if (Products_SuppliersDB.ProductSupplierExist(c, newSup.SupplierId).Count != 0) // if doesnt equal 0, means relationship exists
                                         Products_SuppliersDB.DeleteProductSupplier(c, newSup.SupplierId);
                                 }
+                            }
+
                         }
-
-                    }
-
-                        System.Diagnostics.Debug.WriteLine("allItems = " + allItems);
-
                         if(SuppliersDB.UpdateSelectedSupplier(modifySupplier,newSup))
-                            this.DialogResult = DialogResult.OK;
+                        this.DialogResult = DialogResult.OK;
                     }
                     else if(prodNameCheckedListBox.CheckedItems.Count == 0)
                     {
@@ -226,16 +215,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 ////{
                 ////    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
                 ////}
-            }
-        }
-
-        private void prodNameCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-
-            // grabs newly UNchecked items
-            if(e.NewValue==CheckState.Unchecked)
-            {
-
             }
         }
     }
