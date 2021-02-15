@@ -156,6 +156,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.prodNameCheckedListBox.Name = "prodNameCheckedListBox";
             this.prodNameCheckedListBox.Size = new System.Drawing.Size(187, 94);
             this.prodNameCheckedListBox.TabIndex = 16;
+            this.prodNameCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.prodNameCheckedListBox_ItemCheck);
             // 
             // frmAddModifySuppliers
             // 
