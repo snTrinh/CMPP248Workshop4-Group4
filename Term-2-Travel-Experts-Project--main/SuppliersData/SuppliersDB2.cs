@@ -156,6 +156,8 @@ namespace SuppliersData
             }
         }
 
+        
+
         /// <summary>
         /// Checks if the supplier ID exists
         /// This method was created by Susan Trinh on February 13, 2021

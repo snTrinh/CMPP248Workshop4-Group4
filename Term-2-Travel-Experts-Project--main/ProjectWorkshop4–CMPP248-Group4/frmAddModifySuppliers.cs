@@ -171,8 +171,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             // for testing purposes and console write
                             allItems = allItems + (i + 1) + " ";
 
-                        //if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
-                        //Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
 
                         // gives us a value of selected items
                             for (int j = 0; j < prodNameCheckedListBox.CheckedItems.Count ; j++)
@@ -208,6 +206,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         System.Diagnostics.Debug.WriteLine("allItems = " + allItems);
 
                         if(SuppliersDB.UpdateSelectedSupplier(modifySupplier,newSup))
+                            this.DialogResult = DialogResult.OK;
+                    }
+                    else if(prodNameCheckedListBox.CheckedItems.Count == 0)
+                    {
+                        Products_SuppliersDB.DeleteProductSupplierBySupplierId(newSup.SupplierId);
+                        // delete all associations
+                        if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
                     else
