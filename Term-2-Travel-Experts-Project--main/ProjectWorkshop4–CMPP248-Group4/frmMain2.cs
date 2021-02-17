@@ -20,7 +20,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private Packages newPackage;
         public Packages modifyPackage;
-        public Packages_Products_Suppliers pkgProdSupp; 
+        public Packages_Products_Suppliers pkgProdSup; 
         
         public Agencies selectedAgency;
 
@@ -326,14 +326,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             else //there's associated products suppliers
             {
                 //delete each product supplier that is associated to the package, prior to deleting the package
-                
+                pkgProdSup = new Packages_Products_Suppliers();
                 for (int i = 0; i < productSupplierIDList.Count; i++)
                 {
+                    
                     pkgProdSup.PackageId = modifyPackage.PackageId;
                     pkgProdSup.ProductSupplerId = productSupplierIDList[i];
-                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSupp);
-                    PackagesDB.DelPackage(modifyPackage);
+                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
                 }
+                PackagesDB.DelPackage(modifyPackage);
                 packagesDataGridView.DataSource = PackagesDB.GetPackages();
 
             }

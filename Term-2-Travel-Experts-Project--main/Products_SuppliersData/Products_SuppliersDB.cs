@@ -219,13 +219,13 @@ namespace Products_SuppliersData
             List<ProductSupplierAll> prodSupNameList = new List<ProductSupplierAll>();
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT ProdName, SupName, Suppliers.SupplierId, Products.ProductId, Products_Suppliers.ProductSupplierId " +
+                string query = "SELECT ProdName, SupName, Suppliers.SupplierId, Products.ProductId, Products_Suppliers.ProductSupplierId, PackageId " +
                                 "FROM Suppliers " +
                                 "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
                                 "LEFT JOIN Packages_Products_Suppliers ON Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId " +
                                 "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                                "WHERE PackageId IS NULL " +
-                                "ORDER BY ProductSupplierId";
+                                "WHERE PackageId != @PackageId OR PackageId IS NULL " +
+                                "ORDER BY ProductSupplierId ";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@PackageId", packageID);

@@ -221,7 +221,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             //create package to be added to DB
             newPackage = new Packages();
             newPackage.PkgName = pkgNameTextBox.Text;
-            try
+
+            if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+            Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+            Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+            Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
+            Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
+            Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
             {
                 //checks to see if products/suppliers have been added
                 this.PackageData(newPackage);
@@ -244,10 +250,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 DialogResult = DialogResult.OK;
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while adding new package " + ex.Message, ex.GetType().ToString());
-            }
         }
 
 
@@ -257,8 +259,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
             if (e.NewValue == CheckState.Unchecked)
             {
-
-                System.Diagnostics.Debug.WriteLine("Test");
                 List<Products_Suppliers> selectedProduct = checkRegEx(checkListExistingProdSupplier);
                 int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
                 removePackageSupplierIdList.Add(ProductSupplierId);
