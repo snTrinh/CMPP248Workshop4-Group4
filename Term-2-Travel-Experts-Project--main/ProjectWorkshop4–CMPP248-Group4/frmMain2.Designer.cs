@@ -670,7 +670,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(370, 288);
             this.productsDataGridView.TabIndex = 5;
-            this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
+            
             // 
             // dataGridViewTextBoxColumn11
             // 

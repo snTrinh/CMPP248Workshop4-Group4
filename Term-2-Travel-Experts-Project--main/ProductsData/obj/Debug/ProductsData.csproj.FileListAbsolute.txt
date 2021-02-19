@@ -15,3 +15,4 @@ C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-E
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csproj.CoreCompileInputs.cache
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.dll
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.pdb
+C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csprojAssemblyReference.cache
