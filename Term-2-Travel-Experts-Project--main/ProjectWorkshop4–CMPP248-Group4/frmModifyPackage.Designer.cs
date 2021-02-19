@@ -375,7 +375,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListAddProductSupplier.Name = "checkListAddProductSupplier";
             this.checkListAddProductSupplier.Size = new System.Drawing.Size(265, 89);
             this.checkListAddProductSupplier.TabIndex = 17;
-            this.checkListAddProductSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListAddProductSupplier_ItemCheck);
+         
             // 
             // btnCancel
             // 
@@ -415,7 +415,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListAddNewProductSupplier.Name = "checkListAddNewProductSupplier";
             this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(265, 174);
             this.checkListAddNewProductSupplier.TabIndex = 18;
-            this.checkListAddNewProductSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListAddNewProductSupplier_ItemCheck);
+      
             // 
             // btnAdd
             // 

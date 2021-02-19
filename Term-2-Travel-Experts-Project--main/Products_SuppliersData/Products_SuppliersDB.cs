@@ -241,6 +241,39 @@ namespace Products_SuppliersData
             }
             return distinctProdSuppIDList;
         }
+
+        //Created by Julie Tran
+        //shows all products and suppliers that are not already associated to package 
+        //Also, if users have already chosen the specific package, it will not display
+        public static ProductSupplierAll GetFilteredProductSupplier(string productName)
+        {
+            ProductSupplierAll prodSupName = new ProductSupplierAll();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = " SELECT ProdName, SupName " +
+                               "FROM Suppliers " +
+                               "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
+                               "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
+                               "LEFT JOIN Packages_Products_Suppliers On Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId "+
+                               "WHERE PackageId IS NULL AND ProdName!= @ProdName";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@ProdName", productName) ;
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            prodSupName.ProdName = (string)dr["ProdName"];
+                            prodSupName.SupName = (string)dr["SupName"];
+
+                        }
+                    }
+                }
+            }
+            return prodSupName;
+        }
+
         //Shows all products and suppliers, that are not already checked off
         //Created by Julie Tran
         //modified on February 16 
@@ -426,38 +459,38 @@ namespace Products_SuppliersData
             return prodSuppId;
         }
 
-        public static List<Products_Suppliers> Test(string productName, string supplierName)
-        {
-            List<Products_Suppliers> testprodSupList = new List<Products_Suppliers>();
-            Products_Suppliers testprodSup;
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT ProductSupplierId, Products.ProductId, Suppliers.SupplierId " +
-                               "FROM Products " +
-                               "JOIN Products_Suppliers ON Products.ProductId = Products_Suppliers.ProductId " +
-                               "JOIN Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-                               "WHERE ProdName = @ProdName AND SupName = @SupName";
+        //public static List<Products_Suppliers> Test(string productName, string supplierName)
+        //{
+        //    List<Products_Suppliers> testprodSupList = new List<Products_Suppliers>();
+        //    Products_Suppliers testprodSup;
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string query = "SELECT ProductSupplierId, Products.ProductId, Suppliers.SupplierId " +
+        //                       "FROM Products " +
+        //                       "JOIN Products_Suppliers ON Products.ProductId = Products_Suppliers.ProductId " +
+        //                       "JOIN Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
+        //                       "WHERE ProdName = @ProdName AND SupName = @SupName";
 
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@ProdName", productName);
-                    cmd.Parameters.AddWithValue("@SupName", supplierName);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            testprodSup = new Products_Suppliers();
-                            testprodSup.ProductId = (int)dr["ProductId"];
-                            testprodSup.SupplierId = (int)dr["SupplierId"];
-                            testprodSup.ProductSupplierId = (int)dr["ProductSupplierId"];
-                            testprodSupList.Add(testprodSup);
-                        }
-                    }
-                }
-            }
-            return testprodSupList;
-        }
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@ProdName", productName);
+        //            cmd.Parameters.AddWithValue("@SupName", supplierName);
+        //            connection.Open();
+        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+        //            {
+        //                while (dr.Read())
+        //                {
+        //                    testprodSup = new Products_Suppliers();
+        //                    testprodSup.ProductId = (int)dr["ProductId"];
+        //                    testprodSup.SupplierId = (int)dr["SupplierId"];
+        //                    testprodSup.ProductSupplierId = (int)dr["ProductSupplierId"];
+        //                    testprodSupList.Add(testprodSup);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return testprodSupList;
+        //}
 
     }
 }
