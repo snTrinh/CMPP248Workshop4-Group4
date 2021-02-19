@@ -9,12 +9,20 @@ namespace ProductsData
 {
     public static class ProductsDB
     {
+        /// <summary>
+        /// Connection method
+        /// </summary>
+        /// <returns></returns>
         public static SqlConnection GetConnection()
         {
             string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
             return new SqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// Obtains list of all products
+        /// </summary>
+        /// <returns>list of products</returns>
         public static List<Products> GetProducts()
         {
             List<Products> products = new List<Products>();
@@ -44,7 +52,7 @@ namespace ProductsData
         /// retrieves the remaining products not associated to the selected supplier
         /// </summary>
         /// <param name="supplierId">supplier ID</param>
-        /// <returns></returns>
+        /// <returns>list of products</returns>
         public static List<Products> GetRemainingProducts(int supplierId)
         {
             List<Products> products = new List<Products>();
@@ -77,31 +85,31 @@ namespace ProductsData
         }
 
 
-
-        public static List<Products> GetProductsByID(int productID)
-        {
-            List<Products> products = new List<Products>();
-            Products prod;
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT ProductId, ProdName FROM Products WHERE ProductId = @ProductId";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@ProductId", productID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            prod = new Products();
-                            prod.ProductId = (int)dr["ProductId"];
-                            prod.ProdName = (string)dr["ProdName"];
-                        }
-                    }
-                }
-            }
-            return products;
-        }
+        //commented out by susan on feb 19 due to no references
+        //public static List<Products> GetProductsByID(int productID)
+        //{
+        //    List<Products> products = new List<Products>();
+        //    Products prod;
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string query = "SELECT ProductId, ProdName FROM Products WHERE ProductId = @ProductId";
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@ProductId", productID);
+        //            connection.Open();
+        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+        //            {
+        //                while (dr.Read())
+        //                {
+        //                    prod = new Products();
+        //                    prod.ProductId = (int)dr["ProductId"];
+        //                    prod.ProdName = (string)dr["ProdName"];
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return products;
+        //}
 
         /// <summary>
         /// Adds another product record to database
@@ -126,7 +134,12 @@ namespace ProductsData
             return ProdID;
         }
 
-
+        /// <summary>
+        /// updates a single product
+        /// </summary>
+        /// <param name="oldProduct">old product</param>
+        /// <param name="updatedProduct">updated product</param>
+        /// <returns></returns>
         public static bool UpdateSelectedProduct(Products oldProduct, Products updatedProduct)
         {
             bool result = false; //assumes that update is not successful
@@ -149,6 +162,11 @@ namespace ProductsData
             return result;
         }
 
+        /// <summary>
+        /// deleted a product
+        /// </summary>
+        /// <param name="prod">product</param>
+        /// <returns></returns>
         public static bool DeleteProduct(Products prod)
         {
             bool result = true;
@@ -169,8 +187,10 @@ namespace ProductsData
             }
 
         }
-
-        //Created by Julie on February 18
+        /// <summary>
+        /// Created by Julie on February 18
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetProductName()
         {
             List<string> productNameList = new List<string>();
@@ -198,7 +218,11 @@ namespace ProductsData
 
 
 
-
+        /// <summary>
+        /// Obtains product id from product name
+        /// </summary>
+        /// <param name="name">product name</param>
+        /// <returns></returns>
         public static Products GetProdId(string name)
         {
             Products product = new Products();
@@ -223,8 +247,12 @@ namespace ProductsData
             return product;
         }
 
+        /// <summary>
+        /// verifies if product name exists to check for duplicate values
+        /// </summary>
+        /// <param name="productName">product name</param>
+        /// <returns></returns>
 
-        // neeed to check for duplicate values
         public static List<Products> ProductNameExists(string productName)
         {
 

@@ -37,29 +37,29 @@ namespace Packages_Products_SuppliersData
 
         }
 
-        // testing
-        public static List<Packages_Products_Suppliers> GetPackagesProductsSuppliers()
-        {
-            List<Packages_Products_Suppliers> packProdSuppList = new List<Packages_Products_Suppliers>();
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT PackageId, ProductSupplierId From Packages_Products_Suppliers ";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                    while (reader.Read())
-                    {
-                        Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
-                        packProdSupp.PackageId = (int)reader["PackageId"];
-                        packProdSupp.ProductSupplerId = (int)reader["ProductSupplierId"];
-                        packProdSuppList.Add(packProdSupp);
-                    }
-                }
-            }
-            return packProdSuppList;
+        // testing - Commented out on Feeb 19 because no references
+        //public static List<Packages_Products_Suppliers> GetPackagesProductsSuppliers()
+        //{
+        //    List<Packages_Products_Suppliers> packProdSuppList = new List<Packages_Products_Suppliers>();
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string query = "SELECT PackageId, ProductSupplierId From Packages_Products_Suppliers ";
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            connection.Open();
+        //            SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        //            while (reader.Read())
+        //            {
+        //                Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
+        //                packProdSupp.PackageId = (int)reader["PackageId"];
+        //                packProdSupp.ProductSupplerId = (int)reader["ProductSupplierId"];
+        //                packProdSuppList.Add(packProdSupp);
+        //            }
+        //        }
+        //    }
+        //    return packProdSuppList;
 
-        }
+        //}
 
         //Created by Julie 
         //February 4

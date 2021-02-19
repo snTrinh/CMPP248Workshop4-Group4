@@ -249,8 +249,5 @@ namespace SuppliersData
             }
             return supplierNameList;
         }
-
-        //class
-
     }
-}//namespace
+}
