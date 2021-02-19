@@ -19,9 +19,11 @@ namespace ProjectWorkshop4_CMPP248_Group4
     public partial class frmModifyPackage : Form
     {
         public List<ProductSupplierAll> prodSup; //for modifying
-        public List<ProductSupplierAll> allProdSup; //for modifying
+        public List<ProductSupplierAll> allProdSup = new List<ProductSupplierAll>();//for modifying
         public List<ProductSupplierAll> addProdSup; //for adding
-
+        List<string> productNameList = new List<string>();
+        List<string> distinctProductNameList = new List<string>();
+        List<Packages_Products_Suppliers> pkgProdSupList = new List<Packages_Products_Suppliers>();
         public frmModifyPackage()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public Packages package = new Packages();
         public List<Products_Suppliers> addPackageSupplierIdList = new List<Products_Suppliers>();
         public List<Products_Suppliers> removePackageSupplierIdList = new List<Products_Suppliers>();
+       // private IEnumerable<string> distinctProductNameList;
 
         // if modifying a package, display these values
         private void DisplaySelectedPackage()
@@ -38,8 +41,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             packageIdTextBox.Text = package.PackageId.ToString();
             pkgNameTextBox.Text = package.PkgName;
             pkgDescTextBox.Text = package.PkgDesc;
-            pkgBasePriceTextBox.Text = package.PkgBasePrice.ToString();
-            pkgAgencyCommissionTextBox.Text = package.PkgAgencyCommission.ToString();
+            pkgBasePriceTextBox.Text = package.PkgBasePrice.ToString("c");
+            pkgAgencyCommissionTextBox.Text = package.PkgAgencyCommission.ToString("c");
             pkgStartDateDateTimePicker.Value = package.PkgStartDate;
             pkgEndDateDateTimePicker.Value = package.PkgEndDate;
         }
@@ -80,8 +83,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             package.PkgName = pkgNameTextBox.Text;
             package.PkgDesc = pkgDescTextBox.Text;
-            package.PkgBasePrice = Convert.ToDecimal(pkgBasePriceTextBox.Text);
-            package.PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text);
+            package.PkgBasePrice = Convert.ToDecimal(pkgBasePriceTextBox.Text.Replace(@"$", string.Empty));
+            package.PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text.Replace(@"$", string.Empty));
             package.PkgStartDate = (DateTime)pkgStartDateDateTimePicker.Value;
             package.PkgEndDate = (DateTime)pkgEndDateDateTimePicker.Value;
 
@@ -119,27 +122,31 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     prodSup = Products_SuppliersDB.GetProductSupplierName(packageID);
                     //displays all products and suppliers that are not already part of a package
 
-
-                    List<int> distinctProdSupID = Products_SuppliersDB.GetDistinctProdSupID(packageID);
-
-                    foreach (int ID in distinctProdSupID)
-                    {
-                        ProductSupplierAll aProdSup = Products_SuppliersDB.GetProductSupplierByID(ID);
-                        allProdSup.Add(aProdSup);
-                    }
                     btnAdd.Visible = false; //hides add button
                     this.Text = "Modify Package"; //shows modify 
                                                   //displays the associated products and suppliers that is associated AN EXISTING package
+                    List<string> productNameExistingList = new List<string>();
                     for (int i = 0; i < prodSup.Count; i++)
                     {
                         checkListExistingProdSupplier.Items.Insert(i, prodSup[i].ProdName + " : " + prodSup[i].SupName);
                         checkListExistingProdSupplier.SetItemChecked(i, true);
+                        productNameExistingList.Add(prodSup[i].ProdName);
                     }
-
-                    for (int i = 0; i < allProdSup.Count; i++)
+                    
+                    List<string> allProductNameList = ProductsDB.GetProductName();
+                    List<string> remainingProductNameList = allProductNameList.Except(productNameExistingList).ToList();
+                    foreach (string productName in remainingProductNameList)
                     {
-                        checkListAddProductSupplier.Items.Insert(i,  allProdSup[i].ProdName + " : " + allProdSup[i].SupName );
-                        checkListAddProductSupplier.SetItemChecked(i, false);
+   
+                        //string selectedProdSupp = checkListExistingProdSupplier.CheckedItems[i].ToString();
+                        List<ProductSupplierAll> allProdSup = Products_SuppliersDB.GetFilteredProductSupplier(productName);
+                        for (int i = 0; i < allProdSup.Count; i++)
+                        {
+                            checkListAddProductSupplier.Items.Insert(i, allProdSup[i].ProdName + " : " + allProdSup[i].SupName);
+                            checkListAddProductSupplier.SetItemChecked(i, false);
+                        }
+  
+
                     }
                 }//retrieve products and suppliers by packageID
             }
@@ -185,21 +192,38 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             int checkCount = checkListAddProductSupplier.CheckedItems.Count;
                             for (var i = 0; i < checkCount; i++)
                             {
-                                
+
                                 string selectedProdSupp = checkListAddProductSupplier.CheckedItems[i].ToString();
                                 string[] splitProdSupp = selectedProdSupp.Split(':');
                                 string productName = splitProdSupp[0].Trim(' ');
-                                
                                 string supplierName = splitProdSupp[1].Trim(' ');
                                 int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
-                    
+
                                 Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                               
                                 pkgProdSup.ProductSupplerId = productSupplierId;
                                 pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                                pkgProdSupList.Add(pkgProdSup);
+                                productNameList.Add(productName);
 
-                                //connecting and adding to DB
-                                Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                             }
+
+                           
+                            distinctProductNameList = productNameList.Distinct().ToList();
+                            int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                            if (numberOfProductRepeats > 1)
+
+                                MessageBox.Show("You selected more than one of the same product. Please try again");
+                            else if (numberOfProductRepeats == 1)
+                                MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                            else if (numberOfProductRepeats == 0)
+                            {
+                                foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
+                                    Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                            }
+                            else
+                                MessageBox.Show("Please try again");
+
                         }
 
                         int checkedCount = checkListExistingProdSupplier.CheckedItems.Count;
@@ -267,20 +291,39 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     
                     int checkedCount = checkListAddNewProductSupplier.CheckedItems.Count;
+
                     for (var i = 0; i < checkedCount; i++)
                     {
                         string selectedProdSupp = checkListAddNewProductSupplier.CheckedItems[i].ToString();
                         string[] splitProdSupp = selectedProdSupp.Split(':');
                         string productName = splitProdSupp[0].Trim(' ');
-
                         string supplierName = splitProdSupp[1].Trim(' ');
                         int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
 
                         Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
                         pkgProdSup.ProductSupplerId = productSupplierId;
                         pkgProdSup.PackageId = newPackage.PackageId;
-                        Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+
+                        pkgProdSupList.Add(pkgProdSup);
+                        productNameList.Add(productName);
+
+                      
                     }
+
+                    distinctProductNameList = productNameList.Distinct().ToList();
+                    int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                    if (numberOfProductRepeats > 1)
+
+                        MessageBox.Show("You selected more than one of the same product. Please try again");
+                    else if (numberOfProductRepeats == 1)
+                        MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                    else if (numberOfProductRepeats == 0)
+                    {
+                        foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
+                            Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                    }
+                    else
+                        MessageBox.Show("Please try again");
                 }
                 DialogResult = DialogResult.OK;
 
@@ -288,23 +331,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         }
 
 
-        //for modifying
-        private void checkListExistingProdSupplier_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
 
-            if (e.NewValue == CheckState.Unchecked)
-            {
-                //checkListExistingProdSupplier.CheckedItems.ToString();
-                //List<Products_Suppliers> selectedProductSupplier = checkRegEx(checkListExistingProdSupplier);
-                //foreach (var i in selectedProductSupplier)
-                //{
-                //    string selectedProductSupplierString= i.ToString();
-                //    string[] authorsList = selectedProductSupplierString.Split(": "); 
-                //}
-                //int ProductSupplierId = Convert.ToInt32(selectedProduct[0].ProductSupplierId);
-                //removePackageSupplierIdList.Add(selectedProductSupplier);
-            }
-        }
         
     }
 }

@@ -354,7 +354,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListExistingProdSupplier.Name = "checkListExistingProdSupplier";
             this.checkListExistingProdSupplier.Size = new System.Drawing.Size(265, 72);
             this.checkListExistingProdSupplier.TabIndex = 15;
-            this.checkListExistingProdSupplier.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListExistingProdSupplier_ItemCheck);
+           
             // 
             // btnModify
             // 

@@ -245,9 +245,10 @@ namespace Products_SuppliersData
         //Created by Julie Tran
         //shows all products and suppliers that are not already associated to package 
         //Also, if users have already chosen the specific package, it will not display
-        public static ProductSupplierAll GetFilteredProductSupplier(string productName)
+        public static List<ProductSupplierAll>GetFilteredProductSupplier(string productName)
         {
-            ProductSupplierAll prodSupName = new ProductSupplierAll();
+            List<ProductSupplierAll> prodSupNameList = new List<ProductSupplierAll>();
+            ProductSupplierAll prodSupName;
             using (SqlConnection connection = GetConnection())
             {
                 string query = " SELECT ProdName, SupName " +
@@ -255,7 +256,7 @@ namespace Products_SuppliersData
                                "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
                                "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
                                "LEFT JOIN Packages_Products_Suppliers On Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId "+
-                               "WHERE PackageId IS NULL AND ProdName!= @ProdName";
+                               "WHERE PackageId IS NULL AND ProdName= @ProdName";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@ProdName", productName) ;
@@ -264,14 +265,16 @@ namespace Products_SuppliersData
                     {
                         while (dr.Read())
                         {
+                            prodSupName = new ProductSupplierAll();
                             prodSupName.ProdName = (string)dr["ProdName"];
                             prodSupName.SupName = (string)dr["SupName"];
+                            prodSupNameList.Add(prodSupName);
 
                         }
                     }
                 }
             }
-            return prodSupName;
+            return prodSupNameList;
         }
 
         //Shows all products and suppliers, that are not already checked off

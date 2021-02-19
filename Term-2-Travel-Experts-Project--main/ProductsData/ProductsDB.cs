@@ -170,6 +170,33 @@ namespace ProductsData
 
         }
 
+        //Created by Julie on February 18
+        public static List<string> GetProductName()
+        {
+            List<string> productNameList = new List<string>();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT ProdName FROM Products";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+              
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            
+                            string prodName = (string)dr["ProdName"];
+
+                            productNameList.Add(prodName);
+                        }
+                    }
+                }
+            }
+            return productNameList;
+        }
+
+
 
     }
 }
