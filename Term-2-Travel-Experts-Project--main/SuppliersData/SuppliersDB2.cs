@@ -156,7 +156,7 @@ namespace SuppliersData
             }
         }
 
-        
+
 
         /// <summary>
         /// Checks if the supplier ID exists
@@ -217,30 +217,30 @@ namespace SuppliersData
             return suppliers;
         }
 
-    }//class
+        //class
         //Created by Julie on February 18
         public static List<string> GetSupplierName(string productName)
         {
             List<string> supplierNameList = new List<string>();
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT SupName "+
-                               "FROM Suppliers "+
+                string query = "SELECT SupName " +
+                               "FROM Suppliers " +
                                "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
                                "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                               "LEFT JOIN Packages_Products_Suppliers On Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId "+
+                               "LEFT JOIN Packages_Products_Suppliers On Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId " +
                                "WHERE ProdName = @ProdName";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@ProdName", productName);
                     connection.Open();
-                    
+
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                     {
                         while (dr.Read())
                         {
 
-                            string supName= (string)dr["SupName"];
+                            string supName = (string)dr["SupName"];
 
                             supplierNameList.Add(supName);
                         }
