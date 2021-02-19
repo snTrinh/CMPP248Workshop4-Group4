@@ -178,7 +178,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packagesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.packagesBindingNavigator.Name = "packagesBindingNavigator";
             this.packagesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.packagesBindingNavigator.Size = new System.Drawing.Size(595, 27);
+            this.packagesBindingNavigator.Size = new System.Drawing.Size(595, 31);
             this.packagesBindingNavigator.TabIndex = 0;
             this.packagesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -188,7 +188,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // packagesBindingSource
@@ -287,6 +287,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packageIdTextBox.Location = new System.Drawing.Point(243, 60);
             this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.packageIdTextBox.Name = "packageIdTextBox";
+            this.packageIdTextBox.ReadOnly = true;
             this.packageIdTextBox.Size = new System.Drawing.Size(265, 22);
             this.packageIdTextBox.TabIndex = 2;
             // 
@@ -348,12 +349,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // checkListExistingProdSupplier
             // 
             this.checkListExistingProdSupplier.FormattingEnabled = true;
-            this.checkListExistingProdSupplier.Location = new System.Drawing.Point(36, 15);
+            this.checkListExistingProdSupplier.Location = new System.Drawing.Point(36, 21);
             this.checkListExistingProdSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListExistingProdSupplier.Name = "checkListExistingProdSupplier";
             this.checkListExistingProdSupplier.Size = new System.Drawing.Size(265, 72);
             this.checkListExistingProdSupplier.TabIndex = 15;
-            this.checkListExistingProdSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListExistingProdSupplier_SelectedIndexChanged);
+           
             // 
             // btnModify
             // 
@@ -374,7 +375,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListAddProductSupplier.Name = "checkListAddProductSupplier";
             this.checkListAddProductSupplier.Size = new System.Drawing.Size(265, 89);
             this.checkListAddProductSupplier.TabIndex = 17;
-            this.checkListAddProductSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListAddProductSupplier_SelectedIndexChanged);
+         
             // 
             // btnCancel
             // 
@@ -409,12 +410,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // checkListAddNewProductSupplier
             // 
             this.checkListAddNewProductSupplier.FormattingEnabled = true;
-            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(40, 20);
+            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(40, 17);
             this.checkListAddNewProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddNewProductSupplier.Name = "checkListAddNewProductSupplier";
             this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(265, 174);
             this.checkListAddNewProductSupplier.TabIndex = 18;
-            this.checkListAddNewProductSupplier.SelectedIndexChanged += new System.EventHandler(this.checkListAddNewProductSupplier_SelectedIndexChanged);
+      
             // 
             // btnAdd
             // 
@@ -432,8 +433,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 612);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pnlAdd);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pnlModify);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);

@@ -84,8 +84,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public static bool IsLessThanBase(TextBox commission, TextBox price, string name)
         {
             bool isValid = true;
-            decimal com = Convert.ToDecimal(commission.Text);
-            decimal pr = Convert.ToDecimal(price.Text);
+            decimal com = Convert.ToDecimal(commission.Text.Replace(@"$", string.Empty));
+            decimal pr = Convert.ToDecimal(price.Text.Replace(@"$", string.Empty));
             if (com >= pr)
             {
                 isValid = false;

@@ -6,6 +6,7 @@ using SuppliersData;
 using AgentsAgencyData;
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ProjectWorkshop4_CMPP248_Group4
 {
@@ -19,8 +20,11 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private Packages newPackage;
         public Packages modifyPackage;
+        public Packages_Products_Suppliers pkgProdSup; 
         
         public Agencies selectedAgency;
+
+        //public object Packages_Product_SuppliersDB { get; private set; }
 
         public frmMain()
         {
@@ -40,6 +44,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             packagesDataGridView.Rows[0].Selected = true;
             DisplayCurrentPackage(0);
             lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
+            //default is that nothing is selected
+            
 
             // testing only
             productsDataGridView.DataSource = ProductsDB.GetProducts();
@@ -122,16 +128,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
         // Data values extracted by ***: ***
         private void modifyToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+    
             frmModifyPackage modifyPackageForm = new frmModifyPackage();
-            modifyPackageForm.package = modifyPackage;
-            modifyPackageForm.addPackage = false;
-            DialogResult result = modifyPackageForm.ShowDialog();
-            // on successful modify we must update the DB
-            if (result == DialogResult.OK)
+            if (modifyPackage != null)
             {
-                modifyPackage = modifyPackageForm.package;
-                packagesDataGridView.DataSource = PackagesDB.GetPackages();
+                modifyPackageForm.package = modifyPackage;
+                modifyPackageForm.addPackage = false;
+                DialogResult result = modifyPackageForm.ShowDialog();
+                // on successful modify we must update the DB
+                if (result == DialogResult.OK)
+                {
+                    modifyPackage = modifyPackageForm.package;
+                    packagesDataGridView.DataSource = PackagesDB.GetPackages();
+                }
+                frmMain_Load(null, EventArgs.Empty);
             }
+            else
+            {
+                MessageBox.Show("Please select a package to modify.", "Package Selection");
+                frmMain_Load(null, EventArgs.Empty);
+            }
+           
         }
         // PACKAGES Grid View cell click
         // Preliminary code by Susan Trinh: January 27, 2021
@@ -306,34 +323,85 @@ namespace ProjectWorkshop4_CMPP248_Group4
         // Code by Julie Tran January 31 2021
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
-            DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "?",
-              "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            List<int> productSupplierIDList;
+            Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+            productSupplierIDList = Packages_Products_SuppliersDB.GetProductSupplierID(modifyPackage.PackageId);
+            DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "? There are " + productSupplierIDList.Count + " associated product suppliers. All will be deleted.",
+                               "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (productSupplierIDList.Count == 0)
             {
-                try
-                {
-                    if (!PackagesDB.DelPackage(modifyPackage))
-                    {
-                        MessageBox.Show("Another user has updated or deleted " +
-                              "that customer.", "Concurrency error");
-                    }
-                    else
-                    {
-                        PackagesDB.DelPackage(modifyPackage);
-                        packagesDataGridView.DataSource = PackagesDB.GetPackages();
-                        lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
-                    }
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-
-            
+                PackagesDB.DelPackage(modifyPackage);
+                packagesDataGridView.DataSource = PackagesDB.GetPackages();
             }
+            else //there's associated products suppliers
+            {
+                //delete each product supplier that is associated to the package, prior to deleting the package
+                pkgProdSup = new Packages_Products_Suppliers();
+                for (int i = 0; i < productSupplierIDList.Count; i++)
+                {
+                    
+                    pkgProdSup.PackageId = modifyPackage.PackageId;
+                    pkgProdSup.ProductSupplerId = productSupplierIDList[i];
+                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
+                }
+                PackagesDB.DelPackage(modifyPackage);
+                packagesDataGridView.DataSource = PackagesDB.GetPackages();
+
+            }
+            lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
         }
+            //if (modifyPackage != null)
+            //{
+
+            //    try
+            //    {
+            //        if (!PackagesDB.DelPackage(modifyPackage))
+            //        {
+            //            MessageBox.Show("Another user has updated or deleted " +
+            //                  "that customer.", "Concurrency error");
+            //        }
+            //        else
+            //        {
+            //            List<int> productSupplierIDList;
+            //            Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+            //            productSupplierIDList = Packages_Products_SuppliersDB.GetProductSupplierID(modifyPackage.PackageId);
+            //            if (productSupplierIDList.Count == 0)
+            //            {
+            //                //DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //                PackagesDB.DelPackage(modifyPackage);
+            //                packagesDataGridView.DataSource = PackagesDB.GetPackages();
+            //            }
+            //            else //there's associated products suppliers
+            //            {
+
+            //               // DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "? There are " + productSupplierIDList.Count + " associated product suppliers. All will be deleted.",
+            //                   // "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //                //delete each product supplier that is associated to the package, prior to deleting the package
+            //                pkgProdSup.PackageId = modifyPackage.PackageId;
+            //                for (int i = 0; i < productSupplierIDList.Count; i++)
+            //                {
+            //                    pkgProdSup.ProductSupplerId = productSupplierIDList[i];
+            //                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSupp);
+            //                    PackagesDB.DelPackage(modifyPackage);
+            //                }
+            //                packagesDataGridView.DataSource = PackagesDB.GetPackages();
+
+            //            }
+            //        }
+            //        lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a package to delete.", "Package Selection");
+            //}
+          
 
         private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {

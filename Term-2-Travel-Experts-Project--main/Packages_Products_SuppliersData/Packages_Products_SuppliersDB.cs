@@ -80,8 +80,35 @@ namespace Packages_Products_SuppliersData
             }
         }
 
-        //Created by Julie 
-        //February 4 2021
+        //Created by Julie
+        //gets ProductSupplierId, when given the packageID
+        //Created on February 14 2021
+        public static List<int> GetProductSupplierID(int packageID)
+        {
+            List<int> productSupplierID = new List<int>();
+            using (SqlConnection connection = GetConnection())
+            {
+                string queryStatement = "SELECT ProductSupplierId FROM Packages_Products_Suppliers WHERE PackageId = @PackageId";
+                using (SqlCommand cmd = new SqlCommand(queryStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@PackageId", packageID);
+
+                    connection.Open();
+                    SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    while (dr.Read())
+                    {
+    
+                        Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
+                        packProdSupp.ProductSupplerId = (int)dr["ProductSupplierId"];
+                        productSupplierID.Add(packProdSupp.ProductSupplerId);
+                    }
+
+                }
+            } return productSupplierID;
+        
+        
+        
+        }
         public static bool DeletePackProdSuppAssociation(Packages_Products_Suppliers pkgProdSup)
         {
             bool result = true;
@@ -103,9 +130,10 @@ namespace Packages_Products_SuppliersData
 
         }
 
-        
-        
 
-        
+
+
+
+
     }
 }
