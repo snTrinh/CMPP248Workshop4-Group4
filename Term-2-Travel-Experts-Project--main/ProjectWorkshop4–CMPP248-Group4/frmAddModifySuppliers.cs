@@ -3,6 +3,8 @@ using ProductsData;
 using SuppliersData;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ProjectWorkshop4_CMPP248_Group4
@@ -93,17 +95,18 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // validate that the Supplier Name is not blank and is non-numeric
-            if (Validator.IsPresent(supNameTextBox, "Supplier Name") && 
+            if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
                 Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
+                try { 
                 // create new supplier object from input data
                 Suppliers newSupplier = new Suppliers();
                 newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
                 newSupplier.SupName = supNameTextBox.Text;
 
                 // if user inputs a name, and the DB comes up with 0 vales of which are the same, implement the following code
-                if (SuppliersDB.SupplierNameExists(newSupplier.SupName).Count == 0) 
-                                                                                    
+                if (SuppliersDB.SupplierNameExists(newSupplier.SupName).Count == 0)
+
                 {
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
@@ -137,7 +140,21 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     MessageBox.Show(newSupplier.SupName + " already exists in the database.", "Duplication Error");
                 }
-
+            }
+            catch (DBConcurrencyException)
+            {
+                MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
+            }
+            // this error catches upon the deletion of a cell of which is referenced in another table
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error because of referenced value: " + ex.Message, "Null Error");
+            }
+            //this error catches null errors 
+            catch (NoNullAllowedException ex)
+            {
+                MessageBox.Show("Error because of null value: " + ex.Message, "Null Error");
+            }
             }
         }
 
@@ -147,14 +164,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
                 Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
+                try
+                {
+                    Suppliers newSup = new Suppliers();
+                    newSup.SupplierId = modifySupplier.SupplierId;
+                    newSup.SupName = supNameTextBox.Text;
 
-                Suppliers newSup = new Suppliers();
-                newSup.SupplierId = modifySupplier.SupplierId;
-                newSup.SupName = supNameTextBox.Text;
-
-                // if no duplicate name entry
-                //if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
-                //{
+                    // if no duplicate name entry
+                    //if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
+                    //{
                     // gives us a count of all the items in the DB
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
@@ -166,7 +184,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             int c = b.ProductId;
 
                             // gives us a value of selected items
-                            for (int j = 0; j < prodNameCheckedListBox.CheckedItems.Count ; j++)
+                            for (int j = 0; j < prodNameCheckedListBox.CheckedItems.Count; j++)
                             {
                                 // create a variable to store the item value
                                 string x = prodNameCheckedListBox.CheckedItems[j].ToString();
@@ -183,7 +201,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
                                 if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
                                     Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
-                                
+
                                 // check to see if the relationship exists
                                 // if it exists, delete it
                                 else if (t != c)// in the case they are not equal
@@ -194,10 +212,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             }
 
                         }
-                        if(SuppliersDB.UpdateSelectedSupplier(modifySupplier,newSup))
-                        this.DialogResult = DialogResult.OK;
+                        if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
+                            this.DialogResult = DialogResult.OK;
                     }
-                    else if(prodNameCheckedListBox.CheckedItems.Count == 0)
+                    else if (prodNameCheckedListBox.CheckedItems.Count == 0)
                     {
                         Products_SuppliersDB.DeleteProductSupplierBySupplierId(newSup.SupplierId);
                         // delete all associations
@@ -209,12 +227,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
-                ////}
-                ////// else the name is duplicated, notify user
-                ////else
-                ////{
-                ////    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
-                ////}
+                    //}
+                    //// else the name is duplicated, notify user
+                    //else
+                    //{
+                    //    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
+                    //}
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
+                    // close dialog
+                    DialogResult = DialogResult.Cancel;
+                }
+
             }
         }
     }
