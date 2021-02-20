@@ -170,9 +170,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     newSup.SupplierId = modifySupplier.SupplierId;
                     newSup.SupName = supNameTextBox.Text;
 
-                    // if no duplicate name entry
-                    //if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
-                    //{
                     // gives us a count of all the items in the DB
                     if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
@@ -215,6 +212,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
+                    // for modifying a product from checked to all unchecked
                     else if (prodNameCheckedListBox.CheckedItems.Count == 0)
                     {
                         Products_SuppliersDB.DeleteProductSupplierBySupplierId(newSup.SupplierId);
@@ -222,17 +220,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
+                    // for modifying the name only
                     else
                     {
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                             this.DialogResult = DialogResult.OK;
                     }
-                    //}
-                    //// else the name is duplicated, notify user
-                    //else
-                    //{
-                    //    MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
-                    //}
+
                 }
                 catch (Exception)
                 {
