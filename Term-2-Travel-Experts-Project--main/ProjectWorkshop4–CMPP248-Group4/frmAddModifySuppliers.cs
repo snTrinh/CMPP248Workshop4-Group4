@@ -170,9 +170,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     newSup.SupplierId = modifySupplier.SupplierId;
                     newSup.SupName = supNameTextBox.Text;
 
-                    //if (SuppliersDB.SupplierNameExists(newSup.SupName).Count == 0)
+                    //if this supplier does not exist
                     if(SuppliersDB.ModifyingSupplierNameExists(newSup.SupplierId, newSup.SupName).Count == 0)
-                    {
+                    { 
                         // gives us a count of all the items in the DB
                         if (prodNameCheckedListBox.CheckedItems.Count > 0)
                         {
