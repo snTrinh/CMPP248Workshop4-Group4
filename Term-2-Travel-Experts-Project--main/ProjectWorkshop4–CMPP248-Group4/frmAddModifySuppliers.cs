@@ -18,6 +18,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public bool addSupplier = true; // true if user wants to add supplier; false if modify
         public Suppliers newSupplier;
         public Suppliers modifySupplier;
+
         public SuppliersProdId supplierProdId;
 
         private void AddModifySuppliers_Load(object sender, EventArgs e)

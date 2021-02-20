@@ -178,7 +178,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packagesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.packagesBindingNavigator.Name = "packagesBindingNavigator";
             this.packagesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.packagesBindingNavigator.Size = new System.Drawing.Size(595, 31);
+            this.packagesBindingNavigator.Size = new System.Drawing.Size(698, 27);
             this.packagesBindingNavigator.TabIndex = 0;
             this.packagesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -188,7 +188,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // packagesBindingSource
@@ -288,7 +288,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.packageIdTextBox.Name = "packageIdTextBox";
             this.packageIdTextBox.ReadOnly = true;
-            this.packageIdTextBox.Size = new System.Drawing.Size(265, 22);
+            this.packageIdTextBox.Size = new System.Drawing.Size(357, 22);
             this.packageIdTextBox.TabIndex = 2;
             // 
             // pkgAgencyCommissionTextBox
@@ -297,7 +297,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(243, 470);
             this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
-            this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(265, 22);
+            this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(357, 22);
             this.pkgAgencyCommissionTextBox.TabIndex = 4;
             this.pkgAgencyCommissionTextBox.Text = "0.0";
             // 
@@ -307,7 +307,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgBasePriceTextBox.Location = new System.Drawing.Point(243, 439);
             this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
-            this.pkgBasePriceTextBox.Size = new System.Drawing.Size(265, 22);
+            this.pkgBasePriceTextBox.Size = new System.Drawing.Size(357, 22);
             this.pkgBasePriceTextBox.TabIndex = 6;
             // 
             // pkgDescTextBox
@@ -316,7 +316,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgDescTextBox.Location = new System.Drawing.Point(243, 123);
             this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgDescTextBox.Name = "pkgDescTextBox";
-            this.pkgDescTextBox.Size = new System.Drawing.Size(265, 22);
+            this.pkgDescTextBox.Size = new System.Drawing.Size(357, 22);
             this.pkgDescTextBox.TabIndex = 8;
             // 
             // pkgEndDateDateTimePicker
@@ -325,7 +325,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(243, 406);
             this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.pkgEndDateDateTimePicker.Name = "pkgEndDateDateTimePicker";
-            this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(357, 22);
             this.pkgEndDateDateTimePicker.TabIndex = 10;
             // 
             // pkgNameTextBox
@@ -334,7 +334,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgNameTextBox.Location = new System.Drawing.Point(243, 91);
             this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgNameTextBox.Name = "pkgNameTextBox";
-            this.pkgNameTextBox.Size = new System.Drawing.Size(265, 22);
+            this.pkgNameTextBox.Size = new System.Drawing.Size(357, 22);
             this.pkgNameTextBox.TabIndex = 12;
             // 
             // pkgStartDateDateTimePicker
@@ -343,7 +343,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(243, 373);
             this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.pkgStartDateDateTimePicker.Name = "pkgStartDateDateTimePicker";
-            this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(357, 22);
             this.pkgStartDateDateTimePicker.TabIndex = 14;
             // 
             // checkListExistingProdSupplier
@@ -352,13 +352,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListExistingProdSupplier.Location = new System.Drawing.Point(36, 21);
             this.checkListExistingProdSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListExistingProdSupplier.Name = "checkListExistingProdSupplier";
-            this.checkListExistingProdSupplier.Size = new System.Drawing.Size(265, 72);
+            this.checkListExistingProdSupplier.Size = new System.Drawing.Size(357, 72);
             this.checkListExistingProdSupplier.TabIndex = 15;
-           
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(104, 529);
+            this.btnModify.Location = new System.Drawing.Point(151, 529);
             this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(131, 50);
@@ -373,13 +372,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.checkListAddProductSupplier.Location = new System.Drawing.Point(36, 101);
             this.checkListAddProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddProductSupplier.Name = "checkListAddProductSupplier";
-            this.checkListAddProductSupplier.Size = new System.Drawing.Size(265, 89);
+            this.checkListAddProductSupplier.Size = new System.Drawing.Size(357, 89);
             this.checkListAddProductSupplier.TabIndex = 17;
-         
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(345, 529);
+            this.btnCancel.Location = new System.Drawing.Point(403, 529);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 50);
@@ -395,31 +393,30 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.pnlModify.Location = new System.Drawing.Point(207, 155);
             this.pnlModify.Margin = new System.Windows.Forms.Padding(4);
             this.pnlModify.Name = "pnlModify";
-            this.pnlModify.Size = new System.Drawing.Size(343, 212);
+            this.pnlModify.Size = new System.Drawing.Size(435, 212);
             this.pnlModify.TabIndex = 20;
             // 
             // pnlAdd
             // 
             this.pnlAdd.Controls.Add(this.checkListAddNewProductSupplier);
-            this.pnlAdd.Location = new System.Drawing.Point(203, 153);
+            this.pnlAdd.Location = new System.Drawing.Point(207, 153);
             this.pnlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(347, 212);
+            this.pnlAdd.Size = new System.Drawing.Size(431, 212);
             this.pnlAdd.TabIndex = 21;
             // 
             // checkListAddNewProductSupplier
             // 
             this.checkListAddNewProductSupplier.FormattingEnabled = true;
-            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(40, 17);
+            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(33, 24);
             this.checkListAddNewProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddNewProductSupplier.Name = "checkListAddNewProductSupplier";
-            this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(265, 174);
+            this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(363, 174);
             this.checkListAddNewProductSupplier.TabIndex = 18;
-      
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(104, 529);
+            this.btnAdd.Location = new System.Drawing.Point(151, 529);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(131, 50);
@@ -432,7 +429,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 612);
+            this.ClientSize = new System.Drawing.Size(698, 612);
             this.Controls.Add(this.pnlAdd);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pnlModify);

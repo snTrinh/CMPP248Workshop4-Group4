@@ -29,6 +29,7 @@ namespace Products_SuppliersData
         public string ProdName { get; set; }
     }
 
+    //Class constructor for supplier table with Product ID
     public class SuppliersProdId
     {
         public int SupplierId { get; set; }
@@ -44,15 +45,18 @@ namespace Products_SuppliersData
         public string SupName { get; set; }
         public int NumOfProd { get; set; }
     }
-    //for package modify table only 
-    //added by Julie Tran: January 30, 2021 
-    public class ExistingProductSupplierName
-    {
-        public int ProductId { get; set; }
-        public string SupName { get; set; }
-        public string ProdName { get; set; }
-    }
+    //zero reference
+    //public class ExistingProductSupplierName
+    //{
+    //    public int ProductId { get; set; }
+    //    public string SupName { get; set; }
+    //    public string ProdName { get; set; }
+    //}
 
+    /// <summary>
+    /// Class constructor for both product and supplier table
+    /// </summary>
+    /// Created by Julie Tran on February 1 
       public class ProductSupplierAll
     {        
         //from product table
