@@ -217,29 +217,35 @@ namespace SuppliersData
             return suppliers;
         }
 
-        public static Suppliers ModifyingSupplierNameExists(string supplierName)
+        public static List<Suppliers> ModifyingSupplierNameExists(int id, string supplierName)
         {
-            Suppliers sup = new Suppliers();
+
+            List<Suppliers> suppliers = new List<Suppliers>();
+            Suppliers sup;
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT SupName, SupplierId FROM Suppliers WHERE SupName = @SupName";
+                string query = "SELECT SupName, SupplierId FROM Suppliers WHERE SupName = @SupName AND SupplierId != @SupplierId";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SupName", supplierName);
+                    cmd.Parameters.AddWithValue("@SupplierId", id);
                     connection.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                     {
                         while (dr.Read())
                         {
+                            sup = new Suppliers();
                             sup.SupplierId = (int)dr["SupplierId"];
                             sup.SupName = (string)dr["SupName"];
+                            suppliers.Add(sup);
                         }
                     }
                 }
             }
-            return sup;
+            return suppliers;
         }
+
 
         //class
         //Created by Julie on February 18
