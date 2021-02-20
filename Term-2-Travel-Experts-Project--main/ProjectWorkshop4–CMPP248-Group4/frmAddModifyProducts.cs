@@ -1,5 +1,7 @@
 ﻿using ProductsData;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ProjectWorkshop4_CMPP248_Group4
@@ -45,23 +47,40 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(prodNameTextBox, "Product Type") &&
                 Validator.IsNonNumeric(prodNameTextBox, "Product Type"))
             {
-                newProduct = new Products();
-                newProduct.ProdName = prodNameTextBox.Text;
-                if (ProductsDB.ProductNameExists(newProduct.ProdName).Count == 0)
+                try
                 {
-                    try
+                    newProduct = new Products();
+                    newProduct.ProdName = prodNameTextBox.Text;
+                    if (ProductsDB.ProductNameExists(newProduct.ProdName).Count == 0)
                     {
-                        newProduct.ProductId = ProductsDB.AddProduct(newProduct);
-                        this.DialogResult = DialogResult.OK;
+                        try
+                        {
+                            newProduct.ProductId = ProductsDB.AddProduct(newProduct);
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show(newProduct.ProdName + " already exists in the database.", "Duplication Error");
                     }
                 }
-                else
+                catch (DBConcurrencyException)
                 {
-                    MessageBox.Show(newProduct.ProdName + " already exists in the database.", "Duplication Error");
+                    MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
+                }
+                // this error catches upon the deletion of a cell of which is referenced in another table
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error because of referenced value: " + ex.Message, "Null Error");
+                }
+                //this error catches null errors 
+                catch (NoNullAllowedException ex)
+                {
+                    MessageBox.Show("Error because of null value: " + ex.Message, "Null Error");
                 }
             }
         }
@@ -73,25 +92,34 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(prodNameTextBox, "Product Type") &&
                 Validator.IsNonNumeric(prodNameTextBox, "Product Type"))
             {
-                Products newProd = new Products();
-                newProd.ProductId = modifyProduct.ProductId;
-                newProd.ProdName = prodNameTextBox.Text;
-                if(ProductsDB.ProductNameExists(newProd.ProdName).Count == 0)
+                try
                 {
-                    if (!ProductsDB.UpdateSelectedProduct(modifyProduct, newProd))
+                    Products newProd = new Products();
+                    newProd.ProductId = modifyProduct.ProductId;
+                    newProd.ProdName = prodNameTextBox.Text;
+                    if (ProductsDB.ProductNameExists(newProd.ProdName).Count == 0)
                     {
-                        MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
-                        this.DialogResult = DialogResult.Retry;
+                        if (!ProductsDB.UpdateSelectedProduct(modifyProduct, newProd))
+                        {
+                            MessageBox.Show("Another user has updated or deleted this package", "DataBase Error");
+                            this.DialogResult = DialogResult.Retry;
+                        }
+                        else
+                        {
+                            modifyProduct = newProd;
+                            this.DialogResult = DialogResult.OK;
+                        }
                     }
                     else
                     {
-                        modifyProduct = newProd;
-                        this.DialogResult = DialogResult.OK;
+                        MessageBox.Show(newProd.ProdName + " already exists in the database.", "Duplication Error");
                     }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show(newProd.ProdName + " already exists in the database.", "Duplication Error");
+                    MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
+                    // close dialog
+                    DialogResult = DialogResult.Cancel;
                 }
             }
         }

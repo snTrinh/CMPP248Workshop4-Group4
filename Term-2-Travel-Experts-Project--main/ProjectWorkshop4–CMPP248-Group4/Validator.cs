@@ -131,7 +131,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         }
 
         /// <summary>
-        /// test if a text box contains numeric values or special characters
+        /// test if a text box contains numeric values 
         /// </summary>
         /// <param name="tb">text box to test</param>
         /// <param name="name">name for error message</param>

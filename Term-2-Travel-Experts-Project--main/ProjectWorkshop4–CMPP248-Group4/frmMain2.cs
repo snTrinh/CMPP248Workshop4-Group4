@@ -171,7 +171,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (result == DialogResult.OK)
             {
                 newProduct = addProductForm.newProduct;
+                // update datagrid
                 productsDataGridView.DataSource = ProductsDB.GetProducts();
+                // update label on main
                 lblProd.Text = productsDataGridView.Rows.Count.ToString();
             }
 
@@ -190,8 +192,17 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (result == DialogResult.OK)
             {
                 modifyProduct = modifyProductForm.modifyProduct;
-                //productsNumSuppliersDataGridView.DataSource = Products_SuppliersDB.GetProductsNumSuppliers();
+                // refresh datagrid view
                 productsDataGridView.DataSource = ProductsDB.GetProducts();
+                // update label on main
+                lblProd.Text = productsDataGridView.Rows.Count.ToString();
+            }
+            else 
+            {
+                // refresh datagrid view
+                productsDataGridView.DataSource = ProductsDB.GetProducts();
+                // update label on main
+                lblProd.Text = productsDataGridView.Rows.Count.ToString();
             }
         }
 
@@ -248,7 +259,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 newSupplier = addSuppliersForm.newSupplier;
                 suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
                 lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
             }
 
@@ -256,7 +266,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         // SUPPLIER TAB: MODIFY - modify supplier
         // Preliminary code by Susan Trinh: January 27, 2021
-        // Data values extracted by ***: ***
         private void modifyToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             frmAddModifySuppliers modifySupplierForm = new frmAddModifySuppliers();
@@ -267,8 +276,17 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (result == DialogResult.OK)
             {
                 modifySupplier = modifySupplierForm.modifySupplier;
+                // update data grid view
                 suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-
+                // update label on main
+                lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
+            }
+            else
+            {
+                // update data grid view
+                suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
+                // update label on main
+                lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
             }
 
         }
@@ -304,15 +322,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-        // PRODUCTS Grid View cell click
-        // Preliminary code by Susan Trinh: January 27, 2021
-        // Revised code by Susan Trinh: January 28, 2021
-        // On click of the display only table, redirect to the Products data
-        private void productsNumSuppliersDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            //int prodNumSupRow = productsNumSuppliersDataGridView.CurrentCell.RowIndex;
-            //DisplayCurrentProduct(prodNumSupRow);
-        }
         private void suppliersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int supTypeProdRow = suppliersDataGridView.CurrentCell.RowIndex;
@@ -347,66 +356,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 }
                 PackagesDB.DelPackage(modifyPackage);
                 packagesDataGridView.DataSource = PackagesDB.GetPackages();
-
             }
             lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
-        }
-            //if (modifyPackage != null)
-            //{
-
-            //    try
-            //    {
-            //        if (!PackagesDB.DelPackage(modifyPackage))
-            //        {
-            //            MessageBox.Show("Another user has updated or deleted " +
-            //                  "that customer.", "Concurrency error");
-            //        }
-            //        else
-            //        {
-            //            List<int> productSupplierIDList;
-            //            Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-            //            productSupplierIDList = Packages_Products_SuppliersDB.GetProductSupplierID(modifyPackage.PackageId);
-            //            if (productSupplierIDList.Count == 0)
-            //            {
-            //                //DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //                PackagesDB.DelPackage(modifyPackage);
-            //                packagesDataGridView.DataSource = PackagesDB.GetPackages();
-            //            }
-            //            else //there's associated products suppliers
-            //            {
-
-            //               // DialogResult result = MessageBox.Show("Delete " + modifyPackage.PkgName + "? There are " + productSupplierIDList.Count + " associated product suppliers. All will be deleted.",
-            //                   // "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //                //delete each product supplier that is associated to the package, prior to deleting the package
-            //                pkgProdSup.PackageId = modifyPackage.PackageId;
-            //                for (int i = 0; i < productSupplierIDList.Count; i++)
-            //                {
-            //                    pkgProdSup.ProductSupplerId = productSupplierIDList[i];
-            //                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSupp);
-            //                    PackagesDB.DelPackage(modifyPackage);
-            //                }
-            //                packagesDataGridView.DataSource = PackagesDB.GetPackages();
-
-            //            }
-            //        }
-            //        lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a package to delete.", "Package Selection");
-            //}
-          
-
-        private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int prodNumSupRow = productsDataGridView.CurrentCell.RowIndex;
-            DisplayCurrentProduct(prodNumSupRow);
         }
 
         private void agencyIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -449,6 +400,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             Application.Exit();
         }
 
-        
+        private void productsDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int prodNumSupRow = productsDataGridView.CurrentCell.RowIndex;
+            DisplayCurrentProduct(prodNumSupRow);
+        }
     }
 }

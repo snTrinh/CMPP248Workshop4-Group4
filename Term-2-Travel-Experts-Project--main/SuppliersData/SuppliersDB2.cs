@@ -217,6 +217,30 @@ namespace SuppliersData
             return suppliers;
         }
 
+        public static Suppliers ModifyingSupplierNameExists(string supplierName)
+        {
+            Suppliers sup = new Suppliers();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "SELECT SupName, SupplierId FROM Suppliers WHERE SupName = @SupName";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupName", supplierName);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            sup.SupplierId = (int)dr["SupplierId"];
+                            sup.SupName = (string)dr["SupName"];
+                        }
+                    }
+                }
+            }
+            return sup;
+        }
+
         //class
         //Created by Julie on February 18
         public static List<string> GetSupplierName(string productName)
