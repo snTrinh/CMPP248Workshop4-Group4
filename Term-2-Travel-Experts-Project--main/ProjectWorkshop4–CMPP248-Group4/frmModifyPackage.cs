@@ -29,6 +29,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         List<string> distinctProductNameList;
         public Packages newPackage;
         public Packages package;
+        int numberOfProductRepeats;
+
 
         //Declaring variables for adding packages
         List<ProductSupplierAll> addProdSup;
@@ -205,17 +207,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             //creates a distinct product List to compare to what was checked by user
                             //displays Messagebox according to if user select multiple of the same products
                             distinctProductNameList = productNameList.Distinct().ToList();
-                            int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                            numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
                             if (numberOfProductRepeats > 1)
-                            {
+
                                 MessageBox.Show("You selected more than one of the same product. Please try again");
-                               
-                            }
                             else if (numberOfProductRepeats == 1)
                             {
                                 MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
-                                
-                            }
                             else if (numberOfProductRepeats == 0)
                             {
                                 //Adds each package products suppliers that was selected to DB.
@@ -228,8 +226,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             else
                             {
                                 MessageBox.Show("Please try again");
-                               
-                            }
+
                         }
 
                         //determines how many items were unchecked 
@@ -257,24 +254,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                     pkgProdSup.ProductSupplerId = productSupplierId;
                                     pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
 
-                                    //Removes package product supplier from DB
                                     Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
-                                    DialogResult = DialogResult.OK;
                                 }
                             }
                         }
-                        
+
+                        DialogResult = DialogResult.OK;
                     }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("There is an error in the database: " + ex.Message, ex.GetType().ToString());
-                  
-                }
-                catch (NoNullAllowedException ex)
-                {
-                    MessageBox.Show("Error because of null value: " + ex.Message, ex.GetType().ToString());
-                   
                 }
                 catch (Exception ex)
                 {
@@ -328,57 +314,29 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             pkgProdSup.PackageId = newPackage.PackageId;
                             pkgProdSupList.Add(pkgProdSup);
 
-                            //add product name to a list (for verification later)
-                            productNameList.Add(productName);
-                        }
-                        //creates a distinct product List to compare to what was checked by user
-                        //displays Messagebox according to if user select multiple of the same products
-                        
-                        distinctProductNameList = productNameList.Distinct().ToList();
-                        int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
-                        if (numberOfProductRepeats > 1)
-                        {
-                            MessageBox.Show("You selected more than one of the same product. Please try again");
-                           
-                        }
-                        else if (numberOfProductRepeats == 1)
-                        {
-                            MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                        pkgProdSupList.Add(pkgProdSup);
+                        productNameList.Add(productName);
 
-
-                        }
-                        else if (numberOfProductRepeats == 0)
-                        {
-                            //Adds each package products suppliers that was selected to DB.
-                            foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
-                            {
-                                Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-                            }
-                            DialogResult = DialogResult.OK;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please try again");
-                         
-                        }
-                        
+                      
                     }
-                    
+
+                    distinctProductNameList = productNameList.Distinct().ToList();
+                    int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                    if (numberOfProductRepeats > 1)
+
+                        MessageBox.Show("You selected more than one of the same product. Please try again");
+                    else if (numberOfProductRepeats == 1)
+                        MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                    else if (numberOfProductRepeats == 0)
+                    {
+                        foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
+                            Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                    }
+                    else
+                        MessageBox.Show("Please try again");
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("There is an error in the database: " + ex.Message, ex.GetType().ToString());
-                    this.DialogResult = DialogResult.Retry;
-                }
-                catch (NoNullAllowedException ex)
-                {
-                    MessageBox.Show("Error because of null value: " + ex.Message, ex.GetType().ToString());
-                    this.DialogResult = DialogResult.Retry;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
-                }
+                DialogResult = DialogResult.OK;
+
             }
         }
 
