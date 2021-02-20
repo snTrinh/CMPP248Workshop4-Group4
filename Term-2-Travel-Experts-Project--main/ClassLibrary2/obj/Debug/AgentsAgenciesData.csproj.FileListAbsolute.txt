@@ -10,3 +10,9 @@ C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-E
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\ClassLibrary2.dll
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\ClassLibrary2.pdb
 C:\Users\Susan Trinh\source\repos\CMPP248ProjectWorkshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\AgentsAgenciesData.csprojAssemblyReference.cache
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\bin\Debug\ClassLibrary2.dll
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\bin\Debug\ClassLibrary2.pdb
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\AgentsAgenciesData.csprojAssemblyReference.cache
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\AgentsAgenciesData.csproj.CoreCompileInputs.cache
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\ClassLibrary2.dll
+C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ClassLibrary2\obj\Debug\ClassLibrary2.pdb

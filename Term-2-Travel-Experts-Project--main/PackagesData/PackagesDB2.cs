@@ -5,33 +5,30 @@ using System.Data.SqlClient;
 /*
  * Class constructor for PackagesDB
  * Created by Susan Trinh on January 26, 2021
+ * Modified by Julie Tran January 30-February 19
  */
 namespace PackagesData
 {
     public static class PackagesDB
     {
-        /// <summary>
-        /// creates SQL connection from conneection string
-        /// </summary>
-        /// <returns>connection</returns>
+        //Creates connection string to DB
         public static SqlConnection GetConnection()
         {
             string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
             return new SqlConnection(connectionString);
         }
-
         
         /// <summary>
-        /// retreives list of Packages
+        /// Retrieves list of Packages
         /// </summary>
-        /// <returns>list of Packages</returns>
+        /// <returns>all Packages in database</returns>
         public static List<Packages> GetPackages()
         {
             List<Packages> packages = new List<Packages>();
             Packages pkg;
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission FROM Packages";
+                string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission FROM Packages ORDER BY PackageId";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     connection.Open();
@@ -55,44 +52,44 @@ namespace PackagesData
             return packages;
         }
 
-        /// <summary>
-        /// retreives a package given an input product ID number
-        /// </summary>
-        /// <param name="packageID">product ID</param>
-        /// <returns>one package value</returns>
-        public static List<Packages> GetPackageByID(int packageID)
-        {
-            List<Packages> package = new List<Packages>();
-            Packages pkg;
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission  FROM Packages WHERE PackageID = @PackageID";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@PackageId", packageID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            pkg = new Packages();
-                            pkg.PackageId = (int)dr["PackageId"];
-                            pkg.PkgName = (string)dr["PkgName"];
-                            pkg.PkgStartDate = (dr["PkgStartDate"] == DBNull.Value) ? default : (DateTime)dr["PkgStartDate"];
-                            pkg.PkgEndDate = (dr["PkgEndDate"] == DBNull.Value) ? default : (DateTime)dr["PkgEndDate"]; ;
-                            pkg.PkgDesc = (string)dr["PkgDesc"];
-                            pkg.PkgBasePrice = (decimal)dr["PkgBasePrice"];
-                            pkg.PkgAgencyCommission = (decimal)dr["PkgAgencyCommission"];
-                            package.Add(pkg);
-                        }
-                    }
-                }
-            }
-            return package;
-        }
+        /// commented out because 0 references
+        //public static List<Packages> GetPackageByID(int packageID)
+        //{
+        //    List<Packages> package = new List<Packages>();
+        //    Packages pkg;
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission  FROM Packages WHERE PackageID = @PackageID";
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@PackageId", packageID);
+        //            connection.Open();
+        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+        //            {
+        //                while (dr.Read())
+        //                {
+        //                    pkg = new Packages();
+        //                    pkg.PackageId = (int)dr["PackageId"];
+        //                    pkg.PkgName = (string)dr["PkgName"];
+        //                    pkg.PkgStartDate = (dr["PkgStartDate"] == DBNull.Value) ? default : (DateTime)dr["PkgStartDate"];
+        //                    pkg.PkgEndDate = (dr["PkgEndDate"] == DBNull.Value) ? default : (DateTime)dr["PkgEndDate"]; ;
+        //                    pkg.PkgDesc = (string)dr["PkgDesc"];
+        //                    pkg.PkgBasePrice = (decimal)dr["PkgBasePrice"];
+        //                    pkg.PkgAgencyCommission = (decimal)dr["PkgAgencyCommission"];
+        //                    package.Add(pkg);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return package;
+        //}
 
-        //SQL connection of rmodifying a package
-        //Created by Julie Tran, January 31, 2021 
+        /// <summary>
+        /// Updates packages in the database
+        /// </summary>
+        /// <param name="oldPkg">old package object to be updated </param>
+        /// <param name="newPkg">new package to be displayed </param>
+        /// <returns>true or false to indicate successful or unsuccessful update/returns>
         public static bool UpdatePackage(Packages oldPkg, Packages newPkg)
         {
             bool result = false; //assumes that update is not successful
@@ -112,15 +109,18 @@ namespace PackagesData
                     cmd.Parameters.AddWithValue("@OldPackageId", oldPkg.PackageId);
                     connection.Open();
                     int count = cmd.ExecuteNonQuery(); //execute update 
-                    if (count > 0) ;
+                    if (count > 0);
                     result = true;
                 }
-
             }
             return result;
         }
-        //SQL connection for adding a new package 
-        //Created by Julie Tran, January 31 2021
+
+        /// <summary>
+        /// Add new Package to databse
+        /// </summary>
+        /// <param name="pkg">package object</param>
+        /// <returns>an integer to indicate how many packages were added to database</returns>
         public static int AddPackage(Packages pkg)
         {
             int PackageId = 5;
@@ -143,8 +143,12 @@ namespace PackagesData
             }
             return PackageId;
         }
-        //SQL connection for deleting package data
-        //Created by Julie Tran, January 31 2021
+
+        /// <summary>
+        /// Delete a package from database
+        /// </summary>
+        /// <param name="pkg">package object</param>
+        /// <returns>true or false to indicate successful or unsucessful delete</returns>
         public static bool DelPackage(Packages pkg)
         {
             bool result = true;
@@ -165,11 +169,9 @@ namespace PackagesData
                     int count = cmd.ExecuteNonQuery();
                     if (count == 0)
                         return false;
-
                 }
                 return result;
             }
-
         }
     }
 }

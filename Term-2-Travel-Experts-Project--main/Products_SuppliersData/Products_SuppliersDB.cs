@@ -9,13 +9,18 @@ namespace Products_SuppliersData
      */
     public static class Products_SuppliersDB
     {
-        // connection to datatbase 
+        // connection to database 
         public static SqlConnection GetConnection()
         {
             string connectionString = @"Data Source=localhost\SQLEXPRESS; Initial Catalog = TravelExperts; Integrated Security = True";
             return new SqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// Retrieves Suppliers and Product by SupplierID
+        /// </summary>
+        /// <param name="supplierID">supplierId</param>
+        /// <returns>List of object that contains SupplierId, SupName, ProdName</returns>
         public static List<SuppliersTypeOfProducts> GetSuppliersTypeOfProductsByID(int supplierID)
         {
             List<SuppliersTypeOfProducts> productNumSuppliersList = new List<SuppliersTypeOfProducts>();
@@ -82,42 +87,44 @@ namespace Products_SuppliersData
             }
             return prodSupNameList;
         }
-        //Selects all ProductSupplierID that is not associated to current Package.
-        //Created by Julie Tran
-        //Create on Feb 16, modified on February 4 and 16 2021 
-        //sql written by Susan,
-        public static List<int> GetDistinctProdSupID(int packageID)
-        {
-            List<int> distinctProdSuppIDList = new List<int>();
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT DISTINCT Products_Suppliers.ProductSupplierId " +
-                               "FROM Suppliers " +
-                               "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-                               "LEFT JOIN Packages_Products_Suppliers ON Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId " +
-                               "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                               "WHERE PackageId != @PackageId OR PackageId IS NULL " +
-                               "ORDER BY ProductSupplierId";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@PackageId", packageID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            int ProductSupplierId = (int)dr["ProductSupplierId"];
-                            distinctProdSuppIDList.Add(ProductSupplierId);
-                        }
-                    }
-                }
-            }
-            return distinctProdSuppIDList;
-        }
+        //zero reference
+        //public static List<int> GetDistinctProdSupID(int packageID)
+        //{
+        //    List<int> distinctProdSuppIDList = new List<int>();
+        //    using (SqlConnection connection = GetConnection())
+        //    {
+        //        string query = "SELECT DISTINCT Products_Suppliers.ProductSupplierId " +
+        //                       "FROM Suppliers " +
+        //                       "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
+        //                       "LEFT JOIN Packages_Products_Suppliers ON Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId " +
+        //                       "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
+        //                       "WHERE PackageId != @PackageId OR PackageId IS NULL " +
+        //                       "ORDER BY ProductSupplierId";
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@PackageId", packageID);
+        //            connection.Open();
+        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+        //            {
+        //                while (dr.Read())
+        //                {
+        //                    int ProductSupplierId = (int)dr["ProductSupplierId"];
+        //                    distinctProdSuppIDList.Add(ProductSupplierId);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return distinctProdSuppIDList;
+        //}
 
-        //Created by Julie Tran
-        //shows all products and suppliers that are not already associated to package 
-        //Also, if users have already chosen the specific package, it will not display
+
+        /// <summary>
+        /// Shows all Product and Supplier name that is not associated to a package.
+        /// Filtered query that only displays ProdName that is not associated to package
+        /// </summary>
+        /// <param name="productName">productName </param>
+        /// <returns>List of Product and Supplier Names</returns>
+        ///Modified by Julie Tran on February 18
         public static List<ProductSupplierAll>GetFilteredProductSupplier(string productName)
         {
             List<ProductSupplierAll> prodSupNameList = new List<ProductSupplierAll>();
@@ -150,10 +157,11 @@ namespace Products_SuppliersData
             return prodSupNameList;
         }
 
-        //Shows all products and suppliers, that are not already checked off
-        //Created by Julie Tran
-        //modified on February 16 
-
+        /// <summary>
+        /// Retrieves all Products and Suppliers that are not associated to a package 
+        /// </summary>
+        /// <param name="productSupplierID">productSupplier ID</param>
+        /// <returns>object of only ProductName and SupplierName</returns>
         public static ProductSupplierAll GetProductSupplierByID(int productSupplierID)
         {
             ProductSupplierAll prodSupName = new ProductSupplierAll();
@@ -183,14 +191,14 @@ namespace Products_SuppliersData
             return prodSupName;
         }
 
-        
 
         /// <summary>
-        /// Adds another supplier product record to database
+        /// Adds Supplier Product record to database
         /// </summary>
-        /// <param name="prod">object with new product data</param>
-        /// <returns>generated ID for the new product record</returns>
-        public static bool AddSupplierProductID(int ProdId, int SupplierID)
+        /// <param name="prodId">Product ID</param>
+        /// <param name="supplierId">Supplier ID</param>
+        /// <returns>true or false to indicate success or unsucessful insert into the Products_Suppliers table</returns>
+        public static bool AddSupplierProductID(int prodId, int supplierId)
         {
             bool result = false;
             using (SqlConnection connection = GetConnection())
@@ -199,8 +207,8 @@ namespace Products_SuppliersData
                                          "VALUES (@ProductId, @SupplierId)";
                 using (SqlCommand cmd = new SqlCommand(insertStatement, connection))
                 {
-                    cmd.Parameters.AddWithValue("@ProductId", ProdId);
-                    cmd.Parameters.AddWithValue("@SupplierId", SupplierID);
+                    cmd.Parameters.AddWithValue("@ProductId", prodId);
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierId);
                     connection.Open();
                     int count = cmd.ExecuteNonQuery(); //execute update 
                     if (count > 0)
@@ -210,10 +218,12 @@ namespace Products_SuppliersData
             return result;
         }
 
-        //for packages 
-        //shows all products and suppliers 
-        //created by Julie Tran 
-        // Created on February 4 2021
+        /// <summary>
+        /// retries all items in Product and Supplier table
+        /// </summary>
+        /// <returns>list of a joined properties in Product and Supplier table</returns>
+        ///created by Julie Tran 
+        /// Created on February 4 2021
         public static List<ProductSupplierAll> GetAllProductSupplierName()
         {
             List<ProductSupplierAll> prodSupNameList = new List<ProductSupplierAll>();
@@ -225,7 +235,6 @@ namespace Products_SuppliersData
                                "JOIN Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    
                     connection.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
                     {
@@ -245,8 +254,13 @@ namespace Products_SuppliersData
             return prodSupNameList;
         }
 
-        // this code should implement when modifying product suppliers
-        
+   
+        /// <summary>
+        /// Delete  data from Product_Suppliers
+        /// </summary>
+        /// <param name="productId">product ID</param>
+        /// <param name="supplierId">supplier ID</param>
+        /// <returns>true or false to indicate success or unsuccess delete</returns>
         public static bool DeleteProductSupplier(int productId, int supplierId)
         {
             bool result = true;
@@ -353,9 +367,6 @@ namespace Products_SuppliersData
         }
 
 
-
-
-
         /// <summary>
         /// checks to see if product supplier data exists using supplier ID
         /// </summary>
@@ -402,7 +413,14 @@ namespace Products_SuppliersData
             }
         }
 
-        //Created by Julie on February 16
+
+        /// <summary>
+        /// Retrieves Product ID that is associated to the product and supplier name 
+        /// </summary>
+        /// <param name="productName">product name</param>
+        /// <param name="supplierName">supplier name</param>
+        /// <returns>integer of the associated ProductSupplierID</returns>
+        ///Created by Julie on February 16
         public static int GetProductSupplierID(string productName, string supplierName)
         {
             int prodSuppId = 0;
