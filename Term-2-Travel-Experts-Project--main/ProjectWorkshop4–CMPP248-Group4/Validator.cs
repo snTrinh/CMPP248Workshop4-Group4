@@ -130,7 +130,25 @@ namespace ProjectWorkshop4_CMPP248_Group4
             return isValid;
         }
 
-
+        /// <summary>
+        /// test if a text box contains numeric values or special characters
+        /// </summary>
+        /// <param name="tb">text box to test</param>
+        /// <param name="name">name for error message</param>
+        /// <returns>bool</returns>
+        public static bool IsNonNumericWithSpecialCharacters(TextBox tb, string name)
+        {
+            bool isValid = true;
+            bool value = Regex.IsMatch(tb.Text, @"^[A-Za-z\-\ ./()']+$"); // regular expression accepting letters, dashes, spaces, periods, front slash and apostrophes
+            if (value == false) // if text in text box doesn't match
+            {
+                isValid = false;
+                MessageBox.Show(name + " should be non-numeric and may contain special characters", "Input Error");
+                tb.SelectAll(); // select all text box content to ease replacing
+                tb.Focus();
+            }
+            return isValid;
+        }
 
 
     }

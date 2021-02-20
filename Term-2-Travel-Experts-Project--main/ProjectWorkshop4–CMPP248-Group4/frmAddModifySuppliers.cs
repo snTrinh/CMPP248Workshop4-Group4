@@ -94,7 +94,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             // validate that the Supplier Name is not blank and is non-numeric
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") && 
-                Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
+                Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
                 // create new supplier object from input data
                 Suppliers newSupplier = new Suppliers();
@@ -145,7 +145,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
-                Validator.IsNonNumeric(supNameTextBox, "Supplier Name"))
+                Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
 
                 Suppliers newSup = new Suppliers();
