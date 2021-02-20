@@ -2,6 +2,7 @@
 {
     public class Packages_Products_Suppliers
     {
+        //Class constructor for Packages_Products_Suppliers
         public int PackageId { get; set; }
         public int ProductSupplerId { get; set; }
     }

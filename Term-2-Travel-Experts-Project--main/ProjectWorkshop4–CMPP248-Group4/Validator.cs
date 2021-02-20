@@ -36,8 +36,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
         {
             bool isValid = true;
             decimal value;
-            if (!Decimal.TryParse(tb.Text, out value))// not a double number
+            if (!Decimal.TryParse(tb.Text, out value) && (!tb.Text.StartsWith("$")))// not a double number and does not start with the dollar sign
             {
+
+
                 isValid = false;
                 MessageBox.Show(name + " should be a number", "Input Error");
                 tb.SelectAll(); // select all text box content to ease replacing
