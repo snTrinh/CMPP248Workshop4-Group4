@@ -29,6 +29,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
         List<string> distinctProductNameList;
         public Packages newPackage;
         public Packages package;
+        int numberOfProductRepeats;
+
 
         //Declaring variables for adding packages
         List<ProductSupplierAll> addProdSup;
@@ -205,16 +207,18 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             //creates a distinct product List to compare to what was checked by user
                             //displays Messagebox according to if user select multiple of the same products
                             distinctProductNameList = productNameList.Distinct().ToList();
-                            int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                            numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
                             if (numberOfProductRepeats > 1)
                             {
                                 MessageBox.Show("You selected more than one of the same product. Please try again");
-                               
+                                productNameList.Clear();
+                                pkgProdSupList.Clear();
                             }
                             else if (numberOfProductRepeats == 1)
                             {
                                 MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
-                                
+                                productNameList.Clear();
+                                pkgProdSupList.Clear();
                             }
                             else if (numberOfProductRepeats == 0)
                             {
@@ -228,7 +232,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             else
                             {
                                 MessageBox.Show("Please try again");
-                               
+                                productNameList.Clear();
+                                pkgProdSupList.Clear();
                             }
                         }
 
@@ -256,10 +261,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                     Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
                                     pkgProdSup.ProductSupplerId = productSupplierId;
                                     pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
-
-                                    //Removes package product supplier from DB
-                                    Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
-                                    DialogResult = DialogResult.OK;
+                                    if (numberOfProductRepeats == 0)
+                                    {
+                                        //Removes package product supplier from DB
+                                        Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
+                                        DialogResult = DialogResult.OK;
+                                    }
                                 }
                             }
                         }
@@ -339,12 +346,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         if (numberOfProductRepeats > 1)
                         {
                             MessageBox.Show("You selected more than one of the same product. Please try again");
-                           
+                            productNameList.Clear();
+                            pkgProdSupList.Clear();
                         }
                         else if (numberOfProductRepeats == 1)
                         {
                             MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
-
+                            productNameList.Clear();
+                            pkgProdSupList.Clear();
 
                         }
                         else if (numberOfProductRepeats == 0)
@@ -359,7 +368,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         else
                         {
                             MessageBox.Show("Please try again");
-                         
+                            productNameList.Clear();
+                            pkgProdSupList.Clear();
+
                         }
                         
                     }

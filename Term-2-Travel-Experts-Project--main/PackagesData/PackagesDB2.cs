@@ -28,7 +28,7 @@ namespace PackagesData
             Packages pkg;
             using (SqlConnection connection = GetConnection())
             {
-                string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission FROM Packages";
+                string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission FROM Packages ORDER BY PackageId";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     connection.Open();
