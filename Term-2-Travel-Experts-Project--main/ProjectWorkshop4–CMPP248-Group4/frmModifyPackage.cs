@@ -209,6 +209,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
                             distinctProductNameList = productNameList.Distinct().ToList();
                             numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+
+                            
                             if (numberOfProductRepeats > 1)
                             {
                                 MessageBox.Show("You selected more than one of the same product. Please try again");
@@ -217,7 +219,18 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             }
                             else if (numberOfProductRepeats == 1)
                             {
-                                MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                                foreach (string name in productNameList)
+                                {
+                                    int matchingnameCount = productNameList.Where(stringToCheck => stringToCheck.Contains(name)).Count();
+                                    if (matchingnameCount > 1)
+                                    {
+                                        MessageBox.Show("You selected " + name + " twice. Please try again");
+                                        break;
+                                    }
+                                    break;
+
+                                }
+                                
                                 pkgProdSupList.Clear();
                                 productNameList.Clear();
                             }
