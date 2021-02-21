@@ -25,11 +25,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Declaring variables for modifying packages
         List<ProductSupplierAll> prodSup;
         List<Packages_Products_Suppliers> pkgProdSupList;
+        List<Packages_Products_Suppliers> pkgProdSupListRemove;
         List<string> productNameList;
         List<string> distinctProductNameList;
         public Packages newPackage;
         public Packages package;
         int numberOfProductRepeats;
+        
 
 
         //Declaring variables for adding packages
@@ -50,6 +52,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             productNameList = new List<string>();
             distinctProductNameList = new List<string>();
             pkgProdSupList = new List<Packages_Products_Suppliers>();
+            pkgProdSupListRemove = new List<Packages_Products_Suppliers>();
             package = new Packages();
             addPackage = true;
         }
@@ -161,112 +164,121 @@ namespace ProjectWorkshop4_CMPP248_Group4
         //Modify button event handler 
         private void btnModify_Click_1(object sender, EventArgs e)
         {
-            ////Validators for each textbox when user modifies package
-            //if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
-            //Validator.IsPresent(pkgDescTextBox, "Package Description") &&
-            //Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
-            //Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
-            //Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
-            //Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
-            //{
-            //    try
-            //    {
-            //        //set package (previous) as new package
-            //        newPackage = new Packages();
-            //        newPackage.PackageId = package.PackageId;
-            //        this.PackageData(newPackage);
-            //        if (PackagesDB.UpdatePackage(package, newPackage))
-            //        {
-            //            PackagesDB.UpdatePackage(package, newPackage);
-            //            this.PackageData(newPackage);
-            //            //checks if there's an associated Product SUpplier
-            //            if (checkListAddProductSupplier.CheckedItems.Count > 0)
-            //            {
-            //                int checkCount = checkListAddProductSupplier.CheckedItems.Count;
-            //                for (var i = 0; i < checkCount; i++)
-            //                {
-            //                    //retrieve product and supplier name from the CheckListBox
-            //                    string selectedProdSupp = checkListAddProductSupplier.CheckedItems[i].ToString();
-            //                    string[] splitProdSupp = selectedProdSupp.Split(':');
-            //                    string productName = splitProdSupp[0].Trim(' ');
-            //                    string supplierName = splitProdSupp[1].Trim(' ');
+            if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+                        Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+                        Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+                        Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
+                        Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
+                        Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
+            {
+                //select package that will be modified 
+                //Packages newPkg = new Packages();
+                //newPkg.PackageId = package.PackageId;
+                //this.PackageData(newPkg);
+                newPackage = new Packages();
+                newPackage.PackageId = package.PackageId;
+                this.PackageData(newPackage);
 
-            //                    //retrieve ProductSupplierID that is associated to the Product and Supplier Name
-            //                    int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
+                try
+                {
+                    if (PackagesDB.UpdatePackage(package, newPackage) == true)                      
+                    {
+                        package = newPackage;
 
-            //                    //Add new package product supplier to a list  
-            //                    Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-            //                    pkgProdSup.ProductSupplerId = productSupplierId;
-            //                    pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
-            //                    pkgProdSupList.Add(pkgProdSup);
+                        if (checkListAddProductSupplier.CheckedItems.Count > 0)
+                        {
+                            int checkCount = checkListAddProductSupplier.CheckedItems.Count;
+                            for (var i = 0; i < checkCount; i++)
+                            {
 
-            //                    //add product name to a list (for verification later)
-            //                    productNameList.Add(productName);
-            //                }
+                                string selectedProdSupp = checkListAddProductSupplier.CheckedItems[i].ToString();
+                                string[] splitProdSupp = selectedProdSupp.Split(':');
+                                string productName = splitProdSupp[0].Trim(' ');
+                                string supplierName = splitProdSupp[1].Trim(' ');
+                                int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
 
-            //                //creates a distinct product List to compare to what was checked by user
-            //                //displays Messagebox according to if user select multiple of the same products
-            //                distinctProductNameList = productNameList.Distinct().ToList();
-            //                numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
-            //                if (numberOfProductRepeats > 1)
+                                Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
 
-            //                    MessageBox.Show("You selected more than one of the same product. Please try again");
-            //                else if (numberOfProductRepeats == 1)
-            //                {
-            //                    MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
-            //                else if (numberOfProductRepeats == 0)
-            //                {
-            //                    //Adds each package products suppliers that was selected to DB.
-            //                    foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
-            //                    {
-            //                        Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-            //                    }
-            //                    DialogResult = DialogResult.OK;
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Please try again");
+                                pkgProdSup.ProductSupplerId = productSupplierId;
+                                pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                                pkgProdSupList.Add(pkgProdSup);
+                                productNameList.Add(productName);
 
-            //            }
+                            }
 
-            //            //determines how many items were unchecked 
-            //            int checkedCount = checkListExistingProdSupplier.CheckedItems.Count;
-            //            int totalCount = checkListExistingProdSupplier.Items.Count;
-            //            int uncheckedCount = totalCount - checkedCount;
 
-            //            //determines if any product suppliers is unassociated from package
-            //            if (uncheckedCount > 0)
-            //            {
-            //                //compares all items to unchecked item in the Check List Box
-            //                foreach (var items in checkListExistingProdSupplier.Items)
-            //                {
-            //                    if (!checkListExistingProdSupplier.CheckedItems.Contains(items))
-            //                    {
-            //                        //retrieve product and supplier name from the CheckListBox
-            //                        string selectedProdSupp = items.ToString();
-            //                        string[] splitProdSupp = selectedProdSupp.Split(':');
-            //                        string productName = splitProdSupp[0].Trim(' ');
-            //                        string supplierName = splitProdSupp[1].Trim(' ');
-            //                        int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
+                            distinctProductNameList = productNameList.Distinct().ToList();
+                            numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                            if (numberOfProductRepeats > 1)
+                            {
+                                MessageBox.Show("You selected more than one of the same product. Please try again");
+                                pkgProdSupList.Clear();
+                                productNameList.Clear();
+                            }
+                            else if (numberOfProductRepeats == 1)
+                            {
+                                MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                                pkgProdSupList.Clear();
+                                productNameList.Clear();
+                            }
+                            else if (numberOfProductRepeats == 0)
+                            {
+                                foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
+                                {
+                                    Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                                }
+                                //DialogResult = DialogResult.OK;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please try again");
+                                pkgProdSupList.Clear();
+                                productNameList.Clear();
+                            }
+                        }
 
-            //                        //retrieve ProductSupplierID that is associated to the Product and Supplier Name
-            //                        Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-            //                        pkgProdSup.ProductSupplerId = productSupplierId;
-            //                        pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                        int checkedCount = checkListExistingProdSupplier.CheckedItems.Count;
+                        int totalCount = checkListExistingProdSupplier.Items.Count;
 
-            //                        Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
-            //                    }
-            //                }
-            //            }
+                        int uncheckedCount = totalCount - checkedCount;
+                        if (uncheckedCount > 0)
+                        {
+                            foreach (var items in checkListExistingProdSupplier.Items)
+                            {
+                                if (!checkListExistingProdSupplier.CheckedItems.Contains(items))
+                                {
+                                    string selectedProdSupp = items.ToString();
+                                    string[] splitProdSupp = selectedProdSupp.Split(':');
+                                    string productName = splitProdSupp[0].Trim(' ');
 
-            //            DialogResult = DialogResult.OK;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
-            //    }
-            //}
+                                    string supplierName = splitProdSupp[1].Trim(' ');
+                                    int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
+
+                                    Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                                    pkgProdSup.ProductSupplerId = productSupplierId;
+                                    pkgProdSup.PackageId = Convert.ToInt32(packageIdTextBox.Text);
+                                    pkgProdSupListRemove.Add(pkgProdSup);
+
+                                    foreach (Packages_Products_Suppliers pps in pkgProdSupListRemove)
+                                    {
+                                        Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pps);
+                                        //DialogResult = DialogResult.OK;
+                                    }
+                                }
+                            }
+                        }
+                        if (numberOfProductRepeats == 0)
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating data " + ex.Message, ex.GetType().ToString());
+                }
+            }
         }
 
         
@@ -279,65 +291,76 @@ namespace ProjectWorkshop4_CMPP248_Group4
        
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            ////create package to be added to DB
-            //newPackage = new Packages();
-            //newPackage.PkgName = pkgNameTextBox.Text;
+            //create package to be added to DB
+            newPackage = new Packages();
+            newPackage.PkgName = pkgNameTextBox.Text;
 
-            //if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
-            //Validator.IsPresent(pkgDescTextBox, "Package Description") &&
-            //Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
-            //Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
-            //Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
-            //Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
-            //{
-            //    try
-            //    {
-            //        this.PackageData(newPackage);
-            //        //Add new package toDB
-            //        newPackage.PackageId = PackagesDB.AddPackage(newPackage);
-            //        if (checkListAddNewProductSupplier.CheckedItems.Count > 0)
-            //        {
-            //            int checkedCount = checkListAddNewProductSupplier.CheckedItems.Count;
-            //            //checks if there are any associated product supplier to package
-            //            for (var i = 0; i < checkedCount; i++)
-            //            {
-            //                //retrieve product and supplier name from the CheckListBox
-            //                string selectedProdSupp = checkListAddNewProductSupplier.CheckedItems[i].ToString();
-            //                string[] splitProdSupp = selectedProdSupp.Split(':');
-            //                string productName = splitProdSupp[0].Trim(' ');
-            //                string supplierName = splitProdSupp[1].Trim(' ');
-            //                int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
+            if (Validator.IsPresent(pkgNameTextBox, "Package Name") &&
+            Validator.IsPresent(pkgDescTextBox, "Package Description") &&
+            Validator.IsPresent(pkgBasePriceTextBox, "Package Base Price") &&
+            Validator.IsNonNegativeDecimal(pkgBasePriceTextBox, "Package Base Price") &&
+            Validator.IsAfterStartDate(pkgEndDateDateTimePicker, pkgStartDateDateTimePicker, "Package End Date") &&
+            Validator.IsLessThanBase(pkgAgencyCommissionTextBox, pkgBasePriceTextBox, "Agency Commission"))
+            {
+                //checks to see if products/suppliers have been added
+                this.PackageData(newPackage);
+                //Add new package 
+                newPackage.PackageId = PackagesDB.AddPackage(newPackage);
+                if (checkListAddNewProductSupplier.CheckedItems.Count > 0)
+                {
 
-            //                //retrieve ProductSupplierID that is associated to the Product and Supplier Name
-            //                Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
-            //                pkgProdSup.ProductSupplerId = productSupplierId;
-            //                pkgProdSup.PackageId = newPackage.PackageId;
-            //                pkgProdSupList.Add(pkgProdSup);
+                    int checkedCount = checkListAddNewProductSupplier.CheckedItems.Count;
 
-            //            pkgProdSupList.Add(pkgProdSup);
-            //            productNameList.Add(productName);
+                    for (var i = 0; i < checkedCount; i++)
+                    {
+                        string selectedProdSupp = checkListAddNewProductSupplier.CheckedItems[i].ToString();
+                        string[] splitProdSupp = selectedProdSupp.Split(':');
+                        string productName = splitProdSupp[0].Trim(' ');
+                        string supplierName = splitProdSupp[1].Trim(' ');
+                        int productSupplierId = Products_SuppliersDB.GetProductSupplierID(productName, supplierName);
 
-                      
-            //        }
+                        Packages_Products_Suppliers pkgProdSup = new Packages_Products_Suppliers();
+                        pkgProdSup.ProductSupplerId = productSupplierId;
+                        pkgProdSup.PackageId = newPackage.PackageId;
 
-            //        distinctProductNameList = productNameList.Distinct().ToList();
-            //        int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
-            //        if (numberOfProductRepeats > 1)
+                        pkgProdSupList.Add(pkgProdSup);
+                        productNameList.Add(productName);
 
-            //            MessageBox.Show("You selected more than one of the same product. Please try again");
-            //        else if (numberOfProductRepeats == 1)
-            //            MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
-            //        else if (numberOfProductRepeats == 0)
-            //        {
-            //            foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
-            //                Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
-            //        }
-            //        else
-            //            MessageBox.Show("Please try again");
-            //    }
-            //    DialogResult = DialogResult.OK;
 
-            //}
+                    }
+
+                    distinctProductNameList = productNameList.Distinct().ToList();
+                    int numberOfProductRepeats = productNameList.Count() - distinctProductNameList.Count();
+                    if (numberOfProductRepeats > 1)
+                    {
+                        MessageBox.Show("You selected more than one of the same product. Please try again");
+                        pkgProdSupList.Clear();
+                        productNameList.Clear();
+                    }
+                    else if (numberOfProductRepeats == 1)
+                    {
+                        MessageBox.Show("You selected " + productNameList[0] + " twice. Please try again");
+                        pkgProdSupList.Clear();
+                        productNameList.Clear();
+                    }
+                    else if (numberOfProductRepeats == 0)
+                    {
+                        foreach (Packages_Products_Suppliers pkgProdSup in pkgProdSupList)
+                        {
+                            Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
+                        }
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again");
+                        pkgProdSupList.Clear();
+                        productNameList.Clear();
+                    }
+                }
+                
+
+            }
         }
 
         //didnt end up suing Regex
