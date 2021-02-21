@@ -173,6 +173,27 @@ namespace PackagesData
                 return result;
             }
         }
+        /// <summary>
+        /// Retrieves last inserted PackageId
+        /// </summary>
+        /// <returns>package Id</returns>
+        public static int GetNextID()
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                string statement = "select top 1 PackageId from packages order by PackageId desc ";
+                              
+                using (SqlCommand cmd = new SqlCommand(statement, connection))
+                {
+                   
+                    connection.Open();
+                    int PackageId = (int)cmd.ExecuteScalar();
+                    return PackageId;
+                }
+                
+            }
+
+        }
     }
 }
        

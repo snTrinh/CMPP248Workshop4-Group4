@@ -140,6 +140,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 {
                     modifyPackage = modifyPackageForm.package;
                     packagesDataGridView.DataSource = PackagesDB.GetPackages();
+
                 }
                 frmMain_Load(null, EventArgs.Empty);
             }
@@ -328,7 +329,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DisplayCurrentSupplier(supTypeProdRow);
         }
 
-        // PACKAGES TAB: DELETE - delete product
+        // PACKAGES TAB: DELETE - delete packages
         // Code by Julie Tran January 31 2021
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -353,6 +354,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     pkgProdSup.PackageId = modifyPackage.PackageId;
                     pkgProdSup.ProductSupplerId = productSupplierIDList[i];
                     Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pkgProdSup);
+
                 }
                 PackagesDB.DelPackage(modifyPackage);
                 packagesDataGridView.DataSource = PackagesDB.GetPackages();
