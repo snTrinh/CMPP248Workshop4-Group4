@@ -40,10 +40,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         // true if user wants to add product; false if modify
         public bool addPackage;
 
-        //List<Products_Suppliers> addPackageSupplierIdList = new List<Products_Suppliers>();
-        //List<Products_Suppliers> removePackageSupplierIdList = new List<Products_Suppliers>();
-        // List<ProductSupplierAll> allProdSup = new List<ProductSupplierAll>();//for modifying
-
         public frmModifyPackage()
         {
             InitializeComponent();
@@ -241,6 +237,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                     Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                                 }
                                 //DialogResult = DialogResult.OK;
+                                pkgProdSupList.Clear();
+                                productNameList.Clear();
                             }
                             else
                             {
@@ -380,9 +378,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
                             {
                                 Packages_Products_SuppliersDB.AddPackageProductSupplier(pkgProdSup);
                             }
-
-
-                            // DialogResult = DialogResult.OK;
+                            pkgProdSupList.Clear();
+                            productNameList.Clear();
+                            DialogResult = DialogResult.OK;
                         }
                         else
                         {
