@@ -29,6 +29,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public frmMain()
         {
             InitializeComponent();
+            Text = "Travel Experts";
         }
 
         // On load of form, display form from 5 databases
