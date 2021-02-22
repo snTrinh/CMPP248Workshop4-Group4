@@ -48,18 +48,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // productIdLabel
             // 
             productIdLabel.AutoSize = true;
-            productIdLabel.Location = new System.Drawing.Point(35, 22);
+            productIdLabel.Location = new System.Drawing.Point(47, 27);
+            productIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(59, 13);
+            productIdLabel.Size = new System.Drawing.Size(76, 17);
             productIdLabel.TabIndex = 9;
             productIdLabel.Text = "Product Id:";
             // 
             // prodNameLabel
             // 
             prodNameLabel.AutoSize = true;
-            prodNameLabel.Location = new System.Drawing.Point(35, 53);
+            prodNameLabel.Location = new System.Drawing.Point(47, 65);
+            prodNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             prodNameLabel.Name = "prodNameLabel";
-            prodNameLabel.Size = new System.Drawing.Size(74, 13);
+            prodNameLabel.Size = new System.Drawing.Size(97, 17);
             prodNameLabel.TabIndex = 7;
             prodNameLabel.Text = "Product Type:";
             // 
@@ -69,9 +71,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(25, 89);
+            this.btnAdd.Location = new System.Drawing.Point(33, 110);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(98, 38);
+            this.btnAdd.Size = new System.Drawing.Size(131, 47);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -79,9 +82,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(148, 89);
+            this.btnCancel.Location = new System.Drawing.Point(197, 110);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(98, 38);
+            this.btnCancel.Size = new System.Drawing.Size(131, 47);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -89,9 +93,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(25, 89);
+            this.btnModify.Location = new System.Drawing.Point(33, 110);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(98, 38);
+            this.btnModify.Size = new System.Drawing.Size(131, 47);
             this.btnModify.TabIndex = 7;
             this.btnModify.Text = "&Modify";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -100,18 +105,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // productIdTextBox
             // 
             this.productIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "ProductId", true));
-            this.productIdTextBox.Location = new System.Drawing.Point(115, 19);
+            this.productIdTextBox.Location = new System.Drawing.Point(153, 23);
+            this.productIdTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.productIdTextBox.Name = "productIdTextBox";
             this.productIdTextBox.ReadOnly = true;
-            this.productIdTextBox.Size = new System.Drawing.Size(121, 20);
+            this.productIdTextBox.Size = new System.Drawing.Size(160, 22);
             this.productIdTextBox.TabIndex = 10;
             // 
             // prodNameTextBox
             // 
             this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "ProdName", true));
-            this.prodNameTextBox.Location = new System.Drawing.Point(115, 50);
+            this.prodNameTextBox.Location = new System.Drawing.Point(153, 62);
+            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.prodNameTextBox.Name = "prodNameTextBox";
-            this.prodNameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.prodNameTextBox.Size = new System.Drawing.Size(160, 22);
             this.prodNameTextBox.TabIndex = 8;
             // 
             // suppliersBindingSource
@@ -120,9 +127,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // frmAddModifyProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 143);
+            this.ClientSize = new System.Drawing.Size(379, 176);
             this.Controls.Add(prodNameLabel);
             this.Controls.Add(this.prodNameTextBox);
             this.Controls.Add(productIdLabel);
@@ -130,9 +137,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAddModifyProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddModifyProducts";
             this.Load += new System.EventHandler(this.frmAddModifyProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();

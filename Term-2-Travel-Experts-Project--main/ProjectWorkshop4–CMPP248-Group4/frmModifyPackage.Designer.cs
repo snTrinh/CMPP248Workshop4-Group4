@@ -37,21 +37,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             System.Windows.Forms.Label pkgEndDateLabel;
             System.Windows.Forms.Label pkgNameLabel;
             System.Windows.Forms.Label pkgStartDateLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModifyPackage));
-            this.packagesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
             this.packagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.packagesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.packageIdTextBox = new System.Windows.Forms.TextBox();
             this.pkgAgencyCommissionTextBox = new System.Windows.Forms.TextBox();
             this.pkgBasePriceTextBox = new System.Windows.Forms.TextBox();
@@ -74,8 +63,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             pkgEndDateLabel = new System.Windows.Forms.Label();
             pkgNameLabel = new System.Windows.Forms.Label();
             pkgStartDateLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.packagesBindingNavigator)).BeginInit();
-            this.packagesBindingNavigator.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingSource)).BeginInit();
             this.pnlModify.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -84,207 +74,102 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // packageIdLabel
             // 
             packageIdLabel.AutoSize = true;
-            packageIdLabel.Location = new System.Drawing.Point(67, 64);
+            packageIdLabel.Location = new System.Drawing.Point(31, 50);
             packageIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             packageIdLabel.Name = "packageIdLabel";
-            packageIdLabel.Size = new System.Drawing.Size(82, 17);
+            packageIdLabel.Size = new System.Drawing.Size(80, 17);
             packageIdLabel.TabIndex = 1;
-            packageIdLabel.Text = "Package Id:";
+            packageIdLabel.Text = "Package ID";
             // 
             // pkgAgencyCommissionLabel
             // 
             pkgAgencyCommissionLabel.AutoSize = true;
-            pkgAgencyCommissionLabel.Location = new System.Drawing.Point(67, 474);
+            pkgAgencyCommissionLabel.Location = new System.Drawing.Point(31, 598);
             pkgAgencyCommissionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgAgencyCommissionLabel.Name = "pkgAgencyCommissionLabel";
-            pkgAgencyCommissionLabel.Size = new System.Drawing.Size(166, 17);
+            pkgAgencyCommissionLabel.Size = new System.Drawing.Size(193, 17);
             pkgAgencyCommissionLabel.TabIndex = 3;
-            pkgAgencyCommissionLabel.Text = "Pkg Agency Commission:";
+            pkgAgencyCommissionLabel.Text = "Package Agency Commission";
             // 
             // pkgBasePriceLabel
             // 
             pkgBasePriceLabel.AutoSize = true;
-            pkgBasePriceLabel.Location = new System.Drawing.Point(67, 443);
+            pkgBasePriceLabel.Location = new System.Drawing.Point(31, 567);
             pkgBasePriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgBasePriceLabel.Name = "pkgBasePriceLabel";
-            pkgBasePriceLabel.Size = new System.Drawing.Size(108, 17);
+            pkgBasePriceLabel.Size = new System.Drawing.Size(135, 17);
             pkgBasePriceLabel.TabIndex = 5;
-            pkgBasePriceLabel.Text = "Pkg Base Price:";
+            pkgBasePriceLabel.Text = "Package Base Price";
             // 
             // pkgDescLabel
             // 
             pkgDescLabel.AutoSize = true;
-            pkgDescLabel.Location = new System.Drawing.Point(67, 127);
+            pkgDescLabel.Location = new System.Drawing.Point(31, 113);
             pkgDescLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgDescLabel.Name = "pkgDescLabel";
-            pkgDescLabel.Size = new System.Drawing.Size(72, 17);
+            pkgDescLabel.Size = new System.Drawing.Size(138, 17);
             pkgDescLabel.TabIndex = 7;
-            pkgDescLabel.Text = "Pkg Desc:";
+            pkgDescLabel.Text = "Package Description";
             // 
             // pkgEndDateLabel
             // 
             pkgEndDateLabel.AutoSize = true;
-            pkgEndDateLabel.Location = new System.Drawing.Point(67, 411);
+            pkgEndDateLabel.Location = new System.Drawing.Point(31, 535);
             pkgEndDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgEndDateLabel.Name = "pkgEndDateLabel";
-            pkgEndDateLabel.Size = new System.Drawing.Size(99, 17);
+            pkgEndDateLabel.Size = new System.Drawing.Size(126, 17);
             pkgEndDateLabel.TabIndex = 9;
-            pkgEndDateLabel.Text = "Pkg End Date:";
+            pkgEndDateLabel.Text = "Package End Date";
             // 
             // pkgNameLabel
             // 
             pkgNameLabel.AutoSize = true;
-            pkgNameLabel.Location = new System.Drawing.Point(67, 95);
+            pkgNameLabel.Location = new System.Drawing.Point(31, 81);
             pkgNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgNameLabel.Name = "pkgNameLabel";
-            pkgNameLabel.Size = new System.Drawing.Size(77, 17);
+            pkgNameLabel.Size = new System.Drawing.Size(104, 17);
             pkgNameLabel.TabIndex = 11;
-            pkgNameLabel.Text = "Pkg Name:";
+            pkgNameLabel.Text = "Package Name";
             // 
             // pkgStartDateLabel
             // 
             pkgStartDateLabel.AutoSize = true;
-            pkgStartDateLabel.Location = new System.Drawing.Point(67, 378);
+            pkgStartDateLabel.Location = new System.Drawing.Point(31, 502);
             pkgStartDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pkgStartDateLabel.Name = "pkgStartDateLabel";
-            pkgStartDateLabel.Size = new System.Drawing.Size(104, 17);
+            pkgStartDateLabel.Size = new System.Drawing.Size(131, 17);
             pkgStartDateLabel.TabIndex = 13;
-            pkgStartDateLabel.Text = "Pkg Start Date:";
+            pkgStartDateLabel.Text = "Package Start Date";
             // 
-            // packagesBindingNavigator
+            // label1
             // 
-            this.packagesBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.packagesBindingNavigator.BindingSource = this.packagesBindingSource;
-            this.packagesBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.packagesBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.packagesBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.packagesBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.packagesBindingNavigatorSaveItem});
-            this.packagesBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.packagesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.packagesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.packagesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.packagesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.packagesBindingNavigator.Name = "packagesBindingNavigator";
-            this.packagesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.packagesBindingNavigator.Size = new System.Drawing.Size(698, 27);
-            this.packagesBindingNavigator.TabIndex = 0;
-            this.packagesBindingNavigator.Text = "bindingNavigator1";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(33, 12);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(195, 17);
+            label1.TabIndex = 23;
+            label1.Text = "Products Included In Package";
             // 
-            // bindingNavigatorAddNewItem
+            // label2
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(33, 191);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(332, 17);
+            label2.TabIndex = 24;
+            label2.Text = "Products Not Included In Package (No duplications)";
+            label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // packagesBindingSource
             // 
             this.packagesBindingSource.DataSource = typeof(PackagesData.Packages);
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // packagesBindingNavigatorSaveItem
-            // 
-            this.packagesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.packagesBindingNavigatorSaveItem.Enabled = false;
-            this.packagesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("packagesBindingNavigatorSaveItem.Image")));
-            this.packagesBindingNavigatorSaveItem.Name = "packagesBindingNavigatorSaveItem";
-            this.packagesBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
-            this.packagesBindingNavigatorSaveItem.Text = "Save Data";
-            // 
             // packageIdTextBox
             // 
             this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PackageId", true));
-            this.packageIdTextBox.Location = new System.Drawing.Point(243, 60);
+            this.packageIdTextBox.Location = new System.Drawing.Point(245, 45);
             this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.packageIdTextBox.Name = "packageIdTextBox";
             this.packageIdTextBox.ReadOnly = true;
@@ -294,17 +179,16 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pkgAgencyCommissionTextBox
             // 
             this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PkgAgencyCommission", true));
-            this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(243, 470);
+            this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(245, 593);
             this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
             this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(357, 22);
             this.pkgAgencyCommissionTextBox.TabIndex = 4;
-            this.pkgAgencyCommissionTextBox.Text = "0.0";
             // 
             // pkgBasePriceTextBox
             // 
             this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PkgBasePrice", true));
-            this.pkgBasePriceTextBox.Location = new System.Drawing.Point(243, 439);
+            this.pkgBasePriceTextBox.Location = new System.Drawing.Point(245, 562);
             this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
             this.pkgBasePriceTextBox.Size = new System.Drawing.Size(357, 22);
@@ -313,7 +197,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pkgDescTextBox
             // 
             this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PkgDesc", true));
-            this.pkgDescTextBox.Location = new System.Drawing.Point(243, 123);
+            this.pkgDescTextBox.Location = new System.Drawing.Point(245, 108);
             this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgDescTextBox.Name = "pkgDescTextBox";
             this.pkgDescTextBox.Size = new System.Drawing.Size(357, 22);
@@ -322,7 +206,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pkgEndDateDateTimePicker
             // 
             this.pkgEndDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packagesBindingSource, "PkgEndDate", true));
-            this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(243, 406);
+            this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(245, 529);
             this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.pkgEndDateDateTimePicker.Name = "pkgEndDateDateTimePicker";
             this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(357, 22);
@@ -331,7 +215,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pkgNameTextBox
             // 
             this.pkgNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packagesBindingSource, "PkgName", true));
-            this.pkgNameTextBox.Location = new System.Drawing.Point(243, 91);
+            this.pkgNameTextBox.Location = new System.Drawing.Point(245, 76);
             this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pkgNameTextBox.Name = "pkgNameTextBox";
             this.pkgNameTextBox.Size = new System.Drawing.Size(357, 22);
@@ -340,7 +224,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // pkgStartDateDateTimePicker
             // 
             this.pkgStartDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packagesBindingSource, "PkgStartDate", true));
-            this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(243, 373);
+            this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(245, 496);
             this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.pkgStartDateDateTimePicker.Name = "pkgStartDateDateTimePicker";
             this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(357, 22);
@@ -349,15 +233,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // checkListExistingProdSupplier
             // 
             this.checkListExistingProdSupplier.FormattingEnabled = true;
-            this.checkListExistingProdSupplier.Location = new System.Drawing.Point(36, 21);
+            this.checkListExistingProdSupplier.Location = new System.Drawing.Point(36, 39);
             this.checkListExistingProdSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListExistingProdSupplier.Name = "checkListExistingProdSupplier";
-            this.checkListExistingProdSupplier.Size = new System.Drawing.Size(357, 72);
+            this.checkListExistingProdSupplier.Size = new System.Drawing.Size(357, 140);
             this.checkListExistingProdSupplier.TabIndex = 15;
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(151, 529);
+            this.btnModify.Location = new System.Drawing.Point(153, 652);
             this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(131, 50);
@@ -369,15 +253,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // checkListAddProductSupplier
             // 
             this.checkListAddProductSupplier.FormattingEnabled = true;
-            this.checkListAddProductSupplier.Location = new System.Drawing.Point(36, 101);
+            this.checkListAddProductSupplier.Location = new System.Drawing.Point(36, 221);
             this.checkListAddProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddProductSupplier.Name = "checkListAddProductSupplier";
-            this.checkListAddProductSupplier.Size = new System.Drawing.Size(357, 89);
+            this.checkListAddProductSupplier.Size = new System.Drawing.Size(357, 123);
             this.checkListAddProductSupplier.TabIndex = 17;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(403, 529);
+            this.btnCancel.Location = new System.Drawing.Point(405, 652);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 50);
@@ -388,35 +272,38 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             // pnlModify
             // 
+            this.pnlModify.Controls.Add(label2);
+            this.pnlModify.Controls.Add(label1);
             this.pnlModify.Controls.Add(this.checkListExistingProdSupplier);
             this.pnlModify.Controls.Add(this.checkListAddProductSupplier);
-            this.pnlModify.Location = new System.Drawing.Point(207, 155);
+            this.pnlModify.Location = new System.Drawing.Point(209, 140);
             this.pnlModify.Margin = new System.Windows.Forms.Padding(4);
             this.pnlModify.Name = "pnlModify";
-            this.pnlModify.Size = new System.Drawing.Size(435, 212);
+            this.pnlModify.Size = new System.Drawing.Size(478, 348);
             this.pnlModify.TabIndex = 20;
             // 
             // pnlAdd
             // 
+            this.pnlAdd.Controls.Add(label3);
             this.pnlAdd.Controls.Add(this.checkListAddNewProductSupplier);
-            this.pnlAdd.Location = new System.Drawing.Point(207, 153);
+            this.pnlAdd.Location = new System.Drawing.Point(209, 134);
             this.pnlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(431, 212);
+            this.pnlAdd.Size = new System.Drawing.Size(431, 350);
             this.pnlAdd.TabIndex = 21;
             // 
             // checkListAddNewProductSupplier
             // 
             this.checkListAddNewProductSupplier.FormattingEnabled = true;
-            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(33, 24);
+            this.checkListAddNewProductSupplier.Location = new System.Drawing.Point(30, 45);
             this.checkListAddNewProductSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.checkListAddNewProductSupplier.Name = "checkListAddNewProductSupplier";
-            this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(363, 174);
+            this.checkListAddNewProductSupplier.Size = new System.Drawing.Size(363, 276);
             this.checkListAddNewProductSupplier.TabIndex = 18;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(151, 529);
+            this.btnAdd.Location = new System.Drawing.Point(153, 652);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(131, 50);
@@ -425,11 +312,21 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(30, 14);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(373, 17);
+            label3.TabIndex = 23;
+            label3.Text = "Choose Products To Include in Package (No Duplications)";
+            // 
             // frmModifyPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 612);
+            this.ClientSize = new System.Drawing.Size(716, 759);
             this.Controls.Add(this.pnlAdd);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pnlModify);
@@ -449,18 +346,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Controls.Add(this.pkgNameTextBox);
             this.Controls.Add(pkgStartDateLabel);
             this.Controls.Add(this.pkgStartDateDateTimePicker);
-            this.Controls.Add(this.packagesBindingNavigator);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmModifyPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmModifyPackage";
             this.Load += new System.EventHandler(this.frmModifyPackage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.packagesBindingNavigator)).EndInit();
-            this.packagesBindingNavigator.ResumeLayout(false);
-            this.packagesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingSource)).EndInit();
             this.pnlModify.ResumeLayout(false);
+            this.pnlModify.PerformLayout();
             this.pnlAdd.ResumeLayout(false);
+            this.pnlAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,19 +363,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         #endregion
 
         private System.Windows.Forms.BindingSource packagesBindingSource;
-        private System.Windows.Forms.BindingNavigator packagesBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton packagesBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox packageIdTextBox;
         private System.Windows.Forms.TextBox pkgAgencyCommissionTextBox;
         private System.Windows.Forms.TextBox pkgBasePriceTextBox;

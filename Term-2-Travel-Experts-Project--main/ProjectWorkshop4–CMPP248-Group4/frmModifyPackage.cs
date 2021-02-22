@@ -414,38 +414,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-        //didnt end up suing Regex
-        //private List<Products_Suppliers> checkRegEx(CheckedListBox checkedListBox)
-        //{
-        //    List<Products_Suppliers> selectedList = new List<Products_Suppliers>();
-
-        //    string str = "";
-        //    string pattern = "\\d+(?=:)"; //regex text before regex
-        //    Regex regex = new Regex(pattern);
-
-        //    Products_Suppliers productAndSupplier = new Products_Suppliers();
-        //    //checks for when regex matches
-        //    for (int x = 0; x < 1; x++)
-        //    {
-        //        str = checkedListBox.SelectedItems[x].ToString();
-        //        MatchCollection matched = regex.Matches(str);
-        //        //for each match, return a Products_Suppliers list
-        //        for (int count = 0; count < 1; count++)
-        //        {
-        //            var list = matched.Cast<Match>().Select(match => match.Value).ToList();
-        //            int productSupplierId = Convert.ToInt32(list[0]);
-        //            int productId = Convert.ToInt32(list[1]);
-        //            int supplierId = Convert.ToInt32(list[2]);
-
-        //            productAndSupplier.ProductId = productId;
-        //            productAndSupplier.SupplierId = supplierId;
-        //            productAndSupplier.ProductSupplierId = productSupplierId;
-        //            selectedList.Add(productAndSupplier);
-        //        }
-        //    }
-        //    return selectedList;
-        //}
-
     }
 }
 
