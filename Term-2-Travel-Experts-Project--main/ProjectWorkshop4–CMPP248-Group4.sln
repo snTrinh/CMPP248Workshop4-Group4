@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuppliersData", "SuppliersD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages_Products_SuppliersData", "Packages_Products_SuppliersData\Packages_Products_SuppliersData.csproj", "{3D17E4EF-E7D3-49F6-B6CE-470F9EB70494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentsAgenciesData", "ClassLibrary2\AgentsAgenciesData.csproj", "{824B9DFE-39C6-42C0-941A-9D8D9175A464}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{3D17E4EF-E7D3-49F6-B6CE-470F9EB70494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D17E4EF-E7D3-49F6-B6CE-470F9EB70494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D17E4EF-E7D3-49F6-B6CE-470F9EB70494}.Release|Any CPU.Build.0 = Release|Any CPU
-		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{824B9DFE-39C6-42C0-941A-9D8D9175A464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

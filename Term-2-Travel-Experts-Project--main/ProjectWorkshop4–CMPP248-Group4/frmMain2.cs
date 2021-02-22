@@ -3,7 +3,6 @@ using PackagesData;
 using Products_SuppliersData;
 using ProductsData;
 using SuppliersData;
-using AgentsAgencyData;
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -22,7 +21,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public Packages modifyPackage;
         public Packages_Products_Suppliers pkgProdSup; 
         
-        public Agencies selectedAgency;
+
 
         //public object Packages_Product_SuppliersDB { get; private set; }
 
@@ -62,15 +61,11 @@ namespace ProjectWorkshop4_CMPP248_Group4
             DisplayCurrentSupplier(0);
             lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
 
-            //suppliersNumOfProductsDataGridView.DataSource = Products_SuppliersDB.GetSuppliersNumOfProducts();
+         
 
-            agenciesBindingSource1.DataSource = AgentsAgencyDB.GetAgencies();
+           
             
-            lblAgencies.Text = AgentsAgencyDB.GetAgencies().Count.ToString();
-
-            // int id = Convert.ToInt32(agencyIdComboBox.Text);
-            agentsDataGridView.DataSource = AgentsAgencyDB.GetAgents();
-            lblAgents.Text = AgentsAgencyDB.GetAgents().Count.ToString();
+          
         }
 
         // Display current package
@@ -363,18 +358,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
         }
 
-        private void agencyIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //agenciesBindingSource1.DataSource = AgentsAgencyDB.GetAgencies();
-            ////Console.WriteLine(agencyIdComboBox.Text); 
-            ////if(agencyIdComboBox.Text !=null)
-            ////{
-            ////    //int id = Convert.ToInt32(agencyIdComboBox.Text);
-            ////    agentsBindingSource.DataSource = AgentsAgencyDB.GetAgentsByID(0);
-            ////}
-            ////int id = Convert.ToInt32(agencyIdComboBox.Text);
-            //agentsBindingSource.DataSource = AgentsAgencyDB.GetAgentsByID(1);
-        }
+
 
         // exit on overview
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

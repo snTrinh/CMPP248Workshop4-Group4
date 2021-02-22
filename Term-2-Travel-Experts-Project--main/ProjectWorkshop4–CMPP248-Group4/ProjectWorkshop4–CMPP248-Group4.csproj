@@ -121,10 +121,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\AgentsAgenciesData.csproj">
-      <Project>{824b9dfe-39c6-42c0-941a-9d8d9175a464}</Project>
-      <Name>AgentsAgenciesData</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PackagesData\PackagesData.csproj">
       <Project>{d5eb3c35-ef73-454c-a70a-a47437c4c0e5}</Project>
       <Name>PackagesData</Name>

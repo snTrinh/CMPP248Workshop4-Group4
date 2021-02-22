@@ -30,27 +30,18 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label agencyIdLabel;
-            System.Windows.Forms.Label agncyAddressLabel;
-            System.Windows.Forms.Label agncyCountryLabel;
-            System.Windows.Forms.Label agncyFaxLabel;
-            System.Windows.Forms.Label agncyPhoneLabel;
-            System.Windows.Forms.Label agncyPostalLabel;
-            System.Windows.Forms.Label agncyProvLabel;
-            System.Windows.Forms.Label agncyCityLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,26 +50,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.suppliersNumOfProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsNumSuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTypeOfProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.agentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.agncyCityTextBox = new System.Windows.Forms.TextBox();
             this.agenciesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.agencyIdComboBox = new System.Windows.Forms.ComboBox();
-            this.agncyAddressTextBox = new System.Windows.Forms.TextBox();
-            this.agncyCountryTextBox = new System.Windows.Forms.TextBox();
-            this.agncyFaxTextBox = new System.Windows.Forms.TextBox();
-            this.agncyPhoneTextBox = new System.Windows.Forms.TextBox();
-            this.agncyPostalTextBox = new System.Windows.Forms.TextBox();
-            this.agncyProvTextBox = new System.Windows.Forms.TextBox();
-            this.menuStrip6 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,13 +91,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Overview = new System.Windows.Forms.TabPage();
-            this.lblAgents = new System.Windows.Forms.Label();
-            this.lblAgencies = new System.Windows.Forms.Label();
             this.lblSup = new System.Windows.Forms.Label();
             this.lblProd = new System.Windows.Forms.Label();
             this.lblPkg = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -134,14 +103,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            agencyIdLabel = new System.Windows.Forms.Label();
-            agncyAddressLabel = new System.Windows.Forms.Label();
-            agncyCountryLabel = new System.Windows.Forms.Label();
-            agncyFaxLabel = new System.Windows.Forms.Label();
-            agncyPhoneLabel = new System.Windows.Forms.Label();
-            agncyPostalLabel = new System.Windows.Forms.Label();
-            agncyProvLabel = new System.Windows.Forms.Label();
-            agncyCityLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).BeginInit();
@@ -150,12 +111,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             ((System.ComponentModel.ISupportInitialize)(this.suppliersNumOfProductsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsNumSuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersTypeOfProductsBindingSource)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agenciesBindingSource1)).BeginInit();
-            this.menuStrip6.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).BeginInit();
             this.menuStrip3.SuspendLayout();
@@ -169,86 +126,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // agencyIdLabel
-            // 
-            agencyIdLabel.AutoSize = true;
-            agencyIdLabel.Location = new System.Drawing.Point(20, 21);
-            agencyIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agencyIdLabel.Name = "agencyIdLabel";
-            agencyIdLabel.Size = new System.Drawing.Size(74, 17);
-            agencyIdLabel.TabIndex = 0;
-            agencyIdLabel.Text = "Agency Id:";
-            // 
-            // agncyAddressLabel
-            // 
-            agncyAddressLabel.AutoSize = true;
-            agncyAddressLabel.Location = new System.Drawing.Point(20, 54);
-            agncyAddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyAddressLabel.Name = "agncyAddressLabel";
-            agncyAddressLabel.Size = new System.Drawing.Size(64, 17);
-            agncyAddressLabel.TabIndex = 2;
-            agncyAddressLabel.Text = "Address:";
-            // 
-            // agncyCountryLabel
-            // 
-            agncyCountryLabel.AutoSize = true;
-            agncyCountryLabel.Location = new System.Drawing.Point(20, 119);
-            agncyCountryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyCountryLabel.Name = "agncyCountryLabel";
-            agncyCountryLabel.Size = new System.Drawing.Size(61, 17);
-            agncyCountryLabel.TabIndex = 6;
-            agncyCountryLabel.Text = "Country:";
-            // 
-            // agncyFaxLabel
-            // 
-            agncyFaxLabel.AutoSize = true;
-            agncyFaxLabel.Location = new System.Drawing.Point(20, 151);
-            agncyFaxLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyFaxLabel.Name = "agncyFaxLabel";
-            agncyFaxLabel.Size = new System.Drawing.Size(34, 17);
-            agncyFaxLabel.TabIndex = 8;
-            agncyFaxLabel.Text = "Fax:";
-            // 
-            // agncyPhoneLabel
-            // 
-            agncyPhoneLabel.AutoSize = true;
-            agncyPhoneLabel.Location = new System.Drawing.Point(20, 183);
-            agncyPhoneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyPhoneLabel.Name = "agncyPhoneLabel";
-            agncyPhoneLabel.Size = new System.Drawing.Size(53, 17);
-            agncyPhoneLabel.TabIndex = 10;
-            agncyPhoneLabel.Text = "Phone:";
-            // 
-            // agncyPostalLabel
-            // 
-            agncyPostalLabel.AutoSize = true;
-            agncyPostalLabel.Location = new System.Drawing.Point(20, 215);
-            agncyPostalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyPostalLabel.Name = "agncyPostalLabel";
-            agncyPostalLabel.Size = new System.Drawing.Size(51, 17);
-            agncyPostalLabel.TabIndex = 12;
-            agncyPostalLabel.Text = "Postal:";
-            // 
-            // agncyProvLabel
-            // 
-            agncyProvLabel.AutoSize = true;
-            agncyProvLabel.Location = new System.Drawing.Point(20, 247);
-            agncyProvLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyProvLabel.Name = "agncyProvLabel";
-            agncyProvLabel.Size = new System.Drawing.Size(41, 17);
-            agncyProvLabel.TabIndex = 14;
-            agncyProvLabel.Text = "Prov:";
-            // 
-            // agncyCityLabel1
-            // 
-            agncyCityLabel1.AutoSize = true;
-            agncyCityLabel1.Location = new System.Drawing.Point(20, 86);
-            agncyCityLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            agncyCityLabel1.Name = "agncyCityLabel1";
-            agncyCityLabel1.Size = new System.Drawing.Size(35, 17);
-            agncyCityLabel1.TabIndex = 15;
-            agncyCityLabel1.Text = "City:";
             // 
             // packagesBindingSource
             // 
@@ -282,237 +159,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             this.suppliersTypeOfProductsBindingSource.DataSource = typeof(Products_SuppliersData.SuppliersTypeOfProducts);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.AutoScroll = true;
-            this.tabPage4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage4.BackgroundImage")));
-            this.tabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage4.Controls.Add(this.agentsDataGridView);
-            this.tabPage4.Controls.Add(this.panel1);
-            this.tabPage4.Controls.Add(this.menuStrip6);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(1091, 615);
-            this.tabPage4.TabIndex = 6;
-            this.tabPage4.Text = "Agencies";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // agentsDataGridView
-            // 
-            this.agentsDataGridView.AllowUserToResizeRows = false;
-            this.agentsDataGridView.AutoGenerateColumns = false;
-            this.agentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.agentsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23});
-            this.agentsDataGridView.DataSource = this.agentsBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.agentsDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
-            this.agentsDataGridView.Location = new System.Drawing.Point(416, 239);
-            this.agentsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agentsDataGridView.MultiSelect = false;
-            this.agentsDataGridView.Name = "agentsDataGridView";
-            this.agentsDataGridView.ReadOnly = true;
-            this.agentsDataGridView.RowHeadersVisible = false;
-            this.agentsDataGridView.RowHeadersWidth = 51;
-            this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.agentsDataGridView.Size = new System.Drawing.Size(605, 187);
-            this.agentsDataGridView.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "AgtFullName";
-            this.dataGridViewTextBoxColumn18.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "AgtBusPhone";
-            this.dataGridViewTextBoxColumn19.FillWeight = 121.8274F;
-            this.dataGridViewTextBoxColumn19.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn19.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "AgtEmail";
-            this.dataGridViewTextBoxColumn22.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn22.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn22.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "AgtPosition";
-            this.dataGridViewTextBoxColumn23.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn23.HeaderText = "Position";
-            this.dataGridViewTextBoxColumn23.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            // 
             // agentsBindingSource
             // 
-            this.agentsBindingSource.DataSource = typeof(AgentsAgencyData.Agents);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(agncyCityLabel1);
-            this.panel1.Controls.Add(this.agncyCityTextBox);
-            this.panel1.Controls.Add(agencyIdLabel);
-            this.panel1.Controls.Add(this.agencyIdComboBox);
-            this.panel1.Controls.Add(agncyAddressLabel);
-            this.panel1.Controls.Add(this.agncyAddressTextBox);
-            this.panel1.Controls.Add(agncyCountryLabel);
-            this.panel1.Controls.Add(this.agncyCountryTextBox);
-            this.panel1.Controls.Add(agncyFaxLabel);
-            this.panel1.Controls.Add(this.agncyFaxTextBox);
-            this.panel1.Controls.Add(agncyPhoneLabel);
-            this.panel1.Controls.Add(this.agncyPhoneTextBox);
-            this.panel1.Controls.Add(agncyPostalLabel);
-            this.panel1.Controls.Add(this.agncyPostalTextBox);
-            this.panel1.Controls.Add(agncyProvLabel);
-            this.panel1.Controls.Add(this.agncyProvTextBox);
-            this.panel1.Location = new System.Drawing.Point(35, 165);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(327, 293);
-            this.panel1.TabIndex = 4;
-            // 
-            // agncyCityTextBox
-            // 
-            this.agncyCityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyCity", true));
-            this.agncyCityTextBox.Location = new System.Drawing.Point(136, 82);
-            this.agncyCityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyCityTextBox.Name = "agncyCityTextBox";
-            this.agncyCityTextBox.ReadOnly = true;
-            this.agncyCityTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyCityTextBox.TabIndex = 16;
+            
             // 
             // agenciesBindingSource1
             // 
-            this.agenciesBindingSource1.DataSource = typeof(AgentsAgencyData.Agencies);
-            // 
-            // agencyIdComboBox
-            // 
-            this.agencyIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgencyId", true));
-            this.agencyIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.agentsBindingSource, "AgencyId", true));
-            this.agencyIdComboBox.DataSource = this.agenciesBindingSource1;
-            this.agencyIdComboBox.DisplayMember = "AgencyId";
-            this.agencyIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.agencyIdComboBox.FormattingEnabled = true;
-            this.agencyIdComboBox.Location = new System.Drawing.Point(136, 17);
-            this.agencyIdComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agencyIdComboBox.Name = "agencyIdComboBox";
-            this.agencyIdComboBox.Size = new System.Drawing.Size(160, 24);
-            this.agencyIdComboBox.TabIndex = 1;
-            this.agencyIdComboBox.ValueMember = "AgencyId";
-            this.agencyIdComboBox.SelectedIndexChanged += new System.EventHandler(this.agencyIdComboBox_SelectedIndexChanged);
-            // 
-            // agncyAddressTextBox
-            // 
-            this.agncyAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyAddress", true));
-            this.agncyAddressTextBox.Location = new System.Drawing.Point(136, 50);
-            this.agncyAddressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyAddressTextBox.Name = "agncyAddressTextBox";
-            this.agncyAddressTextBox.ReadOnly = true;
-            this.agncyAddressTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyAddressTextBox.TabIndex = 3;
-            // 
-            // agncyCountryTextBox
-            // 
-            this.agncyCountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyCountry", true));
-            this.agncyCountryTextBox.Location = new System.Drawing.Point(136, 116);
-            this.agncyCountryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyCountryTextBox.Name = "agncyCountryTextBox";
-            this.agncyCountryTextBox.ReadOnly = true;
-            this.agncyCountryTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyCountryTextBox.TabIndex = 7;
-            // 
-            // agncyFaxTextBox
-            // 
-            this.agncyFaxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyFax", true));
-            this.agncyFaxTextBox.Location = new System.Drawing.Point(136, 148);
-            this.agncyFaxTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyFaxTextBox.Name = "agncyFaxTextBox";
-            this.agncyFaxTextBox.ReadOnly = true;
-            this.agncyFaxTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyFaxTextBox.TabIndex = 9;
-            // 
-            // agncyPhoneTextBox
-            // 
-            this.agncyPhoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyPhone", true));
-            this.agncyPhoneTextBox.Location = new System.Drawing.Point(136, 180);
-            this.agncyPhoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyPhoneTextBox.Name = "agncyPhoneTextBox";
-            this.agncyPhoneTextBox.ReadOnly = true;
-            this.agncyPhoneTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyPhoneTextBox.TabIndex = 11;
-            // 
-            // agncyPostalTextBox
-            // 
-            this.agncyPostalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyPostal", true));
-            this.agncyPostalTextBox.Location = new System.Drawing.Point(136, 212);
-            this.agncyPostalTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyPostalTextBox.Name = "agncyPostalTextBox";
-            this.agncyPostalTextBox.ReadOnly = true;
-            this.agncyPostalTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyPostalTextBox.TabIndex = 13;
-            // 
-            // agncyProvTextBox
-            // 
-            this.agncyProvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agenciesBindingSource1, "AgncyProv", true));
-            this.agncyProvTextBox.Location = new System.Drawing.Point(136, 244);
-            this.agncyProvTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.agncyProvTextBox.Name = "agncyProvTextBox";
-            this.agncyProvTextBox.ReadOnly = true;
-            this.agncyProvTextBox.Size = new System.Drawing.Size(160, 22);
-            this.agncyProvTextBox.TabIndex = 15;
-            // 
-            // menuStrip6
-            // 
-            this.menuStrip6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuStrip6.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip6.Location = new System.Drawing.Point(4, 4);
-            this.menuStrip6.Name = "menuStrip6";
-            this.menuStrip6.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip6.Size = new System.Drawing.Size(1083, 28);
-            this.menuStrip6.TabIndex = 3;
-            this.menuStrip6.Text = "menuStrip6";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
-            this.toolStripMenuItem1.Text = "File";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(116, 26);
-            this.toolStripMenuItem3.Text = "Exit";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+    
             // 
             // tabPage3
             // 
@@ -522,9 +175,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage3.Controls.Add(this.suppliersDataGridView);
             this.tabPage3.Controls.Add(this.menuStrip3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1091, 615);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Suppliers";
@@ -536,40 +189,40 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.suppliersDataGridView.AutoGenerateColumns = false;
             this.suppliersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.suppliersDataGridView.BackgroundColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppliersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.suppliersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.suppliersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.suppliersDataGridView.DataSource = this.suppliersBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.suppliersDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.suppliersDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.suppliersDataGridView.Location = new System.Drawing.Point(301, 54);
             this.suppliersDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.suppliersDataGridView.MultiSelect = false;
             this.suppliersDataGridView.Name = "suppliersDataGridView";
             this.suppliersDataGridView.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppliersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.suppliersDataGridView.RowHeadersVisible = false;
             this.suppliersDataGridView.RowHeadersWidth = 51;
             this.suppliersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -663,9 +316,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage1.Controls.Add(this.menuStrip2);
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1091, 615);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Products";
@@ -683,14 +336,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
             this.productsDataGridView.DataSource = this.productsBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productsDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.productsDataGridView.Location = new System.Drawing.Point(251, 91);
             this.productsDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productsDataGridView.MultiSelect = false;
@@ -786,9 +439,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage2.Controls.Add(this.packagesDataGridView);
             this.tabPage2.Controls.Add(this.menuStrip1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1091, 615);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Packages";
@@ -800,14 +453,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packagesDataGridView.AutoGenerateColumns = false;
             this.packagesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.packagesDataGridView.BackgroundColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.packagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.packagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.packagesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.packagesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -818,27 +471,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.packagesDataGridView.DataSource = this.packagesBindingSource;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.packagesDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.packagesDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.packagesDataGridView.Location = new System.Drawing.Point(4, 37);
-            this.packagesDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.packagesDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.packagesDataGridView.MultiSelect = false;
             this.packagesDataGridView.Name = "packagesDataGridView";
             this.packagesDataGridView.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.packagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.packagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.packagesDataGridView.RowHeadersVisible = false;
             this.packagesDataGridView.RowHeadersWidth = 51;
             this.packagesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -867,9 +520,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
-            dataGridViewCellStyle19.Format = "d";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.FillWeight = 79.88559F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Start Date";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
@@ -879,9 +532,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
-            dataGridViewCellStyle20.Format = "d";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn4.FillWeight = 81.40952F;
             this.dataGridViewTextBoxColumn4.HeaderText = "End Date";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
@@ -900,9 +553,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle21.Format = "C2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn6.FillWeight = 67.55735F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Base Price";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
@@ -912,9 +565,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle22.Format = "C2";
-            dataGridViewCellStyle22.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn7.FillWeight = 70.45617F;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
@@ -984,13 +637,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             this.Overview.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Overview.BackgroundImage")));
             this.Overview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Overview.Controls.Add(this.lblAgents);
-            this.Overview.Controls.Add(this.lblAgencies);
             this.Overview.Controls.Add(this.lblSup);
             this.Overview.Controls.Add(this.lblProd);
             this.Overview.Controls.Add(this.lblPkg);
-            this.Overview.Controls.Add(this.label8);
-            this.Overview.Controls.Add(this.label7);
             this.Overview.Controls.Add(this.label6);
             this.Overview.Controls.Add(this.label5);
             this.Overview.Controls.Add(this.label4);
@@ -998,44 +647,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Overview.Controls.Add(this.label1);
             this.Overview.Controls.Add(this.menuStrip4);
             this.Overview.Location = new System.Drawing.Point(4, 25);
-            this.Overview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Overview.Margin = new System.Windows.Forms.Padding(4);
             this.Overview.Name = "Overview";
-            this.Overview.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Overview.Padding = new System.Windows.Forms.Padding(4);
             this.Overview.Size = new System.Drawing.Size(1091, 615);
             this.Overview.TabIndex = 5;
             this.Overview.Text = "Overview";
             this.Overview.UseVisualStyleBackColor = true;
-            // 
-            // lblAgents
-            // 
-            this.lblAgents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAgents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgents.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblAgents.Location = new System.Drawing.Point(285, 229);
-            this.lblAgents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAgents.Name = "lblAgents";
-            this.lblAgents.Size = new System.Drawing.Size(67, 25);
-            this.lblAgents.TabIndex = 12;
-            this.lblAgents.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblAgencies
-            // 
-            this.lblAgencies.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAgencies.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgencies.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblAgencies.Location = new System.Drawing.Point(285, 188);
-            this.lblAgencies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAgencies.Name = "lblAgencies";
-            this.lblAgencies.Size = new System.Drawing.Size(67, 25);
-            this.lblAgencies.TabIndex = 11;
-            this.lblAgencies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblSup
             // 
             this.lblSup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSup.Location = new System.Drawing.Point(285, 146);
+            this.lblSup.Location = new System.Drawing.Point(287, 157);
             this.lblSup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSup.Name = "lblSup";
             this.lblSup.Size = new System.Drawing.Size(67, 25);
@@ -1047,7 +672,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.lblProd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblProd.Location = new System.Drawing.Point(285, 103);
+            this.lblProd.Location = new System.Drawing.Point(287, 114);
             this.lblProd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProd.Name = "lblProd";
             this.lblProd.Size = new System.Drawing.Size(67, 25);
@@ -1059,43 +684,19 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.lblPkg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPkg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkg.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPkg.Location = new System.Drawing.Point(285, 62);
+            this.lblPkg.Location = new System.Drawing.Point(287, 73);
             this.lblPkg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkg.Name = "lblPkg";
             this.lblPkg.Size = new System.Drawing.Size(67, 25);
             this.lblPkg.TabIndex = 8;
             this.lblPkg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(27, 230);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(191, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Total Number of Agents:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(27, 190);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(208, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Total Number of Agencies:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(27, 148);
+            this.label6.Location = new System.Drawing.Point(29, 159);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(209, 20);
@@ -1107,7 +708,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(27, 105);
+            this.label5.Location = new System.Drawing.Point(29, 116);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(206, 20);
@@ -1119,7 +720,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(27, 63);
+            this.label4.Location = new System.Drawing.Point(29, 74);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(212, 20);
@@ -1184,10 +785,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1099, 644);
@@ -1202,7 +802,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.ClientSize = new System.Drawing.Size(1099, 644);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip4;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
@@ -1215,15 +815,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             ((System.ComponentModel.ISupportInitialize)(this.suppliersNumOfProductsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsNumSuppliersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersTypeOfProductsBindingSource)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agenciesBindingSource1)).EndInit();
-            this.menuStrip6.ResumeLayout(false);
-            this.menuStrip6.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).EndInit();
@@ -1258,10 +851,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.BindingSource suppliersTypeOfProductsBindingSource;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private System.Windows.Forms.BindingSource suppliersNumOfProductsBindingSource;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.MenuStrip menuStrip6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView suppliersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -1310,28 +899,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label lblProd;
         private System.Windows.Forms.Label lblPkg;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblAgents;
-        private System.Windows.Forms.Label lblAgencies;
         private System.Windows.Forms.Label lblSup;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox agencyIdComboBox;
         private System.Windows.Forms.BindingSource agenciesBindingSource1;
-        private System.Windows.Forms.TextBox agncyAddressTextBox;
-        private System.Windows.Forms.TextBox agncyCountryTextBox;
-        private System.Windows.Forms.TextBox agncyFaxTextBox;
-        private System.Windows.Forms.TextBox agncyPhoneTextBox;
-        private System.Windows.Forms.TextBox agncyPostalTextBox;
-        private System.Windows.Forms.TextBox agncyProvTextBox;
         private System.Windows.Forms.BindingSource agentsBindingSource;
-        private System.Windows.Forms.DataGridView agentsDataGridView;
-        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.TextBox agncyCityTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
     }
