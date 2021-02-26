@@ -24,7 +24,6 @@ C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\
 C:\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.pdb
 C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\bin\Debug\ProductsData.dll
 C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\bin\Debug\ProductsData.pdb
-C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csprojAssemblyReference.cache
 C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.csproj.CoreCompileInputs.cache
 C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.dll
 C:\Users\Susan Trinh\source\repos\CMPP248Workshop4-Group4\Term-2-Travel-Experts-Project--main\ProductsData\obj\Debug\ProductsData.pdb
