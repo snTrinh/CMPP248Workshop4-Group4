@@ -448,40 +448,5 @@ namespace Products_SuppliersData
             return prodSuppId;
         }
 
-        //public static List<Products_Suppliers> Test(string productName, string supplierName)
-        //{
-        //    List<Products_Suppliers> testprodSupList = new List<Products_Suppliers>();
-        //    Products_Suppliers testprodSup;
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT ProductSupplierId, Products.ProductId, Suppliers.SupplierId " +
-        //                       "FROM Products " +
-        //                       "JOIN Products_Suppliers ON Products.ProductId = Products_Suppliers.ProductId " +
-        //                       "JOIN Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-        //                       "WHERE ProdName = @ProdName AND SupName = @SupName";
-
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@ProdName", productName);
-        //            cmd.Parameters.AddWithValue("@SupName", supplierName);
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    testprodSup = new Products_Suppliers();
-        //                    testprodSup.ProductId = (int)dr["ProductId"];
-        //                    testprodSup.SupplierId = (int)dr["SupplierId"];
-        //                    testprodSup.ProductSupplierId = (int)dr["ProductSupplierId"];
-        //                    testprodSupList.Add(testprodSup);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return testprodSupList;
-        //}
-
-
-
     }
 }

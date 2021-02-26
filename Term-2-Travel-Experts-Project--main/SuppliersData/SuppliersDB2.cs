@@ -279,5 +279,42 @@ namespace SuppliersData
             }
             return supplierNameList;
         }
+        /// <summary>
+        /// verifies if PackageSupplierID exists in table
+        /// </summary>
+        /// <param name="supplierID">supplier ID</param>
+        /// <returns>a list of package supplier ID</returns>
+        public static List<int> VerifyPackageSupplierProductExistence(int supplierID)
+        {
+            List<int> productSupplierIDList = new List<int>();
+            using (SqlConnection connection = GetConnection())
+            {
+                string query = "Select Products_Suppliers.ProductSupplierID " +
+                                "from Suppliers " +
+                                "join Products_Suppliers on Suppliers.SupplierID = Products_Suppliers.SupplierID " +
+                                "join Packages_Products_Suppliers on Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId " +
+                                "where Suppliers.SupplierId = @SupplierID ";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierID);
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        while (dr.Read())
+                        {
+                            int ProductSupplierID = (int)dr["Products_Suppliers.ProductSupplierId"];
+                            productSupplierIDList.Add(ProductSupplierID);
+
+                        }
+                    }
+                }
+                return productSupplierIDList;
+
+
+            }
+            
+        }
+
+        
     }
 }
