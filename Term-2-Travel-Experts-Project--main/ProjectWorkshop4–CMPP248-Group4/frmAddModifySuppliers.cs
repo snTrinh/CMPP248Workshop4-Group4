@@ -142,11 +142,11 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     MessageBox.Show(newSupplier.SupName + " already exists in the database.", "Duplication Error");
                 }
             }
+            // this error catches upon the deletion of a cell of which is referenced in another table
             catch (DBConcurrencyException)
             {
                 MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
             }
-            // this error catches upon the deletion of a cell of which is referenced in another table
             catch (SqlException ex)
             {
                 MessageBox.Show("Error because of referenced value: " + ex.Message, "Null Error");
@@ -156,6 +156,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 MessageBox.Show("Error because of null value: " + ex.Message, "Null Error");
             }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show("There is an error " + ex.Message, "Error Message");
+            }
+            
             }
         }
 
