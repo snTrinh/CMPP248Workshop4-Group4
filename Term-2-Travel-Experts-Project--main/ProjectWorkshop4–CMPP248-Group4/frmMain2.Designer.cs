@@ -159,14 +159,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             // 
             this.suppliersTypeOfProductsBindingSource.DataSource = typeof(Products_SuppliersData.SuppliersTypeOfProducts);
             // 
-            // agentsBindingSource
-            // 
-            
-            // 
-            // agenciesBindingSource1
-            // 
-    
-            // 
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
@@ -174,11 +166,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage3.Controls.Add(this.suppliersDataGridView);
             this.tabPage3.Controls.Add(this.menuStrip3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1091, 615);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(816, 497);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Suppliers";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -210,8 +201,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.suppliersDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.suppliersDataGridView.Location = new System.Drawing.Point(301, 54);
-            this.suppliersDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.suppliersDataGridView.Location = new System.Drawing.Point(226, 44);
+            this.suppliersDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.suppliersDataGridView.MultiSelect = false;
             this.suppliersDataGridView.Name = "suppliersDataGridView";
             this.suppliersDataGridView.ReadOnly = true;
@@ -226,7 +217,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.suppliersDataGridView.RowHeadersVisible = false;
             this.suppliersDataGridView.RowHeadersWidth = 51;
             this.suppliersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.suppliersDataGridView.Size = new System.Drawing.Size(509, 529);
+            this.suppliersDataGridView.Size = new System.Drawing.Size(382, 430);
             this.suppliersDataGridView.TabIndex = 6;
             this.suppliersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.suppliersDataGridView_CellClick);
             // 
@@ -254,10 +245,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem2,
             this.editToolStripMenuItem2});
-            this.menuStrip3.Location = new System.Drawing.Point(4, 4);
+            this.menuStrip3.Location = new System.Drawing.Point(3, 3);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip3.Size = new System.Drawing.Size(1083, 28);
+            this.menuStrip3.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip3.Size = new System.Drawing.Size(810, 24);
             this.menuStrip3.TabIndex = 5;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -268,27 +259,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.deleteToolStripMenuItem2,
             this.exitToolStripMenuItem3});
             this.fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
-            this.fileToolStripMenuItem2.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem2.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem2.Text = "File";
             // 
             // addToolStripMenuItem2
             // 
             this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(136, 26);
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem2.Text = "Add";
             this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(136, 26);
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem2.Text = "Delete";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
             // 
             // exitToolStripMenuItem3
             // 
             this.exitToolStripMenuItem3.Name = "exitToolStripMenuItem3";
-            this.exitToolStripMenuItem3.Size = new System.Drawing.Size(136, 26);
+            this.exitToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem3.Text = "Exit";
             this.exitToolStripMenuItem3.Click += new System.EventHandler(this.exitToolStripMenuItem3_Click);
             // 
@@ -297,13 +288,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.editToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modifyToolStripMenuItem1});
             this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
-            this.editToolStripMenuItem2.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem2.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem2.Text = "Edit";
             // 
             // modifyToolStripMenuItem1
             // 
             this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
-            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
+            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem1.Text = "Modify";
             this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyToolStripMenuItem1_Click);
             // 
@@ -315,11 +306,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage1.Controls.Add(this.productsDataGridView);
             this.tabPage1.Controls.Add(this.menuStrip2);
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1091, 615);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(816, 497);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -344,15 +334,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.productsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
-            this.productsDataGridView.Location = new System.Drawing.Point(251, 91);
-            this.productsDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.productsDataGridView.Location = new System.Drawing.Point(188, 74);
+            this.productsDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.productsDataGridView.MultiSelect = false;
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.ReadOnly = true;
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.RowHeadersWidth = 51;
             this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGridView.Size = new System.Drawing.Size(493, 354);
+            this.productsDataGridView.Size = new System.Drawing.Size(370, 288);
             this.productsDataGridView.TabIndex = 5;
             this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick_1);
             // 
@@ -378,10 +368,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(4, 4);
+            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1083, 28);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(810, 24);
             this.menuStrip2.TabIndex = 5;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -392,27 +382,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.deleteToolStripMenuItem,
             this.exitToolStripMenuItem2});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem2
             // 
             this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
-            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(136, 26);
+            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem2.Text = "Exit";
             this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
             // 
@@ -421,13 +411,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modifyToolStripMenuItem5});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // modifyToolStripMenuItem5
             // 
             this.modifyToolStripMenuItem5.Name = "modifyToolStripMenuItem5";
-            this.modifyToolStripMenuItem5.Size = new System.Drawing.Size(139, 26);
+            this.modifyToolStripMenuItem5.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem5.Text = "Modify";
             this.modifyToolStripMenuItem5.Click += new System.EventHandler(this.modifyToolStripMenuItem5_Click);
             // 
@@ -438,11 +428,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage2.Controls.Add(this.packagesDataGridView);
             this.tabPage2.Controls.Add(this.menuStrip1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1091, 615);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(816, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Packages";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -479,8 +468,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.packagesDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.packagesDataGridView.Location = new System.Drawing.Point(4, 37);
-            this.packagesDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.packagesDataGridView.Location = new System.Drawing.Point(3, 30);
             this.packagesDataGridView.MultiSelect = false;
             this.packagesDataGridView.Name = "packagesDataGridView";
             this.packagesDataGridView.ReadOnly = true;
@@ -495,7 +483,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.packagesDataGridView.RowHeadersVisible = false;
             this.packagesDataGridView.RowHeadersWidth = 51;
             this.packagesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.packagesDataGridView.Size = new System.Drawing.Size(1080, 246);
+            this.packagesDataGridView.Size = new System.Drawing.Size(810, 231);
             this.packagesDataGridView.TabIndex = 1;
             this.packagesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagesDataGridView_CellClick);
             // 
@@ -580,10 +568,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem1,
             this.editToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(4, 4);
+            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1083, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(810, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -594,27 +582,27 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.deleteToolStripMenuItem1,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem1.Text = "File";
             // 
             // addToolStripMenuItem1
             // 
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(136, 26);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem1.Text = "Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(136, 26);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(136, 26);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -623,13 +611,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modifyToolStripMenuItem});
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem1.Text = "Edit";
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
@@ -646,11 +634,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.Overview.Controls.Add(this.label2);
             this.Overview.Controls.Add(this.label1);
             this.Overview.Controls.Add(this.menuStrip4);
-            this.Overview.Location = new System.Drawing.Point(4, 25);
-            this.Overview.Margin = new System.Windows.Forms.Padding(4);
+            this.Overview.Location = new System.Drawing.Point(4, 22);
             this.Overview.Name = "Overview";
-            this.Overview.Padding = new System.Windows.Forms.Padding(4);
-            this.Overview.Size = new System.Drawing.Size(1091, 615);
+            this.Overview.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Overview.Size = new System.Drawing.Size(816, 497);
             this.Overview.TabIndex = 5;
             this.Overview.Text = "Overview";
             this.Overview.UseVisualStyleBackColor = true;
@@ -660,10 +647,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.lblSup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSup.Location = new System.Drawing.Point(287, 157);
-            this.lblSup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSup.Location = new System.Drawing.Point(215, 128);
             this.lblSup.Name = "lblSup";
-            this.lblSup.Size = new System.Drawing.Size(67, 25);
+            this.lblSup.Size = new System.Drawing.Size(50, 20);
             this.lblSup.TabIndex = 10;
             this.lblSup.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -672,10 +658,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.lblProd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblProd.Location = new System.Drawing.Point(287, 114);
-            this.lblProd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProd.Location = new System.Drawing.Point(215, 93);
             this.lblProd.Name = "lblProd";
-            this.lblProd.Size = new System.Drawing.Size(67, 25);
+            this.lblProd.Size = new System.Drawing.Size(50, 20);
             this.lblProd.TabIndex = 9;
             this.lblProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -684,10 +669,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.lblPkg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPkg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPkg.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPkg.Location = new System.Drawing.Point(287, 73);
-            this.lblPkg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPkg.Location = new System.Drawing.Point(215, 59);
             this.lblPkg.Name = "lblPkg";
-            this.lblPkg.Size = new System.Drawing.Size(67, 25);
+            this.lblPkg.Size = new System.Drawing.Size(50, 20);
             this.lblPkg.TabIndex = 8;
             this.lblPkg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -696,10 +680,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(29, 159);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(22, 129);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(209, 20);
+            this.label6.Size = new System.Drawing.Size(167, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Total Number of Suppliers:";
             // 
@@ -708,10 +691,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(29, 116);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(22, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 20);
+            this.label5.Size = new System.Drawing.Size(163, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "Total Number of Products:";
             // 
@@ -720,10 +702,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(29, 74);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(22, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 20);
+            this.label4.Size = new System.Drawing.Size(172, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Total Number of Packages:";
             // 
@@ -732,10 +713,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Brush Script MT", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(788, 165);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(591, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 98);
+            this.label2.Size = new System.Drawing.Size(199, 79);
             this.label2.TabIndex = 1;
             this.label2.Text = "Experts";
             // 
@@ -744,10 +724,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Brush Script MT", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(639, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(479, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 148);
+            this.label1.Size = new System.Drawing.Size(259, 117);
             this.label1.TabIndex = 0;
             this.label1.Text = "Travel";
             // 
@@ -757,10 +736,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.menuStrip4.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem3});
-            this.menuStrip4.Location = new System.Drawing.Point(4, 4);
+            this.menuStrip4.Location = new System.Drawing.Point(3, 3);
             this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip4.Size = new System.Drawing.Size(1083, 28);
+            this.menuStrip4.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip4.Size = new System.Drawing.Size(810, 24);
             this.menuStrip4.TabIndex = 2;
             this.menuStrip4.Text = "menuStrip4";
             // 
@@ -769,13 +748,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.fileToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem3.Name = "fileToolStripMenuItem3";
-            this.fileToolStripMenuItem3.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem3.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem3.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -787,22 +766,20 @@ namespace ProjectWorkshop4_CMPP248_Group4
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1099, 644);
+            this.tabControl1.Size = new System.Drawing.Size(824, 523);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 12;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1099, 644);
+            this.ClientSize = new System.Drawing.Size(824, 523);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip4;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";

@@ -141,7 +141,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
         public static bool IsNonNumericWithSpecialCharacters(TextBox tb, string name)
         {
             bool isValid = true;
-            bool value = Regex.IsMatch(tb.Text, @"^[A-Za-z\-\ ./()']+$"); // regular expression accepting letters, dashes, spaces, periods, front slash and apostrophes
+            bool value = Regex.IsMatch(tb.Text, @"^[A-Za-z\-\ ./()&']+$"); // regular expression accepting letters, dashes, spaces, periods, front slash and apostrophes
             if (value == false) // if text in text box doesn't match
             {
                 isValid = false;
