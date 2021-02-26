@@ -6,6 +6,7 @@ using SuppliersData;
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace ProjectWorkshop4_CMPP248_Group4
 {
@@ -47,9 +48,9 @@ namespace ProjectWorkshop4_CMPP248_Group4
             //default is that nothing is selected
             
 
-            // testing only
+           
             productsDataGridView.DataSource = ProductsDB.GetProducts();
-            //productsBindingSource.DataSource = ProductsDB.GetProducts();
+           
             productsDataGridView.Rows[0].Selected = true;
             DisplayCurrentProduct(0);
             lblProd.Text = productsDataGridView.Rows.Count.ToString();
@@ -297,12 +298,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
             {
                 try
                 {
-                    if(Products_SuppliersDB.IfProductSuppliersExistsBySupplierId(modifySupplier.SupplierId))
+                    if (Products_SuppliersDB.IfProductSuppliersExistsBySupplierId(modifySupplier.SupplierId))
                     {
                         Products_SuppliersDB.DeleteProductSupplierBySupplierId(modifySupplier.SupplierId);
                         SuppliersDB.DeleteSupplier(modifySupplier);
                         suppliersDataGridView.DataSource = SuppliersDB.GetSuppliers();
-                        lblSup.Text = suppliersDataGridView.Rows.Count.ToString();  
+                        lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
                     }
                     else
                     {
@@ -311,6 +312,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
                     }
 
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("This supplier cannot be deleted because it is associated to a package. Please remove from packages before deleting supplier");
                 }
                 catch (Exception ex)
                 {
