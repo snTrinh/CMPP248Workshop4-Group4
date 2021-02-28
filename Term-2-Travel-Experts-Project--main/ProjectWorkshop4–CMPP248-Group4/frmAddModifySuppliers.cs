@@ -251,13 +251,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     }
 
                 }
-                catch (DBConcurrencyException ex)
+                catch (DBConcurrencyException)
                 {
                     MessageBox.Show("Concurrency Error: another user updated or deleted data. Try again", "Concurrency Error");
                     //close dialog
                     DialogResult = DialogResult.Cancel;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("This supplier is associated with a package or booking. This supplier cannot be modified at this time.", "Error");
                     //close dialog

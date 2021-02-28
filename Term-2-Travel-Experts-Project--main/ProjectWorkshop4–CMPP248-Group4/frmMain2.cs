@@ -316,7 +316,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("This supplier cannot be deleted because it is associated to a package or booking. Please remove from packages before deleting supplier");
+                    MessageBox.Show("This supplier cannot be deleted because it is associated to a package or booking. Please remove from packages or booking detail before deleting supplier");
                 }
                 catch (Exception ex)
                 {
