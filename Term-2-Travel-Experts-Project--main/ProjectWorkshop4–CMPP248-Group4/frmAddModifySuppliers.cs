@@ -259,7 +259,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("This supplier is associated with a package. This supplier cannot be modified at this time.", "Error");
+                    MessageBox.Show("This supplier is associated with a package or booking. This supplier cannot be modified at this time.", "Error");
                     //close dialog
                     DialogResult = DialogResult.Cancel;
                 }
