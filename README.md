@@ -5,11 +5,11 @@ This application requires the importing of the attached travelexperts-mssql.sql 
 This project's aim was to produce a graphical interface for viewing and modifying the data of a travel agengy's database. 
 The language we chose to develop this application in was C#.
 The tables that will be used by this part of the project are:
-1.Packages
-2.Products
-3.Products_suppliers
-4.Suppliers
-5.Packages_products_suppliers
+- Packages
+- Products
+- Products_suppliers
+- Suppliers
+- Packages_products_suppliers
 
 Packages Highlights Include:
 - Adding, editing and deleting travel packages.  
