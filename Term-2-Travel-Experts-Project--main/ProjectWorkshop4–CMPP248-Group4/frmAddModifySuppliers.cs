@@ -31,11 +31,12 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 // display all available products for the new supplier
                 for (int i = 0; i < products.Count; i++)
                 {
-                    prodNameCheckedListBox.Items.Insert(i, products[i].ProdName);
+                    prodNameToAddCheckedListBox.Items.Insert(i, products[i].ProdName);
                 }
 
                 int randomID = RandomSupplierId();
                 supplierIdTextBox.Text = randomID.ToString();
+                pnlModify.Visible = false;
                 btnModify.Visible = false;
                 this.Text = "Add Suplier";
             }
@@ -51,15 +52,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 List<Products> remainingProds = ProductsDB.GetRemainingProducts(supplierId);
                 for (int i = 0; i < remainingProds.Count; i++)
                 {
-                    prodNameCheckedListBox.Items.Insert(i, remainingProds[i].ProdName);
+                    availableCheckedListBox.Items.Insert(i, remainingProds[i].ProdName);
 
                 }
                 for (int i = 0; i < typeOfProds.Count; i++)
                 {
-                    prodNameCheckedListBox.Items.Insert(i, typeOfProds[i].ProdName);
-                    prodNameCheckedListBox.SetItemChecked(i, true);
+                    currentProdCheckedListBox.Items.Insert(i, typeOfProds[i].ProdName);
+                    currentProdCheckedListBox.SetItemChecked(i, true);
                 }
-
+                pnlAdd.Visible = false;
                 btnAdd.Visible = false;
                 this.Text = "Modify Supplier";
             }
@@ -99,48 +100,49 @@ namespace ProjectWorkshop4_CMPP248_Group4
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
                 Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
-                try { 
-                // create new supplier object from input data
-                Suppliers newSupplier = new Suppliers();
-                newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
-                newSupplier.SupName = supNameTextBox.Text;
+                try 
+                { 
+                    // create new supplier object from input data
+                    Suppliers newSupplier = new Suppliers();
+                    newSupplier.SupplierId = Convert.ToInt32(supplierIdTextBox.Text);
+                    newSupplier.SupName = supNameTextBox.Text;
 
-                // if user inputs a name, and the DB comes up with 0 vales of which are the same, implement the following code
-                if (SuppliersDB.SupplierNameExists(newSupplier.SupName).Count == 0)
+                    // if user inputs a name, and the DB comes up with 0 vales of which are the same, implement the following code
+                    if (SuppliersDB.SupplierNameExists(newSupplier.SupName).Count == 0)
 
-                {
-                    if (prodNameCheckedListBox.CheckedItems.Count > 0)
                     {
-                        // add the supplier to the DB
-                        SuppliersDB.AddSupplier(newSupplier);
-                        // for each item that is checked
-                        for (int i = 0; i < prodNameCheckedListBox.CheckedItems.Count; i++)
+                        if (prodNameToAddCheckedListBox.CheckedItems.Count > 0)
                         {
-                            // create a variable to store the item value
-                            string x = prodNameCheckedListBox.CheckedItems[i].ToString();
-                            // create a new product variable
-                            Products y = new Products();
-                            // this new product variable will search the DB for the product with the corresponding value
-                            y = ProductsDB.GetProdId(x);
-                            // create new variable that stores the product ID of the newfound product
-                            int t = y.ProductId;
-                            // add the the Products_SupplierDB using this new product ID and inputted supplier ID
-                            Products_SuppliersDB.AddSupplierProductID(t, newSupplier.SupplierId);
+                            // add the supplier to the DB
+                            SuppliersDB.AddSupplier(newSupplier);
+                            // for each item that is checked
+                            for (int i = 0; i < prodNameToAddCheckedListBox.CheckedItems.Count; i++)
+                            {
+                                // create a variable to store the item value
+                                string x = prodNameToAddCheckedListBox.CheckedItems[i].ToString();
+                                // create a new product variable
+                                Products y = new Products();
+                                // this new product variable will search the DB for the product with the corresponding value
+                                y = ProductsDB.GetProdId(x);
+                                // create new variable that stores the product ID of the newfound product
+                                int t = y.ProductId;
+                                // add the the Products_SupplierDB using this new product ID and inputted supplier ID
+                                Products_SuppliersDB.AddSupplierProductID(t, newSupplier.SupplierId);
+                            }
+                            this.DialogResult = DialogResult.OK;
                         }
-                        this.DialogResult = DialogResult.OK;
+                        // else add the supplier to the DB
+                        else
+                        {
+                            SuppliersDB.AddSupplier(newSupplier);
+                            this.DialogResult = DialogResult.OK;
+                        }
                     }
-                    // else add the supplier to the DB
+                    // else the name is duplicated, notify user
                     else
                     {
-                        SuppliersDB.AddSupplier(newSupplier);
-                        this.DialogResult = DialogResult.OK;
+                        MessageBox.Show(newSupplier.SupName + " already exists in the database.", "Duplication Error");
                     }
-                }
-                // else the name is duplicated, notify user
-                else
-                {
-                    MessageBox.Show(newSupplier.SupName + " already exists in the database.", "Duplication Error");
-                }
             }
             // this error catches upon the deletion of a cell of which is referenced in another table
             catch (DBConcurrencyException)
@@ -172,84 +174,56 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 Validator.IsNonNumericWithSpecialCharacters(supNameTextBox, "Supplier Name"))
             {
                 try
-                    {
+                {
                     Suppliers newSup = new Suppliers();
                     newSup.SupplierId = modifySupplier.SupplierId;
                     newSup.SupName = supNameTextBox.Text;
-                    //checks if supplier is associated to a package
-                    if (SuppliersDB.VerifyPackageSupplierProductExistence(newSup.SupplierId).Count == 0)
+
+                    //if this supplier does not exist
+                    if (SuppliersDB.ModifyingSupplierNameExists(newSup.SupplierId, newSup.SupName).Count == 0)
                     {
-                        //if this supplier does not exist
-                        if (SuppliersDB.ModifyingSupplierNameExists(newSup.SupplierId, newSup.SupName).Count == 0)
+                        if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                         {
-                            // gives us a count of all the items in the DB
-                            if (prodNameCheckedListBox.CheckedItems.Count > 0)
+                                
+                            for (int j = 0; j < availableCheckedListBox.CheckedItems.Count; j++)
                             {
-                                for (int i = 0; i < prodNameCheckedListBox.Items.Count; i++)
+                                // create a variable to store the item value
+                                string x = availableCheckedListBox.CheckedItems[j].ToString();
+                                // create a new product variable
+                                Products y = new Products();
+                                // this new product variable will search the DB for the product with the corresponding value
+                                y = ProductsDB.GetProdId(x);
+                                // create new variable that stores the product ID of the newfound product
+                                int t = y.ProductId;
+                                if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0)
+                                    Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
+                                                                                                        // check to see if the relationship exists
+                            }
+
+                            int checkedProd = currentProdCheckedListBox.CheckedItems.Count;
+                            int totalProd = currentProdCheckedListBox.Items.Count;
+                            int uncheckedProd = totalProd - checkedProd;
+                            if(uncheckedProd >= 0)
+                            {
+                                foreach(var prod in currentProdCheckedListBox.Items)
                                 {
-                                    string a = prodNameCheckedListBox.Items[i].ToString();
-                                    //Products b = new Products();
-                                    Products b = ProductsDB.GetProdId(a);
-                                    int c = b.ProductId;
-
-                                    // gives us a value of selected items
-                                    for (int j = 0; j < prodNameCheckedListBox.CheckedItems.Count; j++)
+                                    if(!currentProdCheckedListBox.CheckedItems.Contains(prod))
                                     {
-                                        // create a variable to store the item value
-                                        string x = prodNameCheckedListBox.CheckedItems[j].ToString();
-                                        // create a new product variable
-                                        Products y = new Products();
-                                        // this new product variable will search the DB for the product with the corresponding value
-                                        y = ProductsDB.GetProdId(x);
-                                        // create new variable that stores the product ID of the newfound product
-                                        int t = y.ProductId;
-
-                                        // if these values are equal, these are the values that are selected
-                                        // in this case we need to check the DB for existising relationship, 
-                                        // if it doesnt exists, add it
-
-                                        if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if returns nothing, relationship does not exist
-                                            Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
-                                        // check to see if the relationship exists
-                                        // if it exists, delete it
-                                        if (t != c)// in the case they are not equal
-                                        {
-
-                                            if (Products_SuppliersDB.ProductSupplierExist(c, newSup.SupplierId).Count != 0) // if doesnt equal 0, means relationship exists
-                                                        Products_SuppliersDB.DeleteProductSupplier(c, newSup.SupplierId);
-
-                                        }
+                                        Products b = ProductsDB.GetProdId(prod.ToString());
+                                        int c = b.ProductId;
+                                        Products_SuppliersDB.DeleteProductSupplier(c, newSup.SupplierId);
                                     }
-
                                 }
-                                if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
-                                    this.DialogResult = DialogResult.OK;
                             }
-                            // for modifying a product from checked to all unchecked
-                            else if (prodNameCheckedListBox.CheckedItems.Count == 0)
-                            {
-                                Products_SuppliersDB.DeleteProductSupplierBySupplierId(newSup.SupplierId);
-                                // delete all associations
-                                if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
-                                    this.DialogResult = DialogResult.OK;
-                            }
-                            // for modifying the name only
-                            else
-                            {
-                                if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
-                                    this.DialogResult = DialogResult.OK;
-                            }
+                            
+                            
                         }
-                        else
-                        {
-                            MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
-                        }
+                        this.DialogResult = DialogResult.OK;
                     }
                     else
                     {
-                        MessageBox.Show("SupplierID: " + newSup.SupplierId + " is associated with a package. This supplier cannot be modified at this time.", "Error");
+                        MessageBox.Show(newSup.SupName + " already exists in the database.", "Duplication Error");
                     }
-
                 }
                 catch (DBConcurrencyException)
                 {
@@ -259,12 +233,13 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("This supplier is associated with a package or booking. This supplier cannot be modified at this time.", "Error");
+                    MessageBox.Show("One or more products is referenced with a current package or booking.", "Error");
                     //close dialog
-                    DialogResult = DialogResult.Cancel;
+                    DialogResult = DialogResult.None;
                 }
 
             }
         }
+
     }
 }
