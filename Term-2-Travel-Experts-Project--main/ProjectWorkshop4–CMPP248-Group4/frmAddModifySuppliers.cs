@@ -167,7 +167,7 @@ namespace ProjectWorkshop4_CMPP248_Group4
             }
         }
 
-
+        // This section was revised on February 28 through pair programming*
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(supNameTextBox, "Supplier Name") &&
@@ -182,9 +182,10 @@ namespace ProjectWorkshop4_CMPP248_Group4
                     //if this supplier does not exist
                     if (SuppliersDB.ModifyingSupplierNameExists(newSup.SupplierId, newSup.SupName).Count == 0)
                     {
+                        // upon successful supplier update
                         if (SuppliersDB.UpdateSelectedSupplier(modifySupplier, newSup))
                         {
-                                
+                            // check to view all items checked to add
                             for (int j = 0; j < availableCheckedListBox.CheckedItems.Count; j++)
                             {
                                 // create a variable to store the item value
@@ -195,14 +196,15 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                 y = ProductsDB.GetProdId(x);
                                 // create new variable that stores the product ID of the newfound product
                                 int t = y.ProductId;
-                                if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0)
+                                if (Products_SuppliersDB.ProductSupplierExist(t, newSup.SupplierId).Count == 0) // if relationship doesnt exist
                                     Products_SuppliersDB.AddSupplierProductID(t, newSup.SupplierId); // add to the DB
-                                                                                                        // check to see if the relationship exists
+                                                                                                        
                             }
 
                             int checkedProd = currentProdCheckedListBox.CheckedItems.Count;
                             int totalProd = currentProdCheckedListBox.Items.Count;
                             int uncheckedProd = totalProd - checkedProd;
+                            // for deselection of items
                             if(uncheckedProd >= 0)
                             {
                                 foreach(var prod in currentProdCheckedListBox.Items)

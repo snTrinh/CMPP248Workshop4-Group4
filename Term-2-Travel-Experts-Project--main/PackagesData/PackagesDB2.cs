@@ -52,37 +52,6 @@ namespace PackagesData
             return packages;
         }
 
-        /// commented out because 0 references
-        //public static List<Packages> GetPackageByID(int packageID)
-        //{
-        //    List<Packages> package = new List<Packages>();
-        //    Packages pkg;
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission  FROM Packages WHERE PackageID = @PackageID";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@PackageId", packageID);
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    pkg = new Packages();
-        //                    pkg.PackageId = (int)dr["PackageId"];
-        //                    pkg.PkgName = (string)dr["PkgName"];
-        //                    pkg.PkgStartDate = (dr["PkgStartDate"] == DBNull.Value) ? default : (DateTime)dr["PkgStartDate"];
-        //                    pkg.PkgEndDate = (dr["PkgEndDate"] == DBNull.Value) ? default : (DateTime)dr["PkgEndDate"]; ;
-        //                    pkg.PkgDesc = (string)dr["PkgDesc"];
-        //                    pkg.PkgBasePrice = (decimal)dr["PkgBasePrice"];
-        //                    pkg.PkgAgencyCommission = (decimal)dr["PkgAgencyCommission"];
-        //                    package.Add(pkg);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return package;
-        //}
 
         /// <summary>
         /// Updates packages in the database

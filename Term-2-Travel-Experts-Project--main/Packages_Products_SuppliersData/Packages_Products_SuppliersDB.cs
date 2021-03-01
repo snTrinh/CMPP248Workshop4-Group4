@@ -12,57 +12,7 @@ namespace Packages_Products_SuppliersData
             string connectionString = @"Data Source=localhost\SQLEXPRESS; Initial Catalog = TravelExperts; Integrated Security = True";
             return new SqlConnection(connectionString);
         }
-        //commented out, february 19, no reference
-        //public static List<Packages_Products_Suppliers> GetPackagesProductsSuppliersByID(int packageId, int productSupplierId)
-        //{
-        //    List<Packages_Products_Suppliers> packProdSuppList = new List<Packages_Products_Suppliers>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT PackageId, ProductSupplierId From Packages_Products_Suppliers " +
-        //                        "WHERE PackageId = @PackageId AND ProductSupplierId = @ProductSupplierId";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@PackageId", packageId);
-        //            cmd.Parameters.AddWithValue("@ProductSupplierId", productSupplierId);
-        //            connection.Open();
-        //            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-        //            if (dr.Read())
-        //            {
-        //                Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
-        //                packProdSupp.PackageId = (int)dr["PackageId"];
-        //                packProdSupp.ProductSupplerId = (int)dr["ProductSupplierId"];
-        //                packProdSuppList.Add(packProdSupp);
-        //            }
-        //        }
-        //    }
-        //    return packProdSuppList;
-
-        //}
-
-        // testing - Commented out on Feeb 19 because no references
-        //public static List<Packages_Products_Suppliers> GetPackagesProductsSuppliers()
-        //{
-        //    List<Packages_Products_Suppliers> packProdSuppList = new List<Packages_Products_Suppliers>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT PackageId, ProductSupplierId From Packages_Products_Suppliers ";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            connection.Open();
-        //            SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-        //            while (reader.Read())
-        //            {
-        //                Packages_Products_Suppliers packProdSupp = new Packages_Products_Suppliers();
-        //                packProdSupp.PackageId = (int)reader["PackageId"];
-        //                packProdSupp.ProductSupplerId = (int)reader["ProductSupplierId"];
-        //                packProdSuppList.Add(packProdSupp);
-        //            }
-        //        }
-        //    }
-        //    return packProdSuppList;
-
-        //}
-
+        
         /// <summary>
         /// Add new data to Packages_Products_Suppliers table in DB
         /// </summary>

@@ -273,7 +273,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                                     foreach (Packages_Products_Suppliers pps in pkgProdSupListRemove)
                                     {
                                         Packages_Products_SuppliersDB.DeletePackProdSuppAssociation(pps);
-                                        //DialogResult = DialogResult.OK;
                                     }
                                 }
                             }
@@ -317,10 +316,8 @@ namespace ProjectWorkshop4_CMPP248_Group4
                 try
                 {
                     //checks to see if products/suppliers have been added
-                    //newPackage = new Packages();
                     this.PackageData(newPackage);
                     //Add new package 
-                    //PackagesDB.AddPackage(newPackage);
                     int packageId = PackagesDB.GetNextID() + 1;
                     if (checkListAddNewProductSupplier.CheckedItems.Count > 0)
                     {
@@ -395,14 +392,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
                         DialogResult = DialogResult.OK;
                     }
 
-
-                    
-                    //PackagesDB.AddPackage(newPackage);
-                    //if (numberOfProductRepeats == 0)
-                    //{
-                        
-                    //    DialogResult = DialogResult.OK;
-                    //}
                 }
                 catch (Exception ex)
                 {

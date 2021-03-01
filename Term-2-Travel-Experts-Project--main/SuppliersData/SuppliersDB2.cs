@@ -42,39 +42,6 @@ namespace SuppliersData
             return suppliers;
         }
 
-        /// <summary>
-        /// This method returns a supplier given the supplier ID
-        /// This method was created by Susan Trinh on February 2, 2021
-        /// </summary>
-        /// <returns>list of suppliers</returns>
-        public static List<Suppliers> GetSuppliersById(int supplierID)
-        {
-            List<Suppliers> suppliers = new List<Suppliers>();
-            Suppliers sup;
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT SupplierId, SupName " +
-                               "FROM Suppliers ORDER BY SupName ASC " +
-                               "WHERE SupplierId = @SupplierId";
-
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@SuplierId", supplierID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            sup = new Suppliers();
-                            sup.SupplierId = (int)dr["SupplierId"];
-                            sup.SupName = (string)dr["SupName"];
-                            suppliers.Add(sup);
-                        }
-                    }
-                }
-            }
-            return suppliers;
-        }
 
         /// <summary>
         /// This method updates the supplier
@@ -247,74 +214,6 @@ namespace SuppliersData
         }
 
 
-        //class
-        //Created by Julie on February 18
-        public static List<string> GetSupplierName(string productName)
-        {
-            List<string> supplierNameList = new List<string>();
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT SupName " +
-                               "FROM Suppliers " +
-                               "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-                               "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                               "LEFT JOIN Packages_Products_Suppliers On Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId " +
-                               "WHERE ProdName = @ProdName";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@ProdName", productName);
-                    connection.Open();
 
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-
-                            string supName = (string)dr["SupName"];
-
-                            supplierNameList.Add(supName);
-                        }
-                    }
-                }
-            }
-            return supplierNameList;
-        }
-        /// <summary>
-        /// verifies if PackageSupplierID exists in table
-        /// </summary>
-        /// <param name="supplierID">supplier ID</param>
-        /// <returns>a list of package supplier ID</returns>
-        public static List<int> VerifyPackageSupplierProductExistence(int supplierID)
-        {
-            List<int> productSupplierIDList = new List<int>();
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "Select Products_Suppliers.ProductSupplierID " +
-                                "from Suppliers " +
-                                "join Products_Suppliers on Suppliers.SupplierID = Products_Suppliers.SupplierID " +
-                                "join Packages_Products_Suppliers on Packages_Products_Suppliers.ProductSupplierId = Products_Suppliers.ProductSupplierId " +
-                                "where Suppliers.SupplierId = @SupplierID ";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@SupplierId", supplierID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            int ProductSupplierID = (int)dr["Products_Suppliers.ProductSupplierId"];
-                            productSupplierIDList.Add(ProductSupplierID);
-
-                        }
-                    }
-                }
-                return productSupplierIDList;
-
-
-            }
-            
-        }
-
-        
     }
 }

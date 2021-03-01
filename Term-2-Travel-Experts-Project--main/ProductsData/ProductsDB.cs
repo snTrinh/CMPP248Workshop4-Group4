@@ -84,33 +84,6 @@ namespace ProductsData
             return products;
         }
 
-
-        //commented out by susan on feb 19 due to no references
-        //public static List<Products> GetProductsByID(int productID)
-        //{
-        //    List<Products> products = new List<Products>();
-        //    Products prod;
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT ProductId, ProdName FROM Products WHERE ProductId = @ProductId";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@ProductId", productID);
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    prod = new Products();
-        //                    prod.ProductId = (int)dr["ProductId"];
-        //                    prod.ProdName = (string)dr["ProdName"];
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return products;
-        //}
-
         /// <summary>
         /// Adds another product record to database
         /// </summary>

@@ -41,16 +41,14 @@ namespace ProjectWorkshop4_CMPP248_Group4
             packagesDataGridView.DataSource = PackagesDB.GetPackages();
             packagesBindingSource.DataSource = packagesDataGridView.DataSource = PackagesDB.GetPackages();
             // by default the first index is selected
-            
             packagesDataGridView.Rows[0].Selected = true;
             DisplayCurrentPackage(0);
             lblPkg.Text = packagesDataGridView.Rows.Count.ToString();
             //default is that nothing is selected
-            
 
-           
+            // display Products grid view
             productsDataGridView.DataSource = ProductsDB.GetProducts();
-           
+            // by default the first index is selected
             productsDataGridView.Rows[0].Selected = true;
             DisplayCurrentProduct(0);
             lblProd.Text = productsDataGridView.Rows.Count.ToString();
@@ -61,12 +59,6 @@ namespace ProjectWorkshop4_CMPP248_Group4
             suppliersDataGridView.Rows[0].Selected = true;
             DisplayCurrentSupplier(0);
             lblSup.Text = suppliersDataGridView.Rows.Count.ToString();
-
-         
-
-           
-            
-          
         }
 
         // Display current package

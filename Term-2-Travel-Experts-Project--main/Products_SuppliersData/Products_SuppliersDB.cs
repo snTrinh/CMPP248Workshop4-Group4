@@ -87,35 +87,6 @@ namespace Products_SuppliersData
             }
             return prodSupNameList;
         }
-        //zero reference
-        //public static List<int> GetDistinctProdSupID(int packageID)
-        //{
-        //    List<int> distinctProdSuppIDList = new List<int>();
-        //    using (SqlConnection connection = GetConnection())
-        //    {
-        //        string query = "SELECT DISTINCT Products_Suppliers.ProductSupplierId " +
-        //                       "FROM Suppliers " +
-        //                       "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-        //                       "LEFT JOIN Packages_Products_Suppliers ON Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId " +
-        //                       "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-        //                       "WHERE PackageId != @PackageId OR PackageId IS NULL " +
-        //                       "ORDER BY ProductSupplierId";
-        //        using (SqlCommand cmd = new SqlCommand(query, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@PackageId", packageID);
-        //            connection.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    int ProductSupplierId = (int)dr["ProductSupplierId"];
-        //                    distinctProdSuppIDList.Add(ProductSupplierId);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return distinctProdSuppIDList;
-        //}
 
 
         /// <summary>
@@ -155,40 +126,6 @@ namespace Products_SuppliersData
                 }
             }
             return prodSupNameList;
-        }
-
-        /// <summary>
-        /// Retrieves all Products and Suppliers that are not associated to a package 
-        /// </summary>
-        /// <param name="productSupplierID">productSupplier ID</param>
-        /// <returns>object of only ProductName and SupplierName</returns>
-        public static ProductSupplierAll GetProductSupplierByID(int productSupplierID)
-        {
-            ProductSupplierAll prodSupName = new ProductSupplierAll();
-            using (SqlConnection connection = GetConnection())
-            {
-                string query = "SELECT ProdName, SupName " +
-                                "FROM Suppliers " +
-                                "JOIN Products_Suppliers ON Suppliers.SupplierId = Products_Suppliers.SupplierId " +
-                                "JOIN Products ON Products.ProductId = Products_Suppliers.ProductId " +
-                                "WHERE ProductSupplierId = @ProductSupplierID ";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@ProductSupplierID", productSupplierID);
-                    connection.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-                    {
-                        while (dr.Read())
-                        {
-                            
-                            prodSupName.ProdName = (string)dr["ProdName"];
-                            prodSupName.SupName = (string)dr["SupName"];
-                            
-                        }
-                    }
-                }
-            }
-            return prodSupName;
         }
 
 

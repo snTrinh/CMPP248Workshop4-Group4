@@ -44,17 +44,21 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // if product name is present and is not numeric
             if (Validator.IsPresent(prodNameTextBox, "Product Type") &&
                 Validator.IsNonNumeric(prodNameTextBox, "Product Type"))
             {
                 try
                 {
+                    // create new product
                     newProduct = new Products();
                     newProduct.ProdName = prodNameTextBox.Text;
+                    // if name does not already exist
                     if (ProductsDB.ProductNameExists(newProduct.ProdName).Count == 0)
                     {
                         try
                         {
+                            // add new product to db
                             newProduct.ProductId = ProductsDB.AddProduct(newProduct);
                             this.DialogResult = DialogResult.OK;
                         }
@@ -89,14 +93,17 @@ namespace ProjectWorkshop4_CMPP248_Group4
 
         private void btnModify_Click(object sender, EventArgs e)
         {
+            // if product name is present and is not numeric
             if (Validator.IsPresent(prodNameTextBox, "Product Type") &&
                 Validator.IsNonNumeric(prodNameTextBox, "Product Type"))
             {
                 try
                 {
+                    // create new product
                     Products newProd = new Products();
                     newProd.ProductId = modifyProduct.ProductId;
                     newProd.ProdName = prodNameTextBox.Text;
+                    // if name does not already exist
                     if (ProductsDB.ProductNameExists(newProd.ProdName).Count == 0)
                     {
                         if (!ProductsDB.UpdateSelectedProduct(modifyProduct, newProd))
