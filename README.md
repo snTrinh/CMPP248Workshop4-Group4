@@ -22,9 +22,10 @@ Products Highlights Include:
 - Adding, editing and deleting travel products.  
 - Application checks the database for duplicate values in product name.
 
-Products Highlights Include:
+Suppliers Highlights Include:
 - Adding, editing and deleting travel suppliers.  
 - Application checks the database for duplicate values for supplier name.
+- Application generates a supplier ID that does not exist in the database.
 - Users are able to add and remove multiple products associations to a single supplier.
 - Products that are associated to the current supplier are displayed in a checklist box, users are able to deselect at their choosing.
 - Products that not associated to the current supplier are displayed in a checklist box, users are able to select at their choosing.
@@ -35,4 +36,5 @@ Contraints:
 - Package Name and Package Description cannot be null
 
 Thanks for reading!
+
 Susan & Julie
